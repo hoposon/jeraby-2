@@ -10,6 +10,7 @@ export interface PageHeader {
 
 export interface GridItem {
   id: string
+  type: 'IMG' | 'TEXT'
   title?: string
   description?: {
     [key: string]: string

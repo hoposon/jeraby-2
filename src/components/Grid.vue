@@ -7,13 +7,14 @@
       v-for="(colItems, index) in updatedItems"
       :key="index"
       class="flex flex-col overflow-hidden"
-      :style="columnWidthStyle(index)"
+      :style="columnStyle(index)"
     >
       <div
         v-for="item in colItems"
         :key="item.id"
         class="rounded-md w-full overflow-hidden"
-        :style="`${itemStyle}; height: ${item.height}px;`"
+        :class="{'bg-neutral-300/10 shadow-md': item.type === 'TEXT'}"
+        :style="itemStyle(item)"
       >
         <img
           v-if="item.image"
@@ -30,6 +31,9 @@
           </h3>
           <p class="text-sm">
             {{ item.description?.size }}
+          </p>
+          <p class="text-sm">
+            {{ item.description?.desc }}
           </p>
         </div>
       </div>
@@ -51,62 +55,78 @@
   const columnsConfig = [{
     query: '(max-width: 767px)',
     columns: 2,
-    itemMaxHeight: 100,
-    padding: 5,
+    itemMaxHeight: 500,
+    itemMinHeight: 200,
+    padding: 20,
     gap: 2
   }, {
     query: '(min-width: 768px)',
     columns: 3,
-    itemMaxHeight: 200,
-    padding: 5,
+    itemMaxHeight: 500,
+    itemMinHeight: 200,
+    padding: 20,
     gap: 2
   }, {
     query: '(min-width: 1024px)',
     columns: 3,
-    itemMaxHeight: 400,
+    itemMaxHeight: 500,
+    itemMinHeight: 200,
     padding: 50,
     gap: 1,
   }]
-
-  const currConfig = computed(() => {
-    let temp = null
-    columnsConfig.forEach((config) => {
-      if (window.matchMedia(config.query).matches) {
-        temp = config
-      }
-    })
-    return temp
-  })
-  
 
   const mainStyle = computed(() => {
     return `padding-left: ${currConfig.value.padding}px; padding-right: ${currConfig.value.padding}px;`
   })
 
-  const columnWidthStyle = (index: number) => {
-    let wStyle= ''
-    // wStyle = `width: ${(100 - currConfig.value.gap * (currConfig.value.columns - 1)) / currConfig.value.columns}%;`
-    wStyle = `width: calc((100% - ${currConfig.value.gap * (currConfig.value.columns - 1)}vw) / ${currConfig.value.columns});`
+  const columnStyle = (index: number) => {
+    let cStyle = `width: calc((100% - ${currConfig.value.gap * (currConfig.value.columns - 1)}vw) / ${currConfig.value.columns});`
     if (index === currConfig.value.columns - 1) {
-      wStyle = wStyle + ' margin-rigth: 0;'
+      cStyle += ' margin-rigth: 0;'
     } else {
-      wStyle = wStyle + ` margin-right: ${currConfig.value.gap}vw;`
+      cStyle += ` margin-right: ${currConfig.value.gap}vw;`
     }
-    return wStyle
+
+    if (index % 2 === 0) {
+      cStyle += ` margin-top: -100px`
+    }
+    return cStyle
   }
 
-  const itemStyle = computed(() => {
-    return `margin-bottom: ${currConfig.value.gap}vw;`
-  })
+  const itemStyle = (item: GridItem) => {
+    let style = `margin-bottom: ${currConfig.value.gap}vw;`
+    if (item.type === 'TEXT') {
+      style = style + ' height: "fit-content"'
+    } else {
+      style = style + ` height: ${item.height}px;`
+    }
+    // console.log('🚀 ~ file: Grid.vue:98 ~ itemStyle ~ style:', style)
+    return style
+  }
+    
+  
 
   const updatedItems = ref(null)
+  const currConfig = ref(columnsConfig[2])
   const generateColumns = () => {
+
+    columnsConfig.forEach((config) => {
+      if (window.matchMedia(config.query).matches) {
+        currConfig.value = config
+        
+      }
+    })
+
+    console.log('🚀 ~ file: Grid.vue:116 ~ columnsConfig.forEach ~ currConfig.value:', currConfig.value)
+
     let heightsSum = 0
     const addHeight = props.items.map((item) => {
-      // const itemHeight = Math.floor(currConfig.value.itemMaxHeight / (Math.floor(Math.random() * 3) + 1))
+      if (item.type === 'TEXT') {
+
+      }
       const temp = Math.floor(Math.random() * currConfig.value.itemMaxHeight)
-      const itemHeight = temp < 150 ? 150 : temp
-      console.log('🚀 ~ file: Grid.vue:107 ~ addHeight ~ itemHeight:', itemHeight)
+      const itemHeight = temp < currConfig.value.itemMinHeight ? currConfig.value.itemMinHeight : temp
+      // console.log('🚀 ~ file: Grid.vue:107 ~ addHeight ~ itemHeight:', itemHeight)
       heightsSum += itemHeight
       return {
         ...item,
@@ -115,7 +135,7 @@
     })
 
     const averageHeight = Math.floor(heightsSum / currConfig.value.columns)
-    console.log('🚀 ~ file: Grid.vue:116 ~ generateColumns ~ averageHeight:', averageHeight)
+    // console.log('🚀 ~ file: Grid.vue:116 ~ generateColumns ~ averageHeight:', averageHeight)
 
     let columnHight = 0
     let column = 0
