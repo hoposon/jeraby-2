@@ -4,7 +4,7 @@
   > -->
   <div
     v-resize="evaluateIsMobile"
-    class="relative flex flex-col h-[100vh] sm:flex-row sm:h-[55vh] md:h-[60vh] lg:h-[80vh] xl:h-[90vh]"
+    class="relative flex flex-col h-[100vh] sm:flex-row sm:h-[90vh]"
     :class="[alignClass]"
   >
     <div
@@ -73,11 +73,11 @@
 
   const imgOneClassName = computed(() => {
     if (oneLeft.value) {
-      return 'w-full max-h-[60vh] h-[60vh] sm:w-[60%] sm:max-h-[40vh] sm:h-[40vh] md:max-h-[45vh] md:h-[45vh] lg:w-[60%] lg:max-h-[65vh] lg:h-[65vh] xl:max-h-[75vh] xl:h-[75vh] xl:w-[50%]'
+      return 'w-full max-h-[60vh] h-[60vh] sm:w-[70%] sm:max-h-[75vh] sm:h-[75vh] lg:w-[60%] xl:w-[50%]'
     } else if (oneRight.value) {
       return 'w-full h-[60vh] sm:hidden'
     } else if (two.value) {
-      return 'w-full max-h-[60vh] sm:w-[60%] sm:max-h-[40vh] sm:h-[40vh] md:max-h-[45vh] md:h-[45vh] lg:w-[15%] lg:max-h-[65vh] lg:h-[65vh] xl:max-h-[75vh] xl:h-[75vh] xl:w-[15%]'
+      return 'w-full max-h-[60vh] sm:w-[70%] sm:max-h-[75vh] sm:h-[75vh] lg:w-[15%] xl:w-[15%]'
     } else {
       return ''
     }
@@ -87,9 +87,9 @@
     if (oneLeft.value) {
       return 'hidden'
     } else if (oneRight.value) {
-      return 'hidden sm:block sm:w-[60%] sm:max-h-[40vh] sm:h-[40vh] md:max-h-[45vh] md:h-[45vh] lg:w-[60%] lg:max-h-[65vh] lg:h-[65vh] xl:max-h-[75vh] xl:h-[75vh] xl:w-[50%]'
+      return 'hidden sm:block sm:w-[70%] sm:max-h-[75vh] sm:h-[75vh] lg:w-[60%] xl:w-[50%]'
     } else if (two.value) {
-      return 'hidden lg:block lg:w-[60%] lg:max-h-[65vh] lg:h-[65vh] xl:max-h-[75vh] xl:h-[75vh] xl:w-[55%]'
+      return 'hidden lg:block lg:w-[60%] lg:max-h-[75vh] lg:h-[75vh] xl:w-[55%]'
     } else {
       return ''
     }

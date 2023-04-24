@@ -1,6 +1,6 @@
 <template>
   <button
-    class="text-neutral-300 p-2 bg-gray-900 rounded-full hover:bg-gray-700"
+    class="text-neutral-300 font-medium p-2 bg-gray-900 rounded-full hover:bg-gray-700"
     :class="{ 'disabled': disabled }"
     @click="emit('click')"
   >

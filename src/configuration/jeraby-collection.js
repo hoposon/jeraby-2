@@ -35,7 +35,7 @@ const jeraby = {
         bgImage: '/images/home-jerab.png',
         classNames: {
             'bg': ['bg-red-400'],
-            'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+            'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
         }
     },
     title: 'jeraby.collection.title',
@@ -52,7 +52,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-1.title',
@@ -68,7 +68,7 @@ const jeraby = {
                     }],
                 presentationType: 'twoImages',
                 classNames: {
-                    'main': 'bg-neutral-300/10',
+                    // 'main': 'bg-neutral-300/10',
                     'title': 'text-jeraby',
                     'description': 'text-jeraby',
                     'cta': 'text-jeraby',
@@ -83,7 +83,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-2.title',
@@ -99,7 +99,7 @@ const jeraby = {
                     }],
                 presentationType: 'oneRight',
                 classNames: {
-                    'main': 'bg-neutral-300/10',
+                    // 'main': 'bg-neutral-300/10',
                     'title': 'text-jeraby',
                     'description': 'text-jeraby',
                     'cta': 'text-jeraby',
@@ -114,7 +114,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-3.title',
@@ -130,7 +130,7 @@ const jeraby = {
                     }],
                 presentationType: 'oneLeft',
                 classNames: {
-                    'main': 'bg-neutral-300/10',
+                    // 'main': 'bg-neutral-300/10',
                     'title': 'text-jeraby',
                     'description': 'text-jeraby',
                     'cta': 'text-jeraby',
@@ -145,7 +145,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-4.title',
@@ -161,7 +161,7 @@ const jeraby = {
                     }],
                 presentationType: 'oneRight',
                 classNames: {
-                    'main': 'bg-neutral-300/10',
+                    // 'main': 'bg-neutral-300/10',
                     // 'title': 'text-jeraby',
                     // 'description': 'text-jeraby',
                     'cta': 'bg-[#DF442F]',
@@ -176,7 +176,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-5.title',
@@ -192,7 +192,7 @@ const jeraby = {
                     }],
                 presentationType: 'twoImages',
                 classNames: {
-                    'main': 'bg-neutral-300/10',
+                    // 'main': 'bg-neutral-300/10',
                     'title': 'text-jeraby',
                     'description': 'text-jeraby',
                     'cta': 'text-jeraby',
@@ -207,7 +207,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-6.title',
@@ -223,7 +223,7 @@ const jeraby = {
                     }],
                 presentationType: 'oneLeft',
                 classNames: {
-                    'main': 'bg-neutral-300/10',
+                    // 'main': 'bg-neutral-300/10',
                     'title': 'text-jeraby',
                     'description': 'text-jeraby',
                     'cta': 'text-jeraby',
@@ -238,7 +238,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-7.title',
@@ -254,7 +254,7 @@ const jeraby = {
                     }],
                 presentationType: 'twoImages',
                 classNames: {
-                    'main': 'bg-neutral-300/10',
+                    // 'main': 'bg-neutral-300/10',
                     'title': 'text-jeraby',
                     'description': 'text-jeraby',
                     'cta': 'text-jeraby',
@@ -269,7 +269,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-8.title',
@@ -285,7 +285,7 @@ const jeraby = {
                     }],
                 presentationType: 'oneRight',
                 classNames: {
-                    'main': 'bg-neutral-300/10',
+                    // 'main': 'bg-neutral-300/10',
                     'title': 'text-jeraby',
                     'description': 'text-jeraby',
                     'cta': 'text-jeraby',
@@ -300,7 +300,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-9.title',
@@ -316,7 +316,7 @@ const jeraby = {
                     }],
                 presentationType: 'twoImages',
                 classNames: {
-                    'main': 'bg-neutral-300/10',
+                    // 'main': 'bg-neutral-300/10',
                     'title': 'text-jeraby',
                     'description': 'text-jeraby',
                     'cta': 'text-jeraby',
@@ -331,7 +331,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-10.title',
@@ -347,7 +347,7 @@ const jeraby = {
                     }],
                 presentationType: 'oneLeft',
                 classNames: {
-                    'main': 'bg-neutral-300/10',
+                    // 'main': 'bg-neutral-300/10',
                     'title': 'text-jeraby',
                     'description': 'text-jeraby',
                     'cta': 'text-jeraby',
@@ -362,7 +362,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-11.title',
@@ -378,7 +378,7 @@ const jeraby = {
                     }],
                 presentationType: 'twoImages',
                 classNames: {
-                    'main': 'bg-neutral-300/10',
+                    // 'main': 'bg-neutral-300/10',
                     'title': 'text-jeraby',
                     'description': 'text-jeraby',
                     'cta': 'text-jeraby',
@@ -393,7 +393,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-12.title',
@@ -409,7 +409,7 @@ const jeraby = {
                     }],
                 presentationType: 'oneRight',
                 classNames: {
-                    'main': 'bg-neutral-300/10',
+                    // 'main': 'bg-neutral-300/10',
                     'title': 'text-jeraby',
                     'description': 'text-jeraby',
                     'cta': 'text-jeraby',

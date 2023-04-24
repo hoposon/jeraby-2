@@ -69,7 +69,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue'
+  import { inject } from 'vue'
   import { useNavigation } from '../composables/navigation'
   import { useCollections } from '../composables/collections'
   import { TranslateKey } from '../localizations/localizations'

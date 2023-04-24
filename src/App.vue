@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="!configLoading"
-    class="overflow-x-hidden"
+    class="main overflow-x-hidden"
   >
     <Navigation />
     <NavScrollWatcher />

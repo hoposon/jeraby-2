@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-row w-full pt-10 border border-gray-900"
+    class="flex flex-row w-full pt-10"
     :style="mainStyle"
   >
     <div
@@ -24,15 +24,17 @@
         >
         <div 
           v-else
-          class="p-4"
+          class="flex flex-col p-4"
         >
-          <h3 class="text-2xl font-bold">
+          <h3 class="text-2xl font-medium text-[#DF442F] mb-3">
             {{ item.title }}
           </h3>
-          <p class="text-sm">
+          <p 
+            v-if="item.description?.size"
+            class="text-md mb-3">
             {{ item.description?.size }}
           </p>
-          <p class="text-sm">
+          <p class="text-md">
             {{ item.description?.desc }}
           </p>
         </div>
@@ -71,7 +73,7 @@
     columns: 3,
     itemMaxHeight: 500,
     itemMinHeight: 200,
-    padding: 50,
+    padding: 80,
     gap: 1,
   }]
 
@@ -87,9 +89,9 @@
       cStyle += ` margin-right: ${currConfig.value.gap}vw;`
     }
 
-    if (index % 2 === 0) {
-      cStyle += ` margin-top: -100px`
-    }
+    // if (index % 2 === 0) {
+    //   cStyle += ` margin-top: -100px`
+    // }
     return cStyle
   }
 
@@ -116,8 +118,6 @@
         
       }
     })
-
-    console.log('🚀 ~ file: Grid.vue:116 ~ columnsConfig.forEach ~ currConfig.value:', currConfig.value)
 
     let heightsSum = 0
     const addHeight = props.items.map((item) => {

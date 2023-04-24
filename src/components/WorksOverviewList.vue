@@ -1,7 +1,7 @@
 <template>
-  <div
+  <!-- <div
     class="relative before:hidden sm:before:block before:content-[''] before:bg-[url('/images/presentationsBackground.svg')] before:w-full before:h-[100%] before:absolute before:top-0 before:left-0 before:bg-cover before:bg-no-repeat before:opacity-10"
-  >
+  > -->
     <div
       class="demo-content"
     >
@@ -18,7 +18,7 @@
         />
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script setup lang="ts">

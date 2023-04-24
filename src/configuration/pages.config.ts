@@ -18,13 +18,13 @@ export const PAGES_DATA: PageData = {
     id: HOME,
     pageHeader: {
       title: 'home.title',
-      // bgImage: '/images/home-jerab.png',
+      bgImage: '/images/home-jerab.png',
       description: 'home.description',
       classNames: {
         'text': ['text-neutral-300'],
         'menuColor': ['bg-neutral-300'],
         'bg': ['bg-gray-900'],
-        'title': ['mt-[25vh]', 'ml-[10vw]', 'text-5xl', 'font-bold'],
+        'title': ['mt-[15vh]', 'ml-[10vw]', 'text-5xl', 'font-bold'],
         'description': ['ml-[10vw]', 'text-2xl']
       }
     }
@@ -37,7 +37,7 @@ export const PAGES_DATA: PageData = {
       description: 'about.description',
       classNames: {
         'bg': ['bg-amber-400'],
-        'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+        'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
         'description': ['ml-[10%]', 'text-2xl', 'text-gray-800']
       }
     }
@@ -50,7 +50,7 @@ export const PAGES_DATA: PageData = {
       description: 'contact.description',
       classNames: {
         'bg': ['bg-amber-400'],
-        'title': ['mt-[25vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+        'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
         'description': ['ml-[10%]', 'text-2xl', 'text-gray-800']
       }
     }
