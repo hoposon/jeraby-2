@@ -24,8 +24,25 @@
     />
 
 
-    <div>
-      <ImageGallery :images="imageUrls" :subset-size="5" :start-index="3" />
+    <div class="border-b-[6px] border-gray-900 ml-[80px] text-6xl mt-20">
+      {{ translate('See also others') }}
+    </div>
+    <div class="flex justify-center mt-20">
+      <div class="flex flex-row w-[70%] gap-3">
+        <button @click="rotate('left')">Prev</button>
+        <div
+          v-for="work in nextPrevWorks"
+          :id="work.id"
+          class="w-[30%] rounded-lg overflow-hidden"
+          >
+          <img
+            class="w-full h-[100%] object-cover"
+            :src="work.presentation.presentationImages[1].imgPath"
+            :alt="work.presentation.presentationImages[1].imgAlt"
+          />
+        </div>
+        <button @click="rotate('right')">Next</button>
+      </div>
     </div>
 </template>
 
@@ -34,7 +51,6 @@
   import PageHeader from '../components/PageHeader.vue'
   import { GridItem } from '../types'
   import Grid from '../components/Grid.vue'
-  import ImageGallery from '../components/WorkDetailsGallery.vue'
   import { useRoute } from 'vue-router'
   import { useCollections } from '../composables/collections'
   import { TranslateKey } from '../localizations/localizations'
@@ -58,24 +74,22 @@
     return getCollection(collection.value)[0]?.publishedCollectionWorks
   })
 
-  
-  const imageUrls = [
-        "images/temp/1.jpeg",
-        "images/temp/2.jpeg",
-        "images/temp/3.jpeg",
-        "images/temp/4.jpeg",
-        "images/temp/5.jpeg",
-        "images/temp/6.jpeg",
-        "images/temp/7.jpeg",
-        "images/temp/8.jpeg",
-        "images/temp/9.jpeg",
-        "images/temp/10.jpeg",
-        "images/temp/11.jpeg",
-        "images/temp/12.jpeg",
-        "images/temp/13.jpeg",
-        "images/temp/14.jpeg",
-        "images/temp/15.jpeg",
-  ]
+  const rotate = (dirr: 'left' | 'right') => {
+    if (dirr === 'left') currentId.value -= 1
+    else currentId.value += 1
+  }
+
+  const currentId = ref(currentCollection.value?.findIndex(work => work.id === id.value))
+  console.log('🚀 ~ file: WorkDetail.vue:72 ~ currentCollection.value:', currentCollection.value[0].id)
+  console.log('🚀 ~ file: WorkDetail.vue:68 ~ currentId:', currentId.value)
+  const nextPrevWorks = computed(() => {
+    const prev = currentId.value - 1 < 0 ? currentCollection.value?.length-1 : currentId.value - 1
+    console.log('🚀 ~ file: WorkDetail.vue:70 ~ nextPrevWorks ~ prev:', prev)
+    const next = currentId.value + 1 > currentCollection.value?.length-1 ? 0 : currentId.value + 1
+    console.log('🚀 ~ file: WorkDetail.vue:72 ~ nextPrevWorks ~ next:', next)
+    return [currentCollection.value[prev], currentCollection.value[currentId.value], currentCollection.value[next]]
+  })
+    
 
   const items: GridItem[] = [{
     id: '1',
