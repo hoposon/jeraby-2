@@ -2,6 +2,26 @@ import { ref, computed } from 'vue'
 import axios from 'axios'
 import { PageHeader } from '../types'
 
+export interface WorkDetailText {
+  title: string,
+  substitle: string,
+  text: string
+}
+
+export interface GridItem {
+  id: string,
+  type: 'TEXT'|'IMAGE',
+  title?: string,
+  description?: {
+    size?: string,
+    text?: string
+  },
+  image?: {
+    imgPath: string,
+    imgAlt: string,
+  }
+}
+
 
 export interface CollectionWork {
   id: string,
@@ -17,8 +37,10 @@ export interface CollectionWork {
     classNames: {
       [key: string]: string
     },
+  },
+  workDetails: {
+    gridItems: GridItem[]
   }
-  
 }
 
 export interface Collection {

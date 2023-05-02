@@ -18,8 +18,8 @@
       >
         <img
           v-if="item.image"
-          :src="item.image.src"
-          :alt="item.image.alt"
+          :src="item.image.imgPath"
+          :alt="translate(item.image.imgAlt)"
           class="object-cover w-full h-[100%]"
         >
         <div 
@@ -27,15 +27,17 @@
           class="flex flex-col p-4"
         >
           <h3 class="text-2xl font-medium text-[#DF442F] mb-3">
-            {{ item.title }}
+            {{ translate(item.title) }}
           </h3>
           <p 
             v-if="item.description?.size"
             class="text-md mb-3">
-            {{ item.description?.size }}
+            {{ translate(item.description?.size) }}
           </p>
-          <p class="text-md">
-            {{ item.description?.desc }}
+          <p
+            v-if="item.description?.text" 
+            class="text-md">
+            {{ translate(item.description?.text) }}
           </p>
         </div>
       </div>
@@ -44,7 +46,8 @@
 </template>
 
 <script setup lang="ts">
-  import { onMounted, ref, onBeforeUnmount, computed } from 'vue'
+  import { onMounted, ref, onBeforeUnmount, computed, inject } from 'vue'
+  import { TranslateKey } from '../localizations/localizations'
 
   import { GridItem } from '../types'
 
@@ -53,6 +56,8 @@
   }
 
   const props = defineProps<Props>()
+
+  const translate = inject(TranslateKey, () => '')
 
   const columnsConfig = [{
     query: '(max-width: 767px)',

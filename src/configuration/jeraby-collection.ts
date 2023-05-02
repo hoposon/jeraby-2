@@ -1,18 +1,28 @@
+// export interface WorkDetailText {
+//   title: string,
+//   substitle: string,
+//   text: string
+// }
+
 // export interface CollectionWork {
 //   id: string,
-//   published: boolean
+//   published: boolean,
 //   pageHeader: PageHeader,
 //   title: string,
 //   workState: 'sold'|'available',
 //   workPriority: number,
-//   presentationDescription: string,
-//   presentationImages: {imgPath: string, imgAlt: string}[],
-//   presentationType: 'oneLeft'|'oneRight'|'twoImages',
-//   classNames: {
-//     presentation: {
+//   presentation: {
+//     presentationDescription: string,
+//     presentationImages: {imgPath: string, imgAlt: string}[],
+//     presentationType: 'oneLeft'|'oneRight'|'twoImages',
+//     classNames: {
 //       [key: string]: string
 //     },
 //   },
+//   workDetail: {
+//     detailTexts: WorkDetailText[],
+//     detailImages: {imgPath: string, imgAlt: string}[],
+//   }
 // }
 
 // export interface Collection {
@@ -28,6 +38,7 @@
 //     }
 //   },
 //   collectionWorks: CollectionWork[],
+//   publishedCollectionWorks: CollectionWork[],
 // }
 
 const jeraby = {
@@ -49,7 +60,7 @@ const jeraby = {
   collectionWorks: [
     {
       id: 'jeraby-1',
-      published: false,
+      published: true,
       pageHeader: {
         title: 'jeraby.collection.works.jeraby-1.title',
         bgImage: '/images/home-jerab.png',
@@ -72,10 +83,90 @@ const jeraby = {
         presentationType: 'twoImages',
         classNames: {
           // 'main': 'bg-neutral-300/10',
-          'title': 'text-jeraby',
-          'description': 'text-jeraby',
-          'cta': 'text-jeraby',
+          // 'title': 'text-jeraby',
+          // 'description': 'text-jeraby',
+          // 'cta': 'text-jeraby',
         },
+      },
+      workDetails: {
+        gridItems: [{
+          id: '1',
+          type: 'TEXT',
+          title: 'jeraby.collection.works.jeraby-1.workDetails.gridItems.1.title',
+          description: {
+            size: 'text-xl',
+          },
+        }, {
+          id: '2',
+          type: 'IMAGE',
+          image: {
+            imgPath: '/images/collections/jeraby/jeraby-1/1.jpg',
+            imgAlt: 'jeraby.collection.works.jeraby-1.workDetails.jeraby-1/1.imgAlt',
+          },
+        }, {
+          id: '3',
+          type: 'TEXT',
+          title: 'jeraby.collection.works.jeraby-1.workDetails.gridItems.3.title',
+          description: {
+            size: 'text-xl',
+          },
+        }, {
+          id: '4',
+          type: 'IMAGE',
+          image: {
+            imgPath: '/images/collections/jeraby/jeraby-1/2.jpg',
+            imgAlt: 'jeraby.collection.works.jeraby-1.workDetails.jeraby-1/2.imgAlt',
+          },
+        }, {
+          id: '5',
+          type: 'IMAGE',
+          image: {
+            imgPath: '/images/collections/jeraby/jeraby-1/5.jpg',
+            imgAlt: 'jeraby.collection.works.jeraby-1.workDetails.jeraby-1/5.imgAlt',
+          },
+        }, {
+          id: '6',
+          type: 'IMAGE',
+          image: {
+            imgPath: '/images/collections/jeraby/jeraby-1/6.jpg',
+            imgAlt: 'jeraby.collection.works.jeraby-1.workDetails.jeraby-1/6.imgAlt',
+          },
+        }, {
+          id: '7',
+          type: 'IMAGE',
+          image: {
+            imgPath: '/images/collections/jeraby/jeraby-1/7.jpg',
+            imgAlt: 'jeraby.collection.works.jeraby-1.workDetails.jeraby-1/7.imgAlt',
+          },
+        }, {
+          id: '8',
+          type: 'IMAGE',
+          image: {
+            imgPath: '/images/collections/jeraby/jeraby-1/8.jpg',
+            imgAlt: 'jeraby.collection.works.jeraby-1.workDetails.jeraby-1/8.imgAlt',
+          },
+        }, {
+          id: '9',
+          type: 'IMAGE',
+          image: {
+            imgPath: '/images/collections/jeraby/jeraby-1/9.jpg',
+            imgAlt: 'jeraby.collection.works.jeraby-1.workDetails.jeraby-1/9.imgAlt',
+          },
+        }, {
+          id: '10',
+          type: 'IMAGE',
+          image: {
+            imgPath: '/images/collections/jeraby/jeraby-1/10.jpg',
+            imgAlt: 'jeraby.collection.works.jeraby-1.workDetails.jeraby-1/10.imgAlt',
+          },
+        }, {
+          id: '11',
+          type: 'IMAGE',
+          image: {
+            imgPath: '/images/collections/jeraby/jeraby-1/11.jpg',
+            imgAlt: 'jeraby.collection.works.jeraby-1.workDetails.jeraby-1/11.imgAlt',
+          },
+        }]
       }
     },
     {
@@ -103,9 +194,9 @@ const jeraby = {
         presentationType: 'oneRight',
         classNames: {
           // 'main': 'bg-neutral-300/10',
-          'title': 'text-jeraby',
-          'description': 'text-jeraby',
-          'cta': 'text-jeraby',
+          // 'title': 'text-jeraby',
+          // 'description': 'text-jeraby',
+          // 'cta': 'text-jeraby',
         },
       }
     },
@@ -134,9 +225,9 @@ const jeraby = {
         presentationType: 'oneLeft',
         classNames: {
           // 'main': 'bg-neutral-300/10',
-          'title': 'text-jeraby',
-          'description': 'text-jeraby',
-          'cta': 'text-jeraby',
+          // 'title': 'text-jeraby',
+          // 'description': 'text-jeraby',
+          // 'cta': 'text-jeraby',
         },
       }
     },
@@ -167,7 +258,7 @@ const jeraby = {
           // 'main': 'bg-neutral-300/10',
           // 'title': 'text-jeraby',
           // 'description': 'text-jeraby',
-          'cta': 'bg-[#DF442F]',
+          // 'cta': 'bg-[#DF442F]',
         },
       }
     },
@@ -196,9 +287,9 @@ const jeraby = {
         presentationType: 'twoImages',
         classNames: {
           // 'main': 'bg-neutral-300/10',
-          'title': 'text-jeraby',
-          'description': 'text-jeraby',
-          'cta': 'text-jeraby',
+          // 'title': 'text-jeraby',
+          // 'description': 'text-jeraby',
+          // 'cta': 'text-jeraby',
         },
       }
     },
@@ -227,9 +318,9 @@ const jeraby = {
         presentationType: 'oneLeft',
         classNames: {
           // 'main': 'bg-neutral-300/10',
-          'title': 'text-jeraby',
-          'description': 'text-jeraby',
-          'cta': 'text-jeraby',
+          // 'title': 'text-jeraby',
+          // 'description': 'text-jeraby',
+          // 'cta': 'text-jeraby',
         },
       }
     },
@@ -258,9 +349,9 @@ const jeraby = {
         presentationType: 'twoImages',
         classNames: {
           // 'main': 'bg-neutral-300/10',
-          'title': 'text-jeraby',
-          'description': 'text-jeraby',
-          'cta': 'text-jeraby',
+          // 'title': 'text-jeraby',
+          // 'description': 'text-jeraby',
+          // 'cta': 'text-jeraby',
         },
       }
     },
@@ -289,9 +380,9 @@ const jeraby = {
         presentationType: 'oneRight',
         classNames: {
           // 'main': 'bg-neutral-300/10',
-          'title': 'text-jeraby',
-          'description': 'text-jeraby',
-          'cta': 'text-jeraby',
+          // 'title': 'text-jeraby',
+          // 'description': 'text-jeraby',
+          // 'cta': 'text-jeraby',
         },
       }
     },
@@ -320,9 +411,9 @@ const jeraby = {
         presentationType: 'twoImages',
         classNames: {
           // 'main': 'bg-neutral-300/10',
-          'title': 'text-jeraby',
-          'description': 'text-jeraby',
-          'cta': 'text-jeraby',
+          // 'title': 'text-jeraby',
+          // 'description': 'text-jeraby',
+          // 'cta': 'text-jeraby',
         },
       }
     },
@@ -351,9 +442,9 @@ const jeraby = {
         presentationType: 'oneLeft',
         classNames: {
           // 'main': 'bg-neutral-300/10',
-          'title': 'text-jeraby',
-          'description': 'text-jeraby',
-          'cta': 'text-jeraby',
+          // 'title': 'text-jeraby',
+          // 'description': 'text-jeraby',
+          // 'cta': 'text-jeraby',
         },
       }
     },
@@ -382,9 +473,9 @@ const jeraby = {
         presentationType: 'twoImages',
         classNames: {
           // 'main': 'bg-neutral-300/10',
-          'title': 'text-jeraby',
-          'description': 'text-jeraby',
-          'cta': 'text-jeraby',
+          // 'title': 'text-jeraby',
+          // 'description': 'text-jeraby',
+          // 'cta': 'text-jeraby',
         },
       }
     },
@@ -413,9 +504,9 @@ const jeraby = {
         presentationType: 'oneRight',
         classNames: {
           // 'main': 'bg-neutral-300/10',
-          'title': 'text-jeraby',
-          'description': 'text-jeraby',
-          'cta': 'text-jeraby',
+          // 'title': 'text-jeraby',
+          // 'description': 'text-jeraby',
+          // 'cta': 'text-jeraby',
         },
       }
     }
