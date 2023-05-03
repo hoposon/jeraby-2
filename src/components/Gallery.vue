@@ -1,11 +1,14 @@
 <template>
-  <Carousel v-bind="gallerySettings">
+  <Carousel v-bind="gallerySettings" :modelValue="initialSlide">
     <Slide v-for="image in images" :key="image.id">
       <div 
         class="carousel__item"
-        :class="galleryStyleSettings?.carouselItem"
       >
-        <router-link :to="image.link">
+        <router-link 
+          :to="image.link"
+          class="w-full"
+          :class="galleryStyleSettings?.carouselItem"
+        >
           <img 
             :src="image.image.imgPath" 
             :alt="image.image.imgAlt"
@@ -36,6 +39,7 @@
       },
       link: string
     }[]
+    initialSlide?: number 
     pagination?: boolean
     gallerySettings: {
       itemsToShow: number,
@@ -56,6 +60,7 @@
   }
 
   const props = withDefaults(defineProps<Props>(), {
+    initialSlide: 0,
     pagination: false,
     gallerySettings: {
       itemsToShow: 1,

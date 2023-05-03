@@ -80,11 +80,14 @@
       } else {
         return ''
       }
+    } else {
+      return 'min-h-[30vh]'
     }
   })
 
   const finalClass = computed(() => {
-    return `${className.value} ${props.work.presentation.classNames['main']}`
+    // return `${className.value} ${props.work.presentation.classNames['main']}`
+    return `${className.value}`
   })
 
   const ctaText = computed(() => {

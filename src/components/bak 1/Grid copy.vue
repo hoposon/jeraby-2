@@ -1,35 +1,43 @@
 <template>
   <div
-    class="flex flex-row w-full pt-10"
-    :class="mainClass"
+    class="flex flex-row w-full"
+    :style="mainStyle"
   >
     <div
       v-for="(colItems, index) in updatedItems"
       :key="index"
       class="flex flex-col overflow-hidden"
-      :class="columnWidthClass(index)"
+      :style="columnStyle(index)"
     >
       <div
         v-for="item in colItems"
         :key="item.id"
-        class="border-2 border-gray-900 w-full"
-        :data-test="logg(item)"
+        class="rounded-md w-full overflow-hidden"
+        :class="{'bg-neutral-300/10 shadow-md': item.type === 'TEXT'}"
+        :style="itemStyle(item)"
       >
         <img
           v-if="item.image"
-          :src="item.image.src"
-          :alt="item.image.alt"
-          class="object-cover w-full v-[100%]"
+          :src="item.image.imgPath"
+          :alt="translate(item.image.imgAlt)"
+          class="object-cover w-full h-[100%]"
         >
         <div 
           v-else
-          class="p-4"
+          class="flex flex-col p-4"
         >
-          <h3 class="text-2xl font-bold">
-            {{ item.title }}
+          <h3 class="text-2xl font-medium text-[#DF442F] mb-3">
+            {{ translate(item.title) }}
           </h3>
-          <p class="text-sm">
-            {{ item.description?.size }}
+          <p 
+            v-if="item.description?.size"
+            class="text-md mb-3">
+            {{ translate(item.description?.size) }}
+          </p>
+          <p
+            v-if="item.description?.text" 
+            class="text-md">
+            {{ translate(item.description?.text) }}
           </p>
         </div>
       </div>
@@ -38,7 +46,8 @@
 </template>
 
 <script setup lang="ts">
-  import { onMounted, ref, onBeforeUnmount, computed } from 'vue'
+  import { onMounted, ref, onBeforeUnmount, computed, inject } from 'vue'
+  import { TranslateKey } from '../localizations/localizations'
 
   import { GridItem } from '../types'
 
@@ -48,88 +57,98 @@
 
   const props = defineProps<Props>()
 
-  const logg = (item) => {
-    console.log(item.id)
-  }
+  const translate = inject(TranslateKey, () => '')
 
-  const columnsConfig = ref([{
+  const columnsConfig = [{
     query: '(max-width: 767px)',
     columns: 2,
-    itemMaxHeight: 100,
-    padding: 5,
+    itemMaxHeight: 500,
+    itemMinHeight: 200,
+    padding: 20,
     gap: 2
   }, {
     query: '(min-width: 768px)',
     columns: 3,
-    itemMaxHeight: 200,
-    padding: 5,
+    itemMaxHeight: 500,
+    itemMinHeight: 200,
+    padding: 20,
     gap: 2
   }, {
     query: '(min-width: 1024px)',
+    columns: 3,
+    itemMaxHeight: 500,
+    itemMinHeight: 200,
+    padding: 80,
+    gap: 1,
+  }, {
+    query: '(min-width: 1536px)',
     columns: 4,
-    itemMaxHeight: 300,
-    padding: 2,
-    gap: 2
-  } ])
+    itemMaxHeight: 500,
+    itemMinHeight: 200,
+    padding: 80,
+    gap: 1,
+  }]
 
-  const currConfig = ref(columnsConfig.value[2])
-  const updatedItems = ref(null)
-  
-
-  const mainClass = computed(() => {
-    return `px-[${currConfig.value.padding}%]`
-    // return `padding-left: ${currConfig.value.padding}%; padding-right: ${currConfig.value.padding}%;`
+  const mainStyle = computed(() => {
+    // return `padding-left: ${currConfig.value.padding}px; padding-right: ${currConfig.value.padding}px;`
+    return ''
   })
 
-  const columnWidthClass = (index: number) => {
-    console.log('🚀 ~ file: Grid.vue:79 ~ columnWidthClass ~ index:', index)
-    let wClass = ''
-    wClass = `w-[${(100 - currConfig.value.padding * 2 - currConfig.value.gap * (currConfig.value.columns - 1)) / currConfig.value.columns}%]`
-    // wClass = wClass + ` w-max-[${Math.floor((100 - currConfig.value.padding * 2 - currConfig.value.gap * (currConfig.value.columns - 1)) / currConfig.value.columns)}%]`
+  const columnStyle = (index: number) => {
+    let cStyle = `width: calc((100% - ${currConfig.value.gap * (currConfig.value.columns - 1)}vw) / ${currConfig.value.columns});`
     if (index === currConfig.value.columns - 1) {
-      wClass = wClass + ' mr-0'
+      cStyle += ' margin-rigth: 0;'
     } else {
-      wClass = wClass + ` mr-[${currConfig.value.gap}%]`
+      cStyle += ` margin-right: ${currConfig.value.gap}vw;`
     }
 
-    // wClass = `width: ${Math.floor((100 - currConfig.value.padding * 2 - currConfig.value.gap * (currConfig.value.columns - 1)) / currConfig.value.columns)}%;`
-    // // wClass = wClass + ` w-max-[${Math.floor((100 - currConfig.value.padding * 2 - currConfig.value.gap * (currConfig.value.columns - 1)) / currConfig.value.columns)}%]`
-    // if (index === currConfig.value.columns - 1) {
-    //   wClass = wClass + ' margin-rigth: 0;'
-    // } else {
-    //   wClass = wClass + ` margin-right: ${currConfig.value.gap}%;`
+    // if (index % 2 === 0) {
+    //   cStyle += ` margin-top: -100px`
     // }
-    return wClass
+    return cStyle
   }
 
-  const generateColumns = () => {
+  const itemStyle = (item: GridItem) => {
+    let style = `margin-bottom: ${currConfig.value.gap}vw;`
+    if (item.type === 'TEXT') {
+      style = style + ' height: "fit-content"'
+    } else {
+      style = style + ` height: ${item.height}px;`
+    }
+    // console.log('🚀 ~ file: Grid.vue:98 ~ itemStyle ~ style:', style)
+    return style
+  }
     
-    columnsConfig.value.forEach((config) => {
+  
+
+  const updatedItems = ref(null)
+  const currConfig = ref(columnsConfig[2])
+  
+  const generateColumns = () => {
+
+    columnsConfig.forEach((config) => {
       if (window.matchMedia(config.query).matches) {
         currConfig.value = config
       }
     })
 
-    console.log('🚀 ~ file: Grid.vue:351 ~ generateColumns ~ currConfig.value:', currConfig.value)
-    // columnWidthClass.value = `w-[${(100 - currConfig.value.padding * 2 - currConfig.value.gap * (currConfig.value.columns - 1)) / currConfig.value.columns}%]`
-    // columnWidthClass.value = columnWidthClass.value + ` w-max-[${(100 - currConfig.value.padding * 2 - currConfig.value.gap * (currConfig.value.columns - 1)) / currConfig.value.columns}%]`
-    // console.log('🚀 ~ file: Grid.vue:369 ~ generateColumns ~ columnWidthClass.value:', columnWidthClass.value)
-    
     let heightsSum = 0
     const addHeight = props.items.map((item) => {
-      const itemHeight = Math.floor(currConfig.value.itemMaxHeight / (Math.floor(Math.random() * 5) + 1))
-      // console.log('🚀 ~ file: Grid.vue:374 ~ updatedItems.value=props.items.map ~ itemHeight:', itemHeight)
+      if (item.type === 'TEXT') {
+
+      }
+      const temp = Math.floor(Math.random() * currConfig.value.itemMaxHeight)
+      const itemHeight = temp < currConfig.value.itemMinHeight ? currConfig.value.itemMinHeight : temp
+      // console.log('🚀 ~ file: Grid.vue:107 ~ addHeight ~ itemHeight:', itemHeight)
       heightsSum += itemHeight
       return {
         ...item,
-        // column,
-        // row,
         height: itemHeight
       }
     })
 
     const averageHeight = Math.floor(heightsSum / currConfig.value.columns)
-    // console.log('🚀 ~ file: Grid.vue:385 ~ generateColumns ~ averageHeight:', averageHeight)
+    // console.log('🚀 ~ file: Grid.vue:116 ~ generateColumns ~ averageHeight:', averageHeight)
 
     let columnHight = 0
     let column = 0
@@ -159,8 +178,6 @@
       }
       return accumulator
     }, [])
-    console.log('🚀 ~ file: Grid.vue:154 ~ updatedItems.value=updatedItems.value.reduce ~ updatedItems.value:', updatedItems.value)
-
   }
 
   onMounted(() => {
@@ -171,7 +188,7 @@
   onBeforeUnmount(() => {
     window.removeEventListener('resize', generateColumns)
   })
-
+  
 </script>
 
 <style>

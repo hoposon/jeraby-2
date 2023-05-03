@@ -121,14 +121,21 @@
     
   
 
-  const updatedItems = ref(null)
+  // const updatedItems = ref(null)
   const currConfig = ref(columnsConfig[2])
-  const generateColumns = () => {
+
+  const matchM = () => {
+  columnsConfig.forEach((config) => {
+    if (window.matchMedia(config.query).matches) {
+      currConfig.value = config
+    }
+  })
+}
+  const updatedItems = computed(() => {
 
     columnsConfig.forEach((config) => {
       if (window.matchMedia(config.query).matches) {
         currConfig.value = config
-        
       }
     })
 
@@ -170,7 +177,7 @@
       }
     })
 
-    updatedItems.value = addColumn.reduce((accumulator, item) => {
+    const final = addColumn.reduce((accumulator, item) => {
       if (accumulator[item.column]) {
         accumulator[item.column].push(item)
       } else {
@@ -178,15 +185,17 @@
       }
       return accumulator
     }, [])
-  }
+
+    return final
+  })
 
   onMounted(() => {
-    generateColumns()
-    window.addEventListener('resize', generateColumns)
+    matchM()
+    window.addEventListener('resize', matchM)
   })
 
   onBeforeUnmount(() => {
-    window.removeEventListener('resize', generateColumns)
+    window.removeEventListener('resize', matchM)
   })
   
 </script>
