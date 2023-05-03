@@ -7,9 +7,6 @@
       <h2 class="text-3xl sm:text-5xl mb-2 font-medium text-[#DF442F]">
         {{ translate(work.title) }}
       </h2>
-      <!-- <div
-        class="w-full mb-3 border-b-2 border-[#DF442F]"
-      /> -->
       <p class="text-2xl lg:text-3xl sm:mb-8">
         {{ translate(work.presentation.presentationDescription) }}
       </p>
@@ -19,8 +16,13 @@
         <span class="text-[#DF442F]">
           {{ translate(work.workState) }}
         </span>
-        &nbsp;|&nbsp;
+        <span
+          v-if="detailsButton"
+        >
+          &nbsp;|&nbsp;
+        </span>
         <Link
+          v-if="detailsButton"
           :text="translate('cta.show.details')"
           :link="`/works/${collectionId}/${work.id}`"
         />
@@ -42,10 +44,16 @@
   import Link from './Link.vue'
   import CtaButton from './CtaButton.vue'
   
-  const props = defineProps<{
+  interface Props {
     collectionId: string
     work: CollectionWork
-  }>()
+    detailsButton?: boolean
+    doPositioning?: boolean
+  }
+  const props =  withDefaults(defineProps<Props>(), {
+    detailsButton: true,
+    doPositioning: true
+  })
 
   const translate = inject(TranslateKey, () => '')
 
@@ -62,14 +70,16 @@
   })
 
   const className = computed(() => {
-    if (oneLeft.value) {
-      return 'z-[100] w-[100%] min-h-[40vh] sm:ml-10 sm:mr-10 sm:w-[40%] lg:min-h-[30vh] lg:w-[30%]' // sm:items-end
-    } else if (oneRight.value) {
-      return 'z-[100] w-[100%] min-h-[40vh] sm:ml-10 sm:mr-10 sm:w-[40%] lg:min-h-[30vh] lg:w-[30%]'
-    } else if (two.value) {
-      return 'z-[100] w-[100%] min-h-[40vh] sm:ml-10 sm:mr-10 sm:w-[40%] lg:min-h-[30vh] lg:w-[30%]'
-    } else {
-      return ''
+    if (props.doPositioning) {
+      if (oneLeft.value) {
+        return 'z-[100] w-[100%] min-h-[40vh] sm:ml-10 sm:mr-10 sm:w-[40%] lg:min-h-[20vh] lg:w-[30%]' // sm:items-end
+      } else if (oneRight.value) {
+        return 'z-[100] w-[100%] min-h-[40vh] sm:ml-10 sm:mr-10 sm:w-[40%] lg:min-h-[20vh] lg:w-[30%]'
+      } else if (two.value) {
+        return 'z-[100] w-[100%] min-h-[40vh] sm:ml-10 sm:mr-10 sm:w-[40%] lg:min-h-[20vh] lg:w-[30%]'
+      } else {
+        return ''
+      }
     }
   })
 

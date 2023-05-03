@@ -2,6 +2,11 @@
   <PageHeader
     :page="pageHeader"
   />
+  <div
+    class="max-w-[2000px] mx-auto"
+  >
+    About page
+  </div>
 </template>
 
 <script setup lang="ts">

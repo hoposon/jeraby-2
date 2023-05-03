@@ -2,7 +2,9 @@
   <PageHeader
     :page="pageHeader"
   />
-  <div>
+  <div
+    class="max-w-[2000px] mx-auto"
+  >
     <ContactForm />
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-row w-full pt-10"
+    class="flex flex-row w-full"
     :style="mainStyle"
   >
     <div
@@ -80,10 +80,18 @@
     itemMinHeight: 200,
     padding: 80,
     gap: 1,
+  }, {
+    query: '(min-width: 1536px)',
+    columns: 4,
+    itemMaxHeight: 500,
+    itemMinHeight: 200,
+    padding: 80,
+    gap: 1,
   }]
 
   const mainStyle = computed(() => {
-    return `padding-left: ${currConfig.value.padding}px; padding-right: ${currConfig.value.padding}px;`
+    // return `padding-left: ${currConfig.value.padding}px; padding-right: ${currConfig.value.padding}px;`
+    return ''
   })
 
   const columnStyle = (index: number) => {

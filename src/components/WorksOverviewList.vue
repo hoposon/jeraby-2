@@ -9,13 +9,18 @@
         v-for="collection in collections"
         :key="collection.id"
       >
-        <WorkOverview
+        <div
           v-for="work, index in collection.publishedCollectionWorks"
           :key="work.id"
-          :collection-id="collection.id"
-          :work="work"
-          :index="index"
-        />
+          class="max-w-[2000px]"
+          :class="{'mx-auto': work.presentation.presentationType !== 'twoImages'}"
+        >
+          <WorkOverview
+            :collection-id="collection.id"
+            :work="work"
+            :index="index"
+          />
+        </div>
       </div>
     </div>
   <!-- </div> -->
