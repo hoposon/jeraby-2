@@ -144,6 +144,14 @@
   .carousel__next {
     box-sizing: content-box;
     background-color: rgb(212 212 212);
+    box-shadow: 4px 7px 13px 1px rgb(17 24 39);
+    color: rgb(95, 82, 82);
+  }
+
+  .carousel__prev:hover,
+  .carousel__next:hover {
+    background-color: white;
+    color: rgb(17 24 39);
   }
 
   /* .carousel__prev {

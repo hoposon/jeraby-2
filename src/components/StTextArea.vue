@@ -15,7 +15,7 @@
     />
     <label 
       :for="id"
-      class="absolute top-[8px] left-0 pl-2 transition-all duration-300 ease-in-out text-sm peer-focus:top-1 peer-focus:text-[10px] peer-[.filled]:top-1 peer-[.filled]:text-[10px]"
+      class="absolute top-[8px] left-0 pl-2 transition-all duration-300 ease-in-out text-base peer-focus:top-1 peer-focus:text-[12px] peer-[.filled]:top-1 peer-[.filled]:text-[12px]"
     >
       {{ translate(label) }}
     </label>
@@ -36,7 +36,7 @@
     id: string
     type: string
     label: string
-    validationPattern?: string|null
+    validationPattern?: null | (() => RegExp);
     required?: boolean
     validationMessage?: string
   }

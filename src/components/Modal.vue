@@ -1,6 +1,6 @@
 <template>
   <div
-    class=" flex flex-col items-center justify-center w-full h-full bg-neutral-900/90 fixed top-0 left-0 z-[10001]"
+    class="flex flex-col items-center justify-center w-full h-full bg-neutral-900/90 fixed top-0 left-0 z-[10001]"
   >
     <div
       class="relative w-[95%] md:w-[75%] overflow-hidden bg-slate-400"
