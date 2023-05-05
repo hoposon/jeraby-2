@@ -33,6 +33,7 @@
       
       <Grid
         :items="gridItems"
+        @click-item="openDetail"
       />
 
       <div
@@ -67,6 +68,7 @@
   import { useRoute } from 'vue-router'
   import { useCollections } from '../composables/collections'
   import { TranslateKey } from '../localizations/localizations'
+  import { useModal, allowedModalNames } from '../composables/modal'
 
 
   const route = useRoute()
@@ -74,6 +76,12 @@
   const id = ref(route.params.id)
   const { getCollection } = useCollections()
   const translate = inject(TranslateKey, () => '')
+  const { openModal, modalName } = useModal()
+
+  const openDetail = (data: {id: string}) => {
+    // console.log('🚀 ~ file: WorkDetail.vue:82 ~ openDetail ~ id:', typeof data.id)
+    openModal(allowedModalNames.WorkDetailGallery, {work: currentWork.value, currentDetail: data.id})
+  }
 
   const pageHeader = computed(() => {
     return getCollection(collection.value)[0]?.publishedCollectionWorks.find(work => work.id === id.value).pageHeader

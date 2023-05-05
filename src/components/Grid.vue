@@ -20,7 +20,8 @@
           v-if="item.image"
           :src="item.image.imgPath"
           :alt="translate(item.image.imgAlt)"
-          class="object-cover w-full h-[100%]"
+          class="object-cover w-full h-[100%] cursor-pointer"
+          @click="emit('click-item', {id: item.id})"
         >
         <div 
           v-else
@@ -56,6 +57,9 @@
   }
 
   const props = defineProps<Props>()
+  const emit = defineEmits<{
+    (e: 'click-item', { id }: {id: string} ): void
+  }>()
 
   const translate = inject(TranslateKey, () => '')
 

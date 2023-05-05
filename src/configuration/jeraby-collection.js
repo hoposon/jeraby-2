@@ -45,7 +45,7 @@ const jeraby = {
         bgImage: '/images/home-jerab.png',
         classNames: {
             'bg': ['bg-red-400'],
-            'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+            'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
         }
     },
     title: 'jeraby.collection.title',
@@ -62,7 +62,7 @@ const jeraby = {
                 bgImage: '/images/home-jerab.png',
                 classNames: {
                     'bg': ['bg-red-400'],
-                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+                    'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
                 }
             },
             title: 'jeraby.collection.works.jeraby-1.title',

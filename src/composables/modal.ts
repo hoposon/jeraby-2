@@ -29,5 +29,6 @@ export function useModal() {
 }
 
 export enum allowedModalNames {
-  'WorkContact' = 'WorkContact'
+  'WorkContact' = 'WorkContact',
+  'WorkDetailGallery' = 'WorkDetailGallery'
 }

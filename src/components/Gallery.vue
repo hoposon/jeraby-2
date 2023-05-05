@@ -1,10 +1,15 @@
 <template>
-  <Carousel v-bind="gallerySettings" :modelValue="initialSlide">
+  <Carousel 
+    v-bind="gallerySettings" 
+    :modelValue="initialSlide"
+    class="max-w-[100%]"
+  >
     <Slide v-for="image in images" :key="image.id">
       <div 
         class="carousel__item"
       >
         <router-link 
+          v-if="isLink"
           :to="image.link"
           class="w-full"
           :class="galleryStyleSettings?.carouselItem"
@@ -14,6 +19,16 @@
             :alt="image.image.imgAlt"
             class="w-full h-[100%] object-cover" />
         </router-link>
+        <div
+          v-else
+          class="w-[50%]"
+          :class="galleryStyleSettings?.carouselItem"
+        >
+          <img 
+            :src="image.image.imgPath" 
+            :alt="image.image.imgAlt"
+            class="w-full h-[100%] object-cover" />
+        </div>
       </div>
     </Slide>
 
@@ -33,14 +48,16 @@
   interface Props {
     images: {
       id: string,
+      type?: 'TEXT'|'IMAGE'
       image: {
         imgPath: string,
         imgAlt: string,
       },
-      link: string
+      link?: string
     }[]
     initialSlide?: number 
     pagination?: boolean
+    isLink?: boolean
     gallerySettings: {
       itemsToShow: number,
       snapAlign: 'start' | 'center' | 'end',
@@ -62,6 +79,7 @@
   const props = withDefaults(defineProps<Props>(), {
     initialSlide: 0,
     pagination: false,
+    isLink: true,
     gallerySettings: {
       itemsToShow: 1,
       snapAlign: 'center',
@@ -82,6 +100,7 @@
       },
     },
   })
+
 </script>
 
 <style>
@@ -106,6 +125,7 @@
 
   .carousel__viewport {
     /* perspective: 2000px; */
+    width: 100%;
   }
 
   .carousel__track {
