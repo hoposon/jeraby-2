@@ -2,7 +2,7 @@
   <Carousel 
     v-bind="gallerySettings" 
     :modelValue="initialSlide"
-    class="max-h-[100%] h-[100%]"
+    class="max-w-[100%]"
   >
     <Slide v-for="image in images" :key="image.id">
       <div 
@@ -17,15 +17,18 @@
           <img 
             :src="image.image.imgPath" 
             :alt="image.image.imgAlt"
-            class="w-full h-[100%] object-cover" 
-          />
+            class="w-full h-[100%] object-cover" />
         </router-link>
-        <img 
+        <div
           v-else
-          :src="image.image.imgPath" 
-          :alt="image.image.imgAlt"
-          class="max-w-[100%] h-auto max-h-[100%] w-auto my-0 mx-auto"
-        />
+          class="w-[50%]"
+          :class="galleryStyleSettings?.carouselItem"
+        >
+          <img 
+            :src="image.image.imgPath" 
+            :alt="image.image.imgAlt"
+            class="w-full h-[100%] object-cover" />
+        </div>
       </div>
     </Slide>
 
@@ -101,17 +104,32 @@
 </script>
 
 <style>
+  .carousel__item {
+    width: 100%;
+    /* background-color: green; */
+    /* color: white; */
+    /* font-size: 20px; */
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carousel__slide {
+    padding: 10px;
+    @media (min-width: 768px) {
+      padding: 20px;
+    }
+    
+  }
+
   .carousel__viewport {
     /* perspective: 2000px; */
-    /* width: 100%; */
-    height: 100%;
-    max-height: 100%;
+    width: 100%;
   }
 
   .carousel__track {
     /* transform-style: preserve-3d; */
-    height: 100%;
-    max-height: 100%;
   }
 
   .carousel__slide--sliding {

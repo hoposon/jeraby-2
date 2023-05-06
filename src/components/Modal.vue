@@ -1,22 +1,19 @@
 <template>
   <div
     class="flex flex-col items-center justify-center w-full h-full bg-neutral-900/90 fixed top-0 left-0 z-[10001]"
+    :class="classes.topClass"
   >
     <div
-      class="relative w-[95%] md:w-[75%] overflow-hidden bg-slate-400"
+      :class="classes.wClass"
     >
       <button 
-        class="absolute top-[15px] right-[15px] z-[10010] bg-close-default hover:bg-close-hover bg-center bg-cover w-8 h-8 transition-all duration-500 ease-in-out"
+        class="absolute top-[15px] right-[15px] z-[10010] bg-close-red hover:bg-close-hover bg-center bg-cover w-8 h-8 transition-all duration-500 ease-in-out"
         @click="closeModal()"
       />
       <div
-        class="max-h-[70vh] overflow-y-scroll bg-white"
+        :class="classes.hClass"
       >
-        <div
-          class="flex flex-col items-center justify-center bg-neutral-300/10"
-        >
-          <slot />
-        </div>
+        <slot />
       </div>  
     </div>
   </div>
@@ -24,6 +21,14 @@
 
 <script setup lang="ts">
   import { useModal } from '../composables/modal'
+
+  defineProps<{
+    classes: {
+      topClass?: string,
+      wClass: string,
+      hClass: string
+    }
+  }>()
 
   const { closeModal } = useModal()
 </script>

@@ -128,3 +128,20 @@
   )
 
 </script>
+
+<style>
+  .carousel__item {
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carousel__slide {
+    padding: 10px;
+    @media screen and (min-width: 768px) {
+      padding: 20px;
+    }
+  }
+</style>

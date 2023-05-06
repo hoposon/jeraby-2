@@ -7,8 +7,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'close-default': "url('/images/close-w.png')",
-        'close-hover': "url('/images/close-b.png')",
+        'close-default': "url('/images/close-default.png')",
+        'close-red': "url('/images/close-red.png')",
+        'close-hover': "url('/images/close-black.png')",
         'burger': "url('/images/burger.png')",
         'burger-brown': "url('/images/burger-brown.png')",
         // 'presentations-background': "url('/images/presentationsBackground.svg')"

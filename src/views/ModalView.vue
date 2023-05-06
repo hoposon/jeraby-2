@@ -1,7 +1,5 @@
 <template>
-  <Modal>
-    <component :is="modals[modalName]" />
-  </Modal>
+  <component :is="modals[modalName]" />
 </template>
 
 <script setup lang="ts">
