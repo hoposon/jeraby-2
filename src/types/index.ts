@@ -9,14 +9,54 @@ export interface PageHeader {
 }
 
 export interface GridItem {
-  id: string
-  type: 'IMG' | 'TEXT'
-  title?: string
+  id: string,
+  type: 'TEXT'|'IMAGE',
+  title?: string,
   description?: {
-    [key: string]: string
-  }
+    size?: string,
+    text?: string
+  },
   image?: {
-    src: string
-    alt: string
+    imgPath: string,
+    imgAlt: string,
   }
+}
+
+export interface Collection {
+  id: string,
+  pageHeader: PageHeader,
+  title: string,
+  description?: string,
+  collectionPriority: number,
+  published: boolean,
+  classNames?: {
+    header?: {
+      [key: string]: string
+    }
+  }, 
+}
+
+export interface CollectionWork {
+  id: string,
+  pageHeader: PageHeader,
+  title: string,
+  presentation: {
+    presentationDescription: string,
+    presentationImages: {imgPath: string, imgAlt: string}[],
+    presentationType: 'oneLeft'|'oneRight'|'twoImages',
+    classNames: {
+      [key: string]: string
+    },
+  },
+  workDetails: {
+    gridItems: GridItem[]
+  }
+}
+
+export interface CollectionWorkEnhanced extends CollectionWork {
+  priority: number,
+  published: boolean,
+  workState: 'sold'|'available',
+  workAtHomePage: boolean,
+  collections: Collection[]
 }

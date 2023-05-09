@@ -2,62 +2,7 @@ import { ref, computed } from 'vue'
 import axios from 'axios'
 import { PageHeader } from '../types'
 
-export interface WorkDetailText {
-  title: string,
-  substitle: string,
-  text: string
-}
 
-export interface GridItem {
-  id: string,
-  type: 'TEXT'|'IMAGE',
-  title?: string,
-  description?: {
-    size?: string,
-    text?: string
-  },
-  image?: {
-    imgPath: string,
-    imgAlt: string,
-  }
-}
-
-
-export interface CollectionWork {
-  id: string,
-  published: boolean,
-  pageHeader: PageHeader,
-  title: string,
-  workState: 'sold'|'available',
-  workPriority: number,
-  presentation: {
-    presentationDescription: string,
-    presentationImages: {imgPath: string, imgAlt: string}[],
-    presentationType: 'oneLeft'|'oneRight'|'twoImages',
-    classNames: {
-      [key: string]: string
-    },
-  },
-  workDetails: {
-    gridItems: GridItem[]
-  }
-}
-
-export interface Collection {
-  id: string,
-  pageHeader: PageHeader,
-  title: string,
-  description?: string,
-  collectionPriority: number,
-  published: boolean,
-  classNames: {
-    header: {
-      [key: string]: string
-    }
-  },
-  collectionWorks: CollectionWork[],
-  publishedCollectionWorks: CollectionWork[],
-}
 
 const collections = ref<Collection[]|[]>([])
 const publishedCollectionsAll = ref<Collection[]|[]>([])
@@ -85,12 +30,6 @@ export function useCollections() {
       configLoading.value = false
     }
   }
-
-  // const publishedCollectionsAll = computed(() => {
-  //   return (collections.value.filter(col => col.published)).forEach(col => {
-  //     col.publishedCollectionWorks = col.collectionWorks.filter(work => work.published)
-  //   })
-  // }) 
 
   const getCollection = (id?:string) => {
     if (id) {
