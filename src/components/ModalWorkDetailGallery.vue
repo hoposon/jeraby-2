@@ -31,7 +31,8 @@
   const modalClasses = {
     topClass: "detail-modal",
     wClass: "relative w-[95%] overflow-hidden bg-transparent",
-    hClass: "h-[95vh] w-[100%] overflow-hidden bg-transparent"
+    hClass: "h-[95vh] w-[100%] overflow-hidden bg-transparent",
+    closeBtnClass: "bg-close-trans-red hover:bg-close-trans-white"
   }
 
   const gallerySettings = {

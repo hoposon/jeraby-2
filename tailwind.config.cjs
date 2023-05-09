@@ -8,8 +8,9 @@ module.exports = {
     extend: {
       backgroundImage: {
         'close-default': "url('/images/close-default.png')",
-        'close-red': "url('/images/close-red.png')",
         'close-hover': "url('/images/close-black.png')",
+        'close-trans-red': "url('/images/close-trans-red.png')",
+        'close-trans-white': "url('/images/close-trans-white.png')",
         'burger': "url('/images/burger.png')",
         'burger-brown': "url('/images/burger-brown.png')",
         // 'presentations-background': "url('/images/presentationsBackground.svg')"

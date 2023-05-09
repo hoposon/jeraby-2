@@ -49,7 +49,8 @@
   
   const modalClasses = {
     wClass: "relative w-[95%] md:w-[75%] overflow-hidden bg-slate-400",
-    hClass: "max-h-[70vh] overflow-y-scroll bg-white"
+    hClass: "max-h-[70vh] overflow-y-scroll bg-white",
+    closeBtnClass: "bg-close-default hover:bg-close-hover"
   }
 
 </script>

@@ -1,7 +1,7 @@
 <template>
   <Transition name="fade">
     <nav
-      class="fixed flex w-full h-full sm:h-[35vh] z-[10000] justify-center pl-[10vw] sm:pr-[150px] pt-12 sm:pt-[10vh] bg-neutral-300 sm:bg-neutral-300/90 transition-all duration-500 ease-in-out"
+      class="fixed flex w-full h-full sm:h-[35vh] z-[10000] justify-center pl-[10vw] sm:pr-[30%] pt-12 sm:pt-[10vh] bg-neutral-300 sm:bg-neutral-300/90 transition-all duration-500 ease-in-out"
       :class="navClassNames"
     >
       <div

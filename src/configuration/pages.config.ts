@@ -86,7 +86,7 @@ export const PAGES_DATA: PageData = {
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
         'description': ['ml-[10%]', 'text-2xl', 'text-gray-800']
       }
-    }
+    },
   },
   [DETAIL]: {
     id: DETAIL,

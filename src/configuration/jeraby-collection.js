@@ -90,7 +90,7 @@ const jeraby = {
                         type: 'TEXT',
                         title: 'jeraby.collection.works.jeraby-1.workDetails.gridItems.1.title',
                         description: {
-                            size: 'text-xl',
+                            text: 'jeraby.collection.works.jeraby-1.workDetails.gridItems.1.text',
                         },
                     }, {
                         id: '2',
@@ -104,7 +104,7 @@ const jeraby = {
                         type: 'TEXT',
                         title: 'jeraby.collection.works.jeraby-1.workDetails.gridItems.3.title',
                         description: {
-                            size: 'text-xl',
+                            size: 'jeraby.collection.works.jeraby-1.workDetails.gridItems.3.size',
                         },
                     }, {
                         id: '4',

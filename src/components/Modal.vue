@@ -7,7 +7,8 @@
       :class="classes.wClass"
     >
       <button 
-        class="absolute top-[15px] right-[15px] z-[10010] bg-close-red hover:bg-close-hover bg-center bg-cover w-8 h-8 transition-all duration-500 ease-in-out"
+        class="absolute top-[15px] right-[15px] z-[10010] bg-center bg-cover w-8 h-8 transition-all duration-500 ease-in-out"
+        :class="classes.closeBtnClass"
         @click="closeModal()"
       />
       <div
@@ -26,7 +27,8 @@
     classes: {
       topClass?: string,
       wClass: string,
-      hClass: string
+      hClass: string,
+      closeBtnClass: string
     }
   }>()
 
