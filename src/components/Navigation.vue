@@ -24,13 +24,20 @@
             </div>
             <div class="mt-1">
               <div
-                v-for="col in getCollectionsGenInfo"
-                :key="col.id"
                 class="max-sm:ml-16"
               >
                 <Link
-                  :text="translate(col.title)"
-                  :link="`/works/${col.id}`"
+                  :text="translate('nav.available.works')"
+                  :link="`/works/available`"
+                  @click="closeNav()"
+                />
+              </div>
+              <div
+                class="max-sm:ml-16"
+              >
+                <Link
+                  :text="translate('nav.unavailable.works')"
+                  :link="`/works/unavailable`"
                   @click="closeNav()"
                 />
               </div>
@@ -71,17 +78,14 @@
 <script setup lang="ts">
   import { inject } from 'vue'
   import { useNavigation } from '../composables/navigation'
-  import { useCollections } from '../composables/collections'
   import { TranslateKey } from '../localizations/localizations'
   import Link from './Link.vue'
 
   const { 
     navClassNames,
-    closeNav } = useNavigation()
+    closeNav 
+  } = useNavigation()
 
   const translate = inject(TranslateKey, () => '')
-
-  const { getCollectionsGenInfo } = useCollections()
-
 
 </script>

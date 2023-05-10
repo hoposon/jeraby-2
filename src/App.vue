@@ -13,10 +13,11 @@
 </template>
 
 <script setup lang="ts">
-  import { onBeforeMount } from 'vue'
+  import { onBeforeMount, watch } from 'vue'
   import { useScroll } from './composables/scroll'
-  import { useCollections } from './composables/collections'
+  import { useWorks } from './composables/works'
   import { useModal } from './composables/modal'
+  import { useRoute } from 'vue-router'
 
   import Navigation from './components/Navigation.vue'
   import NavScrollWatcher from './components/NavScrollWatcher.vue'
@@ -25,11 +26,22 @@
 
   useScroll()
 
-  const { loadCollectionsConfig, configLoading } = useCollections()
+  const { loadWorksConfig, configLoading, setSelectedFilter } = useWorks()
   const { modalName } = useModal()
+  const route = useRoute()
+
+  watch(
+    () => route.params, 
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    (newParams) => {
+      if(newParams.collection) {
+        setSelectedFilter(newParams.collection)
+      }
+    }
+  )
 
   onBeforeMount(() => {
-    loadCollectionsConfig()
+    loadWorksConfig()
   })
   
 

@@ -45,7 +45,7 @@ const worksPublished: {[key: string]: boolean} = {
   'jeraby-18': true,
 }
 
-const worksState: {[key: string]: 'available'|'sold'} = {
+const worksState: {[key: string]: 'available'|'unavailable'} = {
   'jeraby-1': 'available',
   'jeraby-2': 'available',
   'jeraby-3': 'available',
@@ -55,15 +55,15 @@ const worksState: {[key: string]: 'available'|'sold'} = {
   'jeraby-7': 'available',
   'jeraby-8': 'available',
   'jeraby-9': 'available',
-  'jeraby-10': 'sold',
-  'jeraby-11': 'sold',
-  'jeraby-12': 'sold',
-  'jeraby-13': 'sold',
-  'jeraby-14': 'sold',
-  'jeraby-15': 'sold',
-  'jeraby-16': 'sold',
-  'jeraby-17': 'sold',
-  'jeraby-18': 'sold',
+  'jeraby-10': 'unavailable',
+  'jeraby-11': 'unavailable',
+  'jeraby-12': 'unavailable',
+  'jeraby-13': 'unavailable',
+  'jeraby-14': 'unavailable',
+  'jeraby-15': 'unavailable',
+  'jeraby-16': 'unavailable',
+  'jeraby-17': 'unavailable',
+  'jeraby-18': 'unavailable',
 }
 
 const worksAtHomePage: {[key: string]: boolean} = {

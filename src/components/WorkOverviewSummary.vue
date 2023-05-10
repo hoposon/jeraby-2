@@ -24,7 +24,8 @@
         <Link
           v-if="detailsButton"
           :text="translate('cta.show.details')"
-          :link="`/works/${collectionId}/${work.id}`"
+          :link="`/work/${work.id}`"
+          @click="setFilter"
         />
       </p>
       <CtaButton
@@ -40,22 +41,27 @@
   import { inject, computed, ref } from 'vue'
   import { useModal, allowedModalNames } from '../composables/modal'
   import { TranslateKey } from '../localizations/localizations'
-  import { CollectionWork } from '../composables/collections'
+  import { CollectionWorkEnhanced } from '../types'
+  import { useWorks } from '../composables/works'
   import Link from './Link.vue'
   import CtaButton from './CtaButton.vue'
   
   interface Props {
-    collectionId: string
-    work: CollectionWork
+    work: CollectionWorkEnhanced
     detailsButton?: boolean
     doPositioning?: boolean
   }
-  const props =  withDefaults(defineProps<Props>(), {
+  const props = withDefaults(defineProps<Props>(), {
     detailsButton: true,
     doPositioning: true
   })
 
   const translate = inject(TranslateKey, () => '')
+
+  const { setSelectedFilter } = useWorks()
+  const setFilter = () => {
+    setSelectedFilter(props.work.workState)
+  }
 
   const oneLeft = computed(() => {
     return props.work.presentation.presentationType === 'oneLeft'
@@ -91,8 +97,8 @@
   })
 
   const ctaText = computed(() => {
-    if (props.work.workState === 'sold') {
-      return 'cta.sold.text'
+    if (props.work.workState === 'unavailable') {
+      return 'cta.unavailable.text'
     } else if (props.work.workState === 'available') {
       return 'cta.available.text'
     } else {

@@ -1,68 +1,40 @@
 <template>
-  <!-- <div
-    class="relative before:hidden sm:before:block before:content-[''] before:bg-[url('/images/presentationsBackground.svg')] before:w-full before:h-[100%] before:absolute before:top-0 before:left-0 before:bg-cover before:bg-no-repeat before:opacity-10"
-  > -->
+  <div
+    class="demo-content"
+  >
     <div
-      class="demo-content"
+      v-for="work, index in works"
+      :key="work.id"
+      class="max-w-[2000px]"
+      :class="{'mx-auto': work.presentation.presentationType !== 'twoImages'}"
     >
-      <div
-        v-for="collection in collections"
-        :key="collection.id"
-      >
-        <div
-          v-for="work, index in collection.publishedCollectionWorks"
-          :key="work.id"
-          class="max-w-[2000px]"
-          :class="{'mx-auto': work.presentation.presentationType !== 'twoImages'}"
-        >
-          <WorkOverview
-            :collection-id="collection.id"
-            :work="work"
-            :index="index"
-          />
-        </div>
-      </div>
+      <WorkOverview
+        :work="work"
+        :index="index"
+      />
     </div>
-  <!-- </div> -->
+  </div>
 </template>
 
 <script setup lang="ts">
   import { computed } from 'vue'
   import WorkOverview from './WorkOverview.vue'
 
-  import { useCollections } from '../composables/collections'
+  import { useWorks } from '../composables/works'
 
-  const props = defineProps<{
-    collectionId?: string
-  }>()
+  const { homePageWorks, availableWorks, unavailableWorks, selectedFilter } = useWorks()
 
-  const { getCollection } = useCollections()
-
-  const collections = computed(() => getCollection(props.collectionId))
+  const works = computed(() => {
+    if (selectedFilter.value === null || selectedFilter.value === 'home') {
+      return homePageWorks.value
+    } else if (selectedFilter.value === 'available') {
+      return availableWorks.value
+    } else if (selectedFilter.value === 'unavailable') {
+      return unavailableWorks.value
+    } else {
+      return availableWorks.value
+    }
+  })
+  // console.log('🚀 ~ file: WorksOverviewList.vue:38 ~ works ~ works:', works)
 
 </script>
-
-<!-- <style>
-  .demo-wrap {
-    position: relative;
-  }
-
-  .demo-wrap:before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.1;
-    background-image: url('/images/presentationsBackground.svg');
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-size: cover;
-  }
-
-  .demo-content {
-    position: relative;
-  }
-</style> -->

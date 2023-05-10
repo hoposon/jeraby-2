@@ -10,7 +10,7 @@ const routes = [
   { path: '/about', component: About },
   { path: '/contact', component: Contact },
   { path: '/works/:collection', component: Collection },
-  { path: '/works/:collection/:id', component: WorkDetail },
+  { path: '/work/:id', component: WorkDetail },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: Home },
 ]
 

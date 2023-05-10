@@ -56,7 +56,7 @@ export interface CollectionWork {
 export interface CollectionWorkEnhanced extends CollectionWork {
   priority: number,
   published: boolean,
-  workState: 'sold'|'available',
+  workState: 'unavailable'|'available',
   workAtHomePage: boolean,
   collections: Collection[]
 }

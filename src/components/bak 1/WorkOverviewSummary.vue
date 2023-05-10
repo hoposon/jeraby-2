@@ -87,8 +87,8 @@
   })
 
   const ctaText = computed(() => {
-    if (props.work.workState === 'sold') {
-      return 'cta.sold.text'
+    if (props.work.workState === 'unavailable') {
+      return 'cta.unavailable.text'
     } else if (props.work.workState === 'available') {
       return 'cta.available.text'
     } else {

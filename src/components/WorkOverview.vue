@@ -1,7 +1,4 @@
 <template>
-  <!-- <div
-    class="h-full sm:h-[40vh] md:h-[46vh] lg:h-[60vh] xl:h-[70vh] relative"
-  > -->
   <div
     v-resize="evaluateIsMobile"
     class="relative flex flex-col h-[100vh] sm:flex-row sm:h-[55vh] md:h-[60vh] lg:h-[80vh] xl:h-[90vh]"
@@ -22,7 +19,6 @@
       >
     </div>
     <WorkOverviewSummary
-      :collection-id="collectionId"
       :work="work"
     />
     <div
@@ -44,12 +40,11 @@
 
 <script setup lang="ts">
   import { computed, ref } from 'vue'
-  import { CollectionWork } from '../composables/collections'
+  import { CollectionWorkEnhanced } from '../types'
   import WorkOverviewSummary from './WorkOverviewSummary.vue'
 
   const props = defineProps<{
-    collectionId: string
-    work: CollectionWork,
+    work: CollectionWorkEnhanced,
     index: number
   }>()
 

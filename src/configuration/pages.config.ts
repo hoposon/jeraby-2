@@ -4,6 +4,8 @@ export const HOME = 'home'
 export const ABOUT = 'about'
 export const CONTACT = 'contact'
 export const DETAIL = 'detail'
+export const COLLECTION_AVAILABLE = 'available'
+export const COLLECTION_UNAVAILABLE = 'unavailable'
 
 export interface PageDataItem {
   id: string,
@@ -110,5 +112,31 @@ export const PAGES_DATA: PageData = {
         carouselItem: 'h-[200px] min-[550px]:h-[250px] lg:h-[300px] shadow-xl'
       }
     }
+  },
+  [COLLECTION_AVAILABLE]: {
+    id: COLLECTION_AVAILABLE,
+    pageHeader: {
+      title: 'available.title',
+      bgImage: '/images/home-jerab.png',
+      description: 'available.description',
+      classNames: {
+        'bg': ['bg-amber-400'],
+        'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+        'description': ['ml-[10%]', 'text-2xl', 'text-gray-800']
+      }
+    },
+  },
+  [COLLECTION_UNAVAILABLE]: {
+    id: COLLECTION_UNAVAILABLE,
+    pageHeader: {
+      title: 'unavailable.title',
+      bgImage: '/images/home-jerab.png',
+      description: 'unavailable.description',
+      classNames: {
+        'bg': ['bg-amber-400'],
+        'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
+        'description': ['ml-[10%]', 'text-2xl', 'text-gray-800']
+      }
+    },
   }
 }

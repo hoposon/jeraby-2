@@ -3,18 +3,26 @@
     <PageHeader
       :page="pageHeader"
     />
-    <WorksOverviewList :collection-id="collection" />
+    <WorksOverviewList />
   </div>
 </template>
 
 <script setup lang="ts">
+  import { computed } from 'vue'
   import { useRoute } from 'vue-router'
   import PageHeader from '../components/PageHeader.vue'
   import WorksOverviewList from '../components/WorksOverviewList.vue'
-  import { useCollections } from '../composables/collections'
+  import { useWorks } from '../composables/works'
+  import { PAGES_DATA } from '../configuration/pages.config'
 
   const { collection } = useRoute().params
-  const { getCollection } = useCollections()
+  const { selectedFilter } = useWorks()
 
-  const pageHeader = getCollection(collection)[0].pageHeader
+  if (collection !== selectedFilter.value) selectedFilter.value = collection
+
+
+  const pageHeader = computed(() => {
+    return PAGES_DATA[selectedFilter.value?.toLowerCase()].pageHeader
+  })
+
 </script>
