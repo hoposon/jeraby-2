@@ -35,7 +35,7 @@ export function useWorks() {
     return works.value.filter(work => work.workState !== 'available')
   })
 
-  const setSelectedFilter = (filter:string) => {
+  const setSelectedFilter = (filter:string|null) => {
     selectedFilter.value = filter
   }
 

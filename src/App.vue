@@ -36,6 +36,8 @@
     (newParams) => {
       if(newParams.collection) {
         setSelectedFilter(newParams.collection)
+      } else {
+        setSelectedFilter(null)
       }
     }
   )

@@ -25,6 +25,7 @@
   const { homePageWorks, availableWorks, unavailableWorks, selectedFilter } = useWorks()
 
   const works = computed(() => {
+    console.log('🚀 ~ file: WorksOverviewList.vue:29 ~ works ~ selectedFilter.value:', selectedFilter.value)
     if (selectedFilter.value === null || selectedFilter.value === 'home') {
       return homePageWorks.value
     } else if (selectedFilter.value === 'available') {
