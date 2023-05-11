@@ -36,7 +36,7 @@
     (newParams) => {
       if(newParams.collection) {
         setSelectedFilter(newParams.collection)
-      } else {
+      } else if (!newParams.id) {
         setSelectedFilter(null)
       }
     }

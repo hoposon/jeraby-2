@@ -20,8 +20,7 @@
           <div
             class="w-full lg:w-[50%] 2xl:w-[40%] flex justify-start"
           >
-            <WorkOverviewSummary 
-              :collection-id="collection"
+            <WorkOverviewSummary
               :work="currentWork"
               :detailsButton="false"
               :doPositioning="false"
@@ -66,15 +65,14 @@
   import Gallery from '../components/Gallery.vue'
   import WorkOverviewSummary from '../components/WorkOverviewSummary.vue'
   import { useRoute } from 'vue-router'
-  import { useCollections } from '../composables/collections'
+  import { useWorks } from '../composables/works'
   import { TranslateKey } from '../localizations/localizations'
   import { useModal, allowedModalNames } from '../composables/modal'
 
 
   const route = useRoute()
-  const collection = ref(route.params.collection)
   const id = ref(route.params.id)
-  const { getCollection } = useCollections()
+  const { filteredWorks } = useWorks()
   const translate = inject(TranslateKey, () => '')
   const { openModal, modalName } = useModal()
 
@@ -84,26 +82,39 @@
   }
 
   const pageHeader = computed(() => {
-    return getCollection(collection.value)[0]?.publishedCollectionWorks.find(work => work.id === id.value).pageHeader
+    return filteredWorks.value.find(work => work.id === id.value)?.pageHeader
   })
 
   const currentWork = computed(() => {
-    return getCollection(collection.value)[0]?.publishedCollectionWorks.find(work => work.id === id.value)
+    return filteredWorks.value.find(work => work.id === id.value)
   })
 
   const currentWorkIndex = computed(() => {
     // return 4
-    return getCollection(collection.value)[0]?.publishedCollectionWorks.findIndex(work => work.id === id.value)
+    return filteredWorks.value.findIndex(work => work.id === id.value)
   })
 
   const detailImages = computed(() => {
-    return getCollection(collection.value)[0]?.publishedCollectionWorks.map(work => {
+    // return filteredWorks.value.map(work => {
+    //   return {
+    //     id: work.id,
+    //     image: work.presentation.presentationImages[1],
+    //     link: `/works/${work.id}`
+    //   }
+    // })
+    const im = filteredWorks.value.map(work => {
       return {
         id: work.id,
         image: work.presentation.presentationImages[1],
-        link: `/works/${collection.value}/${work.id}`
+        link: `/works/${work.id}`
       }
     })
+    console.log('🚀 ~ file: WorkDetail.vue:112 ~ im ~ im:', im)
+    return im
+  })
+
+  const gridItems = computed(() => {
+    return currentWork.value?.workDetails.gridItems
   })
 
   const gallerySettings = computed(() => {
@@ -114,15 +125,10 @@
     return PAGES_DATA[DETAIL].otherDetailsGallery?.galleryStyle
   })
 
-  const gridItems = computed(() => {
-    return currentWork.value?.workDetails.gridItems
-  })
-
   watch(
     () => route.params, 
     // eslint-disable-next-line @typescript-eslint/no-shadow
     (newParams) => {
-      collection.value = newParams.collection
       id.value = newParams.id
     }
   )

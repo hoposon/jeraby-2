@@ -36,14 +36,28 @@ export function useWorks() {
   })
 
   const setSelectedFilter = (filter:string|null) => {
+    console.log('🚀 ~ file: works.ts:39 ~ setSelectedFilter ~ filter:', filter)
     selectedFilter.value = filter
   }
+
+  const filteredWorks = computed(() => {
+    if (selectedFilter.value === null || selectedFilter.value === 'home') {
+      return homePageWorks.value
+    } else if (selectedFilter.value === 'available') {
+      return availableWorks.value
+    } else if (selectedFilter.value === 'unavailable') {
+      return unavailableWorks.value
+    } else {
+      return availableWorks.value
+    }
+  })
 
   return {
     loadWorksConfig,
     configLoading,
     selectedFilter,
     works,
+    filteredWorks,
     homePageWorks,
     availableWorks,
     unavailableWorks,
