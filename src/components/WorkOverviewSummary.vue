@@ -25,7 +25,6 @@
           v-if="detailsButton"
           :text="translate('cta.show.details')"
           :link="`/work/${work.id}`"
-          @click="setFilter"
         />
       </p>
       <CtaButton
@@ -42,7 +41,6 @@
   import { useModal, allowedModalNames } from '../composables/modal'
   import { TranslateKey } from '../localizations/localizations'
   import { CollectionWorkEnhanced } from '../types'
-  import { useWorks } from '../composables/works'
   import Link from './Link.vue'
   import CtaButton from './CtaButton.vue'
   
@@ -58,10 +56,6 @@
 
   const translate = inject(TranslateKey, () => '')
 
-  const { setSelectedFilter } = useWorks()
-  const setFilter = () => {
-    setSelectedFilter(props.work.workState)
-  }
 
   const oneLeft = computed(() => {
     return props.work.presentation.presentationType === 'oneLeft'

@@ -95,22 +95,13 @@
   })
 
   const detailImages = computed(() => {
-    // return filteredWorks.value.map(work => {
-    //   return {
-    //     id: work.id,
-    //     image: work.presentation.presentationImages[1],
-    //     link: `/works/${work.id}`
-    //   }
-    // })
-    const im = filteredWorks.value.map(work => {
+    return filteredWorks.value.map(work => {
       return {
         id: work.id,
         image: work.presentation.presentationImages[1],
         link: `/works/${work.id}`
       }
     })
-    console.log('🚀 ~ file: WorkDetail.vue:112 ~ im ~ im:', im)
-    return im
   })
 
   const gridItems = computed(() => {
