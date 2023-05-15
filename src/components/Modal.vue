@@ -7,7 +7,7 @@
       :class="classes.wClass"
     >
       <button 
-        class="absolute top-[15px] right-[15px] z-[10010] bg-center bg-cover w-8 h-8 transition-all duration-500 ease-in-out"
+        class="absolute top-[15px] right-[15px] z-[10010] bg-center bg-cover w-8 h-8 transition-all duration-200 ease-in-out"
         :class="classes.closeBtnClass"
         @click="closeModal()"
       />

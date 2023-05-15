@@ -14,6 +14,9 @@
             class="text-[25px] font-bold"
             @click="closeNav()"
           />
+          <HomeButton 
+            addClass="hover:bg-home-icon-red"
+          />
         </div>
         <div class="flex flex-col sm:flex-row sm:space-x-[80px]">
           <div class="flex flex-col max-sm:mt-6">
@@ -68,7 +71,7 @@
         </div>
       </div>
       <button 
-        class="absolute top-[3rem] right-10 bg-close-default hover:bg-close-hover bg-center bg-cover w-10 h-10 transition-all duration-500 ease-in-out"
+        class="absolute top-[3rem] right-10 bg-close-default hover:bg-close-hover bg-center bg-cover w-10 h-10 transition-all duration-200 ease-in-out"
         @click="closeNav()"
       />
     </nav>
@@ -80,6 +83,7 @@
   import { useNavigation } from '../composables/navigation'
   import { TranslateKey } from '../localizations/localizations'
   import Link from './Link.vue'
+  import HomeButton from './HomeButton.vue'
 
   const { 
     navClassNames,

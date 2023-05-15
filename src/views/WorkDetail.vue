@@ -38,10 +38,23 @@
       <div
         class="w-[90%] 2xl:w-[70%] mx-auto"
       >
-        <!-- <p class="mt-[100px] mb-[60px] ml-[5%] sm:ml-[10%] text-6xl"> -->
-        <p class="mt-[100px] mb-[60px] ml-[10px] md:ml-[20px] text-6xl">
+        <p class="mt-[100px] ml-[10px] md:ml-[20px] text-6xl">
           {{ translate('see.also.others') }}
         </p>
+        <div
+          class="flex ml-[10px] md:ml-[20px] mb-[60px]"
+        >
+          You are browsing&nbsp;
+          <Link 
+            :text="translate(`collection.link.${selectedFilter}`)" 
+            :link="`/works/${selectedFilter}`" 
+          />. 
+          Change to&nbsp;
+          <Link 
+            :text="translate(`collection.link.${alternativCollection}`)" 
+            :link="`/works/${alternativCollection}`" 
+          />
+        </div>
 
         <div class="w-full flex justify-center items-center">
           <Gallery
@@ -64,6 +77,7 @@
   import Grid from '../components/Grid.vue'
   import Gallery from '../components/Gallery.vue'
   import WorkOverviewSummary from '../components/WorkOverviewSummary.vue'
+  import Link from '../components/Link.vue'
   import { useRoute } from 'vue-router'
   import { useWorks } from '../composables/works'
   import { TranslateKey } from '../localizations/localizations'
@@ -72,12 +86,11 @@
 
   const route = useRoute()
   const id = ref(route.params.id)
-  const { filteredWorks } = useWorks()
+  const { filteredWorks, selectedFilter } = useWorks()
   const translate = inject(TranslateKey, () => '')
-  const { openModal, modalName } = useModal()
+  const { openModal } = useModal()
 
   const openDetail = (data: {id: string}) => {
-    // console.log('🚀 ~ file: WorkDetail.vue:82 ~ openDetail ~ id:', typeof data.id)
     openModal(allowedModalNames.WorkDetailGallery, {work: currentWork.value, currentDetail: data.id})
   }
 
@@ -114,6 +127,10 @@
 
   const galleryStyleSettings = computed(() => {
     return PAGES_DATA[DETAIL].otherDetailsGallery?.galleryStyle
+  })
+
+  const alternativCollection = computed(() => {
+    return selectedFilter.value === 'available' ? 'unavailable' : 'available'
   })
 
   watch(

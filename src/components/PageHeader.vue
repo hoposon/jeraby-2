@@ -6,6 +6,9 @@
     :class="[page.classNames?.bg, page.classNames?.text]"
     :style="{'background-image': 'url(' + page.bgImage + ')' }"
   >
+    <HomeButton 
+      v-if="navState === 'closed'"
+    /> 
     <h1
       ref="titleEl"
       :class="page.classNames?.title"
@@ -31,6 +34,7 @@
   import { useNavigation } from '../composables/navigation'
   import BurgerButton from '../components/BurgerButton.vue'
   import { PageHeader } from '../types'
+  import HomeButton from './HomeButton.vue'
   import { TranslateKey } from '../localizations/localizations'
   import { useTextScramble } from '../composables/textScramble'
 

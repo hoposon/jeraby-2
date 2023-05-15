@@ -9,6 +9,7 @@
     {{
       text
     }}
+    <!-- {{ link }} -->
   </router-link>
 </template>
 
