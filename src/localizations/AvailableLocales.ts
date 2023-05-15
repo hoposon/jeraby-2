@@ -1,5 +1,5 @@
 export enum AvailableLocales {
-'en-ww' = 'ar',      // arabic
+'en-ww' = 'en',      // en
 'cs-cz' = 'cs',      // czech
 // 'de-ch' = 'de',      // Deutschland
 // 'de-de' = 'de',      // Schweiz (Deutsch)

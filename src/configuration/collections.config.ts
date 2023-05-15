@@ -5,7 +5,7 @@ const collections: {[key: string]: Collection} = {
     id: 'jeraby-collection',
     pageHeader: {
       title: 'jeraby.collection.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],

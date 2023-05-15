@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { ScrollData } from '../composables/scroll'
 
-const navClassNames = ref<string[]|[]>(['sm:-translate-y-[35vh]', '-translate-y-[100vh]'])
+const navClassNames = ref<string[]|[]>(['md:-translate-y-[35vh]', '-translate-y-[100vh]'])
 const navState = ref<string>('closed')
 
 const navScrollWatcherState = ref<string>('closed')
@@ -22,7 +22,7 @@ export const useNavigation = () => {
   const closeNav = () => {
     if (navState.value === 'opened') {
       navState.value = 'closed'
-      navClassNames.value = ['sm:-translate-y-[35vh]', '-translate-y-[100vh]']
+      navClassNames.value = ['md:-translate-y-[35vh]', '-translate-y-[100vh]']
     }
   }
 

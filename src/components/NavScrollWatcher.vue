@@ -60,22 +60,22 @@
 
   const collection = filteredWorks.value
   const showNextButton = computed(() => {
-    if (!route.params.collection || !route.params.id) return false
+    if (!route.params.id) return false
 
-    const workIndex = collection.findIndex(work => work.id === route.params.id)
-    if (workIndex !== -1 && workIndex < collection.length-1) {
-      return `/works/${collection[workIndex+1].id}`
+    const workIndex = filteredWorks.value.findIndex(work => work.id === route.params.id)
+    if (workIndex !== -1 && workIndex < filteredWorks.value.length-1) {
+      return `/work/${filteredWorks.value[workIndex+1].id}`
     } else {
       return false
     }
   })
 
   const showPrevButton = computed(() => {
-    if (!route.params.collection || !route.params.id) return false
+    if (!route.params.id) return false
     
-    const workIndex = collection.findIndex(work => work.id === route.params.id)    
+    const workIndex = filteredWorks.value.findIndex(work => work.id === route.params.id)    
     if (workIndex !== -1 && workIndex > 0) {
-      return `/works/${collection[workIndex-1].id}`
+      return `/work/${filteredWorks.value[workIndex-1].id}`
     } else {
       return false
     }

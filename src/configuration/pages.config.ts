@@ -53,7 +53,8 @@ export const PAGES_DATA: PageData = {
     id: HOME,
     pageHeader: {
       title: 'home.title',
-      bgImage: '/images/home-jerab.png',
+      // bgImage: '/images/crane-icon-white.png',
+      bgImage: '/images/crane-icon-white.png',
       description: 'home.description',
       classNames: {
         'text': ['text-neutral-300'],
@@ -68,7 +69,7 @@ export const PAGES_DATA: PageData = {
     id: ABOUT,
     pageHeader: {
       title: 'about.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       description: 'about.description',
       classNames: {
         'bg': ['bg-amber-400'],
@@ -81,7 +82,7 @@ export const PAGES_DATA: PageData = {
     id: CONTACT,
     pageHeader: {
       title: 'contact.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       description: 'contact.description',
       classNames: {
         'bg': ['bg-amber-400'],
@@ -117,7 +118,7 @@ export const PAGES_DATA: PageData = {
     id: COLLECTION_AVAILABLE,
     pageHeader: {
       title: 'available.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       description: 'available.description',
       classNames: {
         'bg': ['bg-amber-400'],
@@ -130,7 +131,7 @@ export const PAGES_DATA: PageData = {
     id: COLLECTION_UNAVAILABLE,
     pageHeader: {
       title: 'unavailable.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       description: 'unavailable.description',
       classNames: {
         'bg': ['bg-amber-400'],

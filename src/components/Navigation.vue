@@ -1,25 +1,25 @@
 <template>
   <Transition name="fade">
     <nav
-      class="fixed flex w-full h-full sm:h-[35vh] z-[10000] justify-center pl-[10vw] sm:pr-[30%] pt-12 sm:pt-[10vh] bg-neutral-300 sm:bg-neutral-300/90 transition-all duration-500 ease-in-out"
+      class="fixed flex w-full h-full md:h-[35vh] z-[10000] justify-center pl-[10vw] md:pr-[20%] xl:pr-[30%] pt-12 md:pt-[10vh] bg-neutral-300 md:bg-neutral-300/90 transition-all duration-500 ease-in-out"
       :class="navClassNames"
     >
       <div
-        class="flex flex-col sm:flex-row w-full sm:justify-between text-gray-900"
+        class="flex flex-col md:flex-row w-full md:justify-between text-gray-900"
       >
         <div>
-          <Link
-            :text="'Michaela Houf'"
-            :link="'/'"
-            class="text-[25px] font-bold"
-            @click="closeNav()"
-          />
           <HomeButton 
             addClass="hover:bg-home-icon-red"
           />
+          <Link
+            :text="'Michaela Houf'"
+            :link="'/'"
+            class="text-[25px] font-bold max-md:mt-12 md:mr-[80px] whitespace-nowrap"
+            @click="closeNav()"
+          />
         </div>
-        <div class="flex flex-col sm:flex-row sm:space-x-[80px]">
-          <div class="flex flex-col max-sm:mt-6">
+        <div class="flex flex-col md:flex-row md:space-x-[80px] md:mt-2">
+          <div class="flex flex-col max-md:mt-6">
             <div 
               class="flex items-center text-gray-900/60 after:content-[''] after:inline-block after:w-[25px] after:h-[1px] after:bg-gray-900/60 after:ml-2"
             >
@@ -27,7 +27,7 @@
             </div>
             <div class="mt-1">
               <div
-                class="max-sm:ml-16"
+                class="max-md:ml-16"
               >
                 <Link
                   :text="translate('nav.available.works')"
@@ -36,7 +36,7 @@
                 />
               </div>
               <div
-                class="max-sm:ml-16"
+                class="max-md:ml-16"
               >
                 <Link
                   :text="translate('nav.unavailable.works')"
@@ -46,11 +46,11 @@
               </div>
             </div>
           </div>
-          <div class="flex flex-col max-sm:mt-6">
+          <div class="flex flex-col max-md:mt-6">
             <div class="flex items-center text-gray-900/60 after:content-[''] after:inline-block after:w-[25px] after:h-[1px] after:bg-gray-900/60 after:ml-2">
               {{ translate('nav.menu') }}
             </div>
-            <div class="flex flex-col mt-1 max-sm:ml-16">
+            <div class="flex flex-col mt-1 max-md:ml-16">
               <div>
                 <Link
                   :text="translate('nav.about')"
@@ -66,6 +66,17 @@
                   @click="closeNav()"
                 />
               </div>
+              <div>
+              <LinkButton
+                text="CS"
+                @click="changeLocale('cs-cz')"
+              />
+              |
+              <LinkButton
+                text="EN"
+                @click="changeLocale('en-ww')"
+              />
+            </div>
             </div>
           </div>
         </div>
@@ -81,14 +92,17 @@
 <script setup lang="ts">
   import { inject } from 'vue'
   import { useNavigation } from '../composables/navigation'
-  import { TranslateKey } from '../localizations/localizations'
+  import { TranslateKey, useLocalizations } from '../localizations/localizations'
   import Link from './Link.vue'
   import HomeButton from './HomeButton.vue'
+  import LinkButton from './LinkButton.vue'
 
   const { 
     navClassNames,
     closeNav 
   } = useNavigation()
+
+  const { changeLocale } = useLocalizations()
 
   const translate = inject(TranslateKey, () => '')
 

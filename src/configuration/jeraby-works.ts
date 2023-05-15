@@ -6,7 +6,7 @@ const jeraby: CollectionWork[] = [
     
     pageHeader: {
       title: 'jeraby.collection.works.jeraby-1.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
@@ -117,7 +117,7 @@ const jeraby: CollectionWork[] = [
     
     pageHeader: {
       title: 'jeraby.collection.works.jeraby-2.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
@@ -228,7 +228,7 @@ const jeraby: CollectionWork[] = [
     
     pageHeader: {
       title: 'jeraby.collection.works.jeraby-3.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
@@ -339,7 +339,7 @@ const jeraby: CollectionWork[] = [
     
     pageHeader: {
       title: 'jeraby.collection.works.jeraby-4.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
@@ -450,7 +450,7 @@ const jeraby: CollectionWork[] = [
     
     pageHeader: {
       title: 'jeraby.collection.works.jeraby-5.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
@@ -561,7 +561,7 @@ const jeraby: CollectionWork[] = [
     
     pageHeader: {
       title: 'jeraby.collection.works.jeraby-6.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
@@ -672,7 +672,7 @@ const jeraby: CollectionWork[] = [
     
     pageHeader: {
       title: 'jeraby.collection.works.jeraby-7.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
@@ -783,7 +783,7 @@ const jeraby: CollectionWork[] = [
     
     pageHeader: {
       title: 'jeraby.collection.works.jeraby-8.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
@@ -894,7 +894,7 @@ const jeraby: CollectionWork[] = [
     
     pageHeader: {
       title: 'jeraby.collection.works.jeraby-9.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
@@ -1005,7 +1005,7 @@ const jeraby: CollectionWork[] = [
     
     pageHeader: {
       title: 'jeraby.collection.works.jeraby-10.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
@@ -1116,7 +1116,7 @@ const jeraby: CollectionWork[] = [
     
     pageHeader: {
       title: 'jeraby.collection.works.jeraby-11.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
@@ -1227,7 +1227,7 @@ const jeraby: CollectionWork[] = [
     
     pageHeader: {
       title: 'jeraby.collection.works.jeraby-12.title',
-      bgImage: '/images/home-jerab.png',
+      bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],

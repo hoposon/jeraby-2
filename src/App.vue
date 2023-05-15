@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="!configLoading"
+    v-if="!configLoading && !localeLoading"
     class="main overflow-x-hidden"
   >
     <Navigation />
@@ -17,6 +17,7 @@
   import { useScroll } from './composables/scroll'
   import { useWorks } from './composables/works'
   import { useModal } from './composables/modal'
+  import { useLocalizations } from './localizations/localizations'
 
   import Navigation from './components/Navigation.vue'
   import NavScrollWatcher from './components/NavScrollWatcher.vue'
@@ -27,6 +28,7 @@
 
   const { loadWorksConfig, configLoading } = useWorks()
   const { modalName } = useModal()
+  const { localeLoading } = useLocalizations()
 
   onBeforeMount(() => {
     loadWorksConfig()
