@@ -22,7 +22,7 @@
 
 
   const pageHeader = computed(() => {
-    return PAGES_DATA[selectedFilter.value?.toLowerCase()].pageHeader
+    return PAGES_DATA[selectedFilter.value?.toLowerCase()||'available'].pageHeader
   })
 
 </script>

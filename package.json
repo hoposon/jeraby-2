@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "npm run gen-config && vite",
-    "build": "vue-tsc && vite build",
+    "build": "npm run gen-config && vite build",
     "preview": "vite preview",
     "ts-merge-config": "tsc mergeConfigs.ts --module ESNext --target ESNext",
     "gen-config": "npm run ts-merge-config && node mergeConfigs.js"
