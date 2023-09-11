@@ -7,9 +7,8 @@
 
   import ModalWorkContact from '../components/ModalWorkContact.vue'
   import ModalWorkDetailGallery from '../components/ModalWorkDetailGallery.vue'
-import { Component } from 'vue'
 
-  const modals: {[key: string]: Component} = {
+  const modals: {[key: string]: any} = {
     'WorkContact': ModalWorkContact,
     'WorkDetailGallery': ModalWorkDetailGallery
   }
