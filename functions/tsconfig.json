@@ -7,11 +7,14 @@
     "strict": true,
     "resolveJsonModule": true,
     "useDefineForClassFields": true,
-    "jsx": "preserve",
     "isolatedModules": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "noEmit": true
+    // "noEmit": true
+    // "noImplicitReturns": true,
+    // "noUnusedLocals": true,
+    // "sourceMap": true,
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "compileOnSave": true,
+  "include": ["*.ts", "*.d.ts"],
 }
