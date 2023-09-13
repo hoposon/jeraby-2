@@ -3,8 +3,8 @@ import {Request, Response, NextFunction} from 'express';
 
 const verifyRecaptcha = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   console.log('🚀 ~ file: verifyRecaptcha.ts:21 ~ verifyRecaptcha ~ verifyRecaptcha:');
-  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-  const token = req.body.token;
+  // const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+  // const token = req.body.token;
   // const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`;
 
   try {
