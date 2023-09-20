@@ -1,19 +1,7 @@
 import axios from "axios"
 
-export interface EmeilDataItem {
-  value: string, 
-  isValid: boolean
-}
-// export interface EmailData {
-//   'id-name': EmeilDataItem,
-//   'id-surname': EmeilDataItem,
-//   'id-email': EmeilDataItem,
-//   'id-phone': EmeilDataItem,
-//   'id-message': EmeilDataItem,
-//   'subject': EmeilDataItem
-// }
 export interface EmailData {
-  [key:string]: EmeilDataItem
+  [key:string]: string
 }
 
 const senEmailUrl = "https://us-central1-jeraby-84a7e.cloudfunctions.net/app/send-email"

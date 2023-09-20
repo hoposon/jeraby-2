@@ -30,7 +30,9 @@
         >
           {{ translate('contact.form') }}
         </h3>
-        <ContactForm />
+        <ContactForm 
+          contact-subject="Jeraby, kontakt"
+        />
       </div>
     </div>
   </div>

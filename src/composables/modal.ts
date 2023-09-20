@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { CollectionWork } from './collections'
+import { CollectionWork } from '../types'
 
 export interface ModalData {
   work?: CollectionWork

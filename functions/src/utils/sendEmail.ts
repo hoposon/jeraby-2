@@ -5,17 +5,9 @@ export interface SendMailError {
   errorCode: 'MISING_EMAIL_FIELDS',
   errorMessage: string
 }
-interface EmailDataItem {
-  value: string, 
-  isValid: boolean
-}
+
 export interface EmailData {
-  'id-name': EmailDataItem,
-  'id-surname': EmailDataItem,
-  'id-email': EmailDataItem,
-  'id-phone': EmailDataItem,
-  'id-message': EmailDataItem,
-  'subject': EmailDataItem
+  [key:string]: string
 }
 interface MailOptions {
   from: string,
@@ -62,16 +54,17 @@ const send = async (emailData: EmailData): Promise<void> => {
     if (emailData && emailData['id-name'] && emailData['id-surname'] && emailData['id-email'] && emailData['id-phone'] && emailData['id-message'] && emailData['subject']) {
 
       const mailOptions = {
-        from: emailData['id-email'].value,
+        from: emailData['id-email'],
         to: 'hoposon@gmail.com',
-        subject: emailData['subject'].value,
+        subject: emailData['subject'],
         text: `
-          first name: ${emailData['id-name'].value}
-          last name: ${emailData['id-surname'].value}
-          email: ${emailData['id-email'].value}
-          phone: ${emailData['id-phone'].value}
-          subject: ${emailData['subject'].value}
-          message: ${emailData['id-message'].value}
+          first name: ${emailData['id-name']}
+          last name: ${emailData['id-surname']}
+          email: ${emailData['id-email']}
+          phone: ${emailData['id-phone']}
+          subject: ${emailData['subject']}
+          work status: ${emailData['work-status']}
+          message: ${emailData['id-message']}
         `
       }
 

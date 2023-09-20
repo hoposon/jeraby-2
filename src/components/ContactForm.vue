@@ -60,6 +60,7 @@
       text="modal.work.contact.submit"
       class="w-[80%] sm:w-[60%]"
       :disabled="!isValid"
+      :processing="processing"
     />
     <div 
       class="g-recaptcha"
@@ -85,9 +86,11 @@
   const { loadReCaptcha, recaptchaSiteKey, recaptcha } = useRecaptcha() 
   const { sendContact } = useContact()
   const { openModal } = useModal()
+  const processing = ref<boolean>(false)
 
   interface Props {
-    contactSubject: string
+    contactSubject: string,
+    workStatus: 'unavailable'|'available'
   }
 
   const props = defineProps<Props>()
@@ -105,6 +108,7 @@
   const validateAndRecaptcha = () => {
     if (isValid.value) {
       try {
+        processing.value = true
         recaptcha()
       } catch (e) {
         openModal(allowedModalNames.WorkContactError)
@@ -116,7 +120,13 @@
   const submitForm = async (token: string) => {
     if (isValid.value) {
       try {
-        sendContact(token, inputStates.value)
+        sendContact(
+          token,
+          {
+            ...mapInputStatesToEmailData(),
+            ...emailData.value
+          }
+        )
         openModal(allowedModalNames.WorkContactSuccess)
       } catch (e) {
         openModal(allowedModalNames.WorkContactError)
@@ -124,14 +134,31 @@
     }
   }
 
-  const inputStates = ref<EmailData>({
+  interface InputStates {
+    [key: string]: {
+      value: string,
+      isValid: boolean
+    }
+  }
+
+  const inputStates = ref<InputStates>({
     'id-name': { value: '', isValid: false },
     'id-surname': { value: '', isValid: false },
     'id-email': { value: '', isValid: false },
     'id-phone': { value: '', isValid: false },
-    'id-message': { value: '', isValid: false },
-    'subject': { value: props.contactSubject, isValid: true}
+    'id-message': { value: '', isValid: false }
   })
+
+  const emailData = ref<EmailData>({
+    'work-status': props.workStatus,
+    'subject': props.contactSubject
+  })
+
+  const mapInputStatesToEmailData = () => {
+    const emailData: EmailData = {}
+    Object.keys(inputStates.value).forEach(key => emailData[key] = inputStates.value[key].value)
+    return emailData
+  }
 
   const isValid = computed(() => {
     return Object.values(inputStates.value).every((input) => input.isValid)
