@@ -1,67 +1,63 @@
-// import { createApi } from './axiosAPI'
-import Mailjet from 'node-mailjet';
-// const api = createApi({
-//   // btoa('0f5e3718599c60c28e56826f9c8bdb88:6abac0a099a72a172bb1c8ef75f036a8')
-//   authorization: `Basic ${process.env.RECAPTCHA_SECRET_KEY}`,
-// });
-// const api = createApi({});
-const send = async (email) => {
-    const tempEmail = {
-        from: "lukas.creane@gmail.com",
-        subject: "test email",
-        message: "Test of email message"
-    };
-    if (tempEmail && tempEmail.subject && tempEmail.message && tempEmail.from) {
-        console.log('🚀 ~ file: sendEmail.ts:80 ~ send ~ tempEmail:', tempEmail);
-        try {
-            const mailjet = Mailjet.apiConnect(process.env.MJ_APIKEY_PUBLIC || '', process.env.MJ_APIKEY_PRIVATE || '');
-            console.log('🚀 ~ file: sendEmail.ts:83 ~ send ~ process.env.MJ_APIKEY_PUBLIC:', process.env.MJ_APIKEY_PUBLIC);
-            console.log('🚀 ~ file: sendEmail.ts:84 ~ send ~ process.env.MJ_APIKEY_PRIVATE:', process.env.MJ_APIKEY_PRIVATE);
-            const response = await mailjet
-                .post("send", { 'version': 'v3.1' })
-                .request({
-                "Messages": [
-                    {
-                        "From": {
-                            "Email": tempEmail.from,
-                            "Name": "Lukas"
-                        },
-                        "To": [
-                            {
-                                "Email": "hoposon@gmail.com",
-                                "Name": "Lukas"
-                            }
-                        ],
-                        "Subject": tempEmail.subject,
-                        "TextPart": "My first Mailjet email",
-                        "HTMLPart": tempEmail.message,
-                        "CustomID": "AppGettingStartedTest"
-                    }
-                ]
-            });
-            console.log('🚀 ~ file: sendEmail.ts:110 ~ send ~ response:', response.body);
+import nodemailer from 'nodemailer';
+const transporter = nodemailer.createTransport({
+    host: "smtp.mailgun.org",
+    port: 587,
+    secure: false,
+    auth: {
+        user: "postmaster@sandbox233f364ae9ff4877a2eb5132bb86a113.mailgun.org",
+        pass: process.env.MAILGUN_PASSWORD,
+    },
+});
+const wrapedSendMail = (mailOptions) => {
+    return new Promise((resolve, reject) => {
+        const transporter = nodemailer.createTransport({
+            host: "smtp.mailgun.org",
+            port: 587,
+            secure: false,
+            auth: {
+                user: "postmaster@sandbox233f364ae9ff4877a2eb5132bb86a113.mailgun.org",
+                pass: process.env.MAILGUN_PASSWORD,
+            },
+        });
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                reject(error); // or use rejcet(false) but then you will have to handle errors
+            }
+            else {
+                resolve(true);
+            }
+        });
+    });
+};
+const send = async (emailData) => {
+    try {
+        if (emailData && emailData['id-name'] && emailData['id-surname'] && emailData['id-email'] && emailData['id-phone'] && emailData['id-message'] && emailData['subject']) {
+            const mailOptions = {
+                from: emailData['id-email'].value,
+                to: 'hoposon@gmail.com',
+                subject: emailData['subject'].value,
+                text: `
+          first name: ${emailData['id-name'].value}
+          last name: ${emailData['id-surname'].value}
+          email: ${emailData['id-email'].value}
+          phone: ${emailData['id-phone'].value}
+          subject: ${emailData['subject'].value}
+          message: ${emailData['id-message'].value}
+        `
+            };
+            try {
+                await wrapedSendMail(mailOptions);
+            }
+            catch (e) {
+                throw e;
+            }
         }
-        catch (e) {
-            console.log("send email exteption >>", e);
+        else {
+            throw { 'status': 'ERROR', 'error': 'Missing email fields', 'errorCode': 'MISING_EMAIL_FIELDS' };
         }
     }
-    // const message: EmailMessage = {
-    //   'From': {
-    //     'Email': 'houf.crane@gmail.com',
-    //     'Name': 'Lukas',
-    //   },
-    //   'To': [
-    //     {
-    //       'Email': 'houf.crane@gmail.com',
-    //       'Name': 'Lukas',
-    //     },
-    //   ],
-    //   'Subject': email.subject,
-    //   'HTMLPart': email.message,
-    // };
-    // api.post('https://api.mailjet.com/v3.1/send', {
-    //   'Messages': [message],
-    // });
-    // console.log(message);
+    catch (e) {
+        throw e;
+    }
 };
 export { send, };

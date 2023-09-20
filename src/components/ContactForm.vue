@@ -75,6 +75,7 @@
   import { TranslateKey, useLocalizations } from '../localizations/localizations'
   import { useRecaptcha } from '../composables/recaptcha'
   import { EmailData, useContact } from '../composables/contact'
+  import { useModal, allowedModalNames } from '../composables/modal'
   import StInput from './StInput.vue'
   import StTextArea from './StTextArea.vue'
   import CtaButton from './CtaButton.vue'
@@ -83,6 +84,13 @@
   const { locale } = useLocalizations()
   const { loadReCaptcha, recaptchaSiteKey, recaptcha } = useRecaptcha() 
   const { sendContact } = useContact()
+  const { openModal } = useModal()
+
+  interface Props {
+    contactSubject: string
+  }
+
+  const props = defineProps<Props>()
 
   onBeforeMount(() => {
     // set recaptcha callback functions
@@ -96,13 +104,23 @@
 
   const validateAndRecaptcha = () => {
     if (isValid.value) {
-      recaptcha()
+      try {
+        recaptcha()
+      } catch (e) {
+        openModal(allowedModalNames.WorkContactError)
+      }
     }
+    // openModal(allowedModalNames.WorkContactError)
   }
 
   const submitForm = async (token: string) => {
     if (isValid.value) {
-      sendContact(token, inputStates.value)
+      try {
+        sendContact(token, inputStates.value)
+        openModal(allowedModalNames.WorkContactSuccess)
+      } catch (e) {
+        openModal(allowedModalNames.WorkContactError)
+      }      
     }
   }
 
@@ -111,7 +129,8 @@
     'id-surname': { value: '', isValid: false },
     'id-email': { value: '', isValid: false },
     'id-phone': { value: '', isValid: false },
-    'id-message': { value: '', isValid: false }
+    'id-message': { value: '', isValid: false },
+    'subject': { value: props.contactSubject, isValid: true}
   })
 
   const isValid = computed(() => {

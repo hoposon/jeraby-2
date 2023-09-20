@@ -51,6 +51,7 @@ export const useRecaptcha = (recaptchaSiteKeyOverride?: string) => {
       // }
     } catch (e) {
       console.log('🚀 ~ file: recaptcha.ts:33 ~ recaptcha ~ e:', e)
+      throw e
       // this.setError({message: 'error.general'})
       // this.errorHandler(e);
     }

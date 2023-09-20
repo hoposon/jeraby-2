@@ -10,7 +10,7 @@ const modalData = ref<any>(null)
 
 export function useModal() {
 
-  const openModal = (name: string, data: any) => {
+  const openModal = (name: string, data: any=null ) => {
     modalName.value = name
     modalData.value = data
   }
@@ -30,5 +30,7 @@ export function useModal() {
 
 export enum allowedModalNames {
   'WorkContact' = 'WorkContact',
+  'WorkContactError' = 'WorkContactError',
+  'WorkContactSuccess' = 'WorkContactSuccess',
   'WorkDetailGallery' = 'WorkDetailGallery'
 }
