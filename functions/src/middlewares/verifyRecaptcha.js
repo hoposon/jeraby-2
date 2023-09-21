@@ -1,18 +1,30 @@
+import axios from 'axios';
 const verifyRecaptcha = async (req, res, next) => {
-    console.log('🚀 ~ file: verifyRecaptcha.ts:21 ~ verifyRecaptcha ~ verifyRecaptcha:');
-    // const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-    // const token = req.body.token;
-    // const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`;
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+    // test - always valid recaptcha
+    // const secretKey = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+    if (!req.body || !req.body.token) {
+        res.status(400).json({ 'status': 'ERROR', 'error': "Missing recaptcha response token" });
+    }
+    const token = req.body.token;
+    const url = `https://www.google.com/recaptcha/api/siteverify`;
     try {
-        // await axios.post(url);
-        // const response = await axios.post(url);
-        // const googleResponse = response.data;
-        next(); // Call the next middleware or route handler
-        // You can use the google_response if required, e.g., to add custom verification checks.
-        // res.json({ google_response });
+        const captchaParams = {
+            params: {
+                secret: secretKey,
+                response: token
+            }
+        };
+        const response = (await axios.post(url, {}, captchaParams)).data;
+        if (response.success) {
+            next();
+        }
+        else {
+            res.status(401).json({ 'status': 'ERROR', 'error': "reCaptcha not passed" });
+        }
     }
     catch (error) {
-        res.status(401).json({ error: error.message }); // Send only the error message for clarity
+        res.status(500).json({ 'status': 'ERROR', 'error': error.message }); // Send only the error message for clarity
     }
 };
 export { verifyRecaptcha, };

@@ -1,7 +1,7 @@
 <template>
   <form
     class="w-full flex flex-col items-center justify-center"
-    @submit.prevent="submitForm"
+    @submit.prevent="validateAndRecaptcha"
   >
     <div
       class="w-[80%] gap-[2%] flex flex-col xl:flex-row"
@@ -10,7 +10,7 @@
         id="id-name"
         type="text"
         :label="translate('modal.work.contact.name')"
-        :validation-pattern="() => new RegExp(/^[a-zA-Z]+$/)"
+        :validation-pattern="() => new RegExp(/^.+$/)"
         :validation-message="'modal.work.contact.validation.name'"
         class="w-full xl:w-[49%] mb-3"
         @input="handleInput"
@@ -19,7 +19,7 @@
         id="id-surname"
         type="text"
         :label="translate('modal.work.contact.surname')"
-        :validation-pattern="() => new RegExp(/^[a-zA-Z]+$/)"
+        :validation-pattern="() => new RegExp(/^.+$/)"
         :validation-message="'modal.work.contact.validation.surname'"
         class="w-full xl:w-[49%] mb-3"
         @input="handleInput"
@@ -51,7 +51,7 @@
       id="id-message"
       type="text"
       :label="translate('modal.work.contact.message')"
-      :validation-pattern="() => new RegExp(/^[a-zA-Z0-9]+$/)"
+      :validation-pattern="() => new RegExp(/^.+$/)"
       :validation-message="'modal.work.contact.validation.message'"
       class="w-[80%] mb-7"
       @input="handleInput"
@@ -60,21 +60,82 @@
       text="modal.work.contact.submit"
       class="w-[80%] sm:w-[60%]"
       :disabled="!isValid"
+      :processing="processing"
     />
+    <div 
+      class="g-recaptcha"
+      :data-sitekey=recaptchaSiteKey
+      data-callback="sendCaptchaFn"
+      data-size="invisible">
+    </div>
   </form>
 </template>
 
 <script setup lang="ts">
-  import { inject, ref, computed } from 'vue'
-  import { TranslateKey } from '../localizations/localizations'
+  import { inject, ref, computed, onBeforeMount, onMounted} from 'vue'
+  import { TranslateKey, useLocalizations } from '../localizations/localizations'
+  import { useRecaptcha } from '../composables/recaptcha'
+  import { EmailData, useContact } from '../composables/contact'
+  import { useModal, allowedModalNames } from '../composables/modal'
   import StInput from './StInput.vue'
   import StTextArea from './StTextArea.vue'
   import CtaButton from './CtaButton.vue'
 
   const translate = inject(TranslateKey, () => '')
+  const { locale } = useLocalizations()
+  const { loadReCaptcha, recaptchaSiteKey, recaptcha } = useRecaptcha() 
+  const { sendContact } = useContact()
+  const { openModal } = useModal()
+  const processing = ref<boolean>(false)
 
-  const submitForm = () => {
-    console.log('submit')
+  interface Props {
+    contactSubject: string,
+    workStatus: 'unavailable'|'available'
+  }
+
+  const props = defineProps<Props>()
+
+  onBeforeMount(() => {
+    // set recaptcha callback functions
+    window.sendCaptchaFn = submitForm;
+    // window.loginCaptchaExpFn = this.captchaExpired;
+    // window.loginCaptchaErrFn = this.captchaErr;
+  })
+  onMounted(() => {
+    loadReCaptcha(locale.value)
+  })
+
+  const validateAndRecaptcha = () => {
+    // if (isValid.value) {
+    //   try {
+    //     processing.value = true
+    //     recaptcha()
+    //   } catch (e) {
+    //     openModal(allowedModalNames.ContactError)
+    //   }
+    // }
+    processing.value = true
+    setTimeout(() => {
+      openModal(allowedModalNames.ContactSuccess)
+    }, 2000)
+    
+  }
+
+  const submitForm = async (token: string) => {
+    if (isValid.value) {
+      try {
+        sendContact(
+          token,
+          {
+            ...mapInputStatesToEmailData(),
+            ...emailData.value
+          }
+        )
+        openModal(allowedModalNames.ContactSuccess)
+      } catch (e) {
+        openModal(allowedModalNames.ContactError)
+      }      
+    }
   }
 
   interface InputStates {
@@ -91,6 +152,17 @@
     'id-phone': { value: '', isValid: false },
     'id-message': { value: '', isValid: false }
   })
+
+  const emailData = ref<EmailData>({
+    'work-status': props.workStatus,
+    'subject': props.contactSubject
+  })
+
+  const mapInputStatesToEmailData = () => {
+    const emailData: EmailData = {}
+    Object.keys(inputStates.value).forEach(key => emailData[key] = inputStates.value[key].value)
+    return emailData
+  }
 
   const isValid = computed(() => {
     return Object.values(inputStates.value).every((input) => input.isValid)

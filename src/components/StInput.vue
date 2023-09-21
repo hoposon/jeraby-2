@@ -51,11 +51,11 @@
   }>()
 
   const inputValue = ref('')
+  const isFilled = computed(() => inputValue.value.length > 0)
+  const isValid = ref(true)
 
   const translate = inject(TranslateKey, () => '')
 
-  const isFilled = computed(() => inputValue.value.length > 0)
-  const isValid = ref(true)
 
   let regex: null|RegExp = null;
   if (typeof props.validationPattern === 'function') {
@@ -70,7 +70,6 @@
     
     if (regex) {
       state.isValid = regex.test(inputValue.value)
-      console.log('🚀 ~ file: StInput.vue:70 ~ validate ~ state.isValid:', state.isValid)
     } else if (props.required && inputValue.value.length === 0) {
       state.isValid = false
     } else {

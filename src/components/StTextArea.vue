@@ -10,7 +10,7 @@
       :aria-label="translate(label)"
       class="peer w-full h-[150px] pl-2 pt-5 border border-gray-900 rounded-md focus:bg-gray-900/10"
       :class="{'filled': isFilled}"
-      @input="validate"
+      @input="validate()"
       @blur="validate(true)"
     />
     <label 
@@ -52,20 +52,22 @@
   }>()
 
   const inputValue = ref('')
+  const isFilled = computed(() => inputValue.value.length > 0)
   const isValid = ref(true)
 
   const translate = inject(TranslateKey, () => '')
 
-  const isFilled = computed(() => inputValue.value.length > 0)
-
+  let regex: null|RegExp = null;
+  if (typeof props.validationPattern === 'function') {
+    regex = props.validationPattern()
+  }
   const validate = (setInputValidity?: boolean) => {
     const state = {
       id: props.id,
       value: inputValue.value,
       isValid: false
     }
-    if (props.validationPattern) {
-      const regex = new RegExp(props.validationPattern)
+    if (regex) {
       state.isValid = regex.test(inputValue.value)
     } else if (props.required && inputValue.value.length === 0) {
       state.isValid = false

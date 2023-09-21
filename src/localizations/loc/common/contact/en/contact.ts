@@ -12,4 +12,6 @@ export default {
   'modal.work.contact.validation.email': 'Please enter your email',
   'modal.work.contact.validation.phone': 'Please enter your phone',
   'modal.work.contact.validation.message': 'Please enter your message',
+  'modal.contact.message.sent.success': 'Your message has been sent successfully.',
+  'modal.contact.message.thank.you': "Thank you for contacting us!"
 }

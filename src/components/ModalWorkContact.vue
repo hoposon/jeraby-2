@@ -30,7 +30,10 @@
           >
             {{ translate(`modal.work.contact.${modalData.work.workState}.description`) }}
           </p>
-          <ContactForm />
+          <ContactForm
+            :contact-subject="`Jeraby, detail: ${modalData.work.id}`"
+            :work-status="modalData.work.workState"
+          />
         </div>
       </div>
     </div>

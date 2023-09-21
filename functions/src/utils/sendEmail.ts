@@ -1,83 +1,86 @@
-// const { createApi } = require('./axiosAPI')
+import nodemailer from 'nodemailer';
 
-// const api = createApi({
-//   //btoa('0f5e3718599c60c28e56826f9c8bdb88:6abac0a099a72a172bb1c8ef75f036a8')
-//   authorization: `Basic ${process.env.RECAPTCHA_SECRET_KEY}`
-// })
-
-// //MAILGUN_API_CRED
-
-// const send = (email) => {
-//   api.post('https://api.mailjet.com/v3.1/send', {
-//     "Messages":[
-//       {
-//         "From": {
-//           "Email": "houf.crane@gmail.com",
-//           "Name": "Lukas"
-//         },
-//         "To": [
-//           {
-//             "Email": "houf.crane@gmail.com",
-//             "Name": "Lukas"
-//           }
-//         ],
-//         "Subject": email.subject,
-//         "HTMLPart": email.message
-//       }
-//     ]
-//   })
-// }
-
-// module.exports = {
-//   send
-// }
-
-
-// import {createApi} from './axiosAPI.js';
-
-interface EmailData {
-  subject: string;
-  message: string;
+export interface SendMailError {
+  status: 'ERROR',
+  errorCode: 'MISING_EMAIL_FIELDS',
+  errorMessage: string
 }
 
-interface EmailMessage {
-  From: {
-    Email: string;
-    Name: string;
-  };
-  To: {
-    Email: string;
-    Name: string;
-  }[];
-  Subject: string;
-  HTMLPart: string;
+export interface EmailData {
+  [key:string]: string
+}
+interface MailOptions {
+  from: string,
+  to: string,
+  subject: string,
+  text: string
 }
 
-// const api = createApi({
-//   // btoa('0f5e3718599c60c28e56826f9c8bdb88:6abac0a099a72a172bb1c8ef75f036a8')
-//   authorization: `Basic ${process.env.RECAPTCHA_SECRET_KEY}`,
-// });
+const transporter = nodemailer.createTransport({
+  host: "smtp.mailgun.org",
+  port: 587,
+  secure: false, // upgrade later with STARTTLS
+  auth: {
+    user: "postmaster@sandbox233f364ae9ff4877a2eb5132bb86a113.mailgun.org",
+    pass: process.env.MAILGUN_PASSWORD,
+  },
+});
 
-const send = (email: EmailData): void => {
-  const message: EmailMessage = {
-    'From': {
-      'Email': 'houf.crane@gmail.com',
-      'Name': 'Lukas',
-    },
-    'To': [
-      {
-        'Email': 'houf.crane@gmail.com',
-        'Name': 'Lukas',
+const wrapedSendMail = (mailOptions: MailOptions) => {
+  return new Promise((resolve,reject)=>{
+    const transporter = nodemailer.createTransport({
+      host: "smtp.mailgun.org",
+      port: 587,
+      secure: false, // upgrade later with STARTTLS
+      auth: {
+        user: "postmaster@sandbox233f364ae9ff4877a2eb5132bb86a113.mailgun.org",
+        pass: process.env.MAILGUN_PASSWORD,
       },
-    ],
-    'Subject': email.subject,
-    'HTMLPart': email.message,
-  };
+    });
 
-  // api.post('https://api.mailjet.com/v3.1/send', {
-  //   'Messages': [message],
-  // });
-  console.log(message);
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        reject(error); // or use rejcet(false) but then you will have to handle errors
+      } else {
+        resolve(true);
+      }
+    });
+  })
+ }
+
+const send = async (emailData: EmailData): Promise<void> => {
+  
+  try {
+    if (emailData && emailData['id-name'] && emailData['id-surname'] && emailData['id-email'] && emailData['id-phone'] && emailData['id-message'] && emailData['subject']) {
+
+      const mailOptions = {
+        from: emailData['id-email'],
+        to: 'hoposon@gmail.com',
+        subject: emailData['subject'],
+        text: `
+          first name: ${emailData['id-name']}
+          last name: ${emailData['id-surname']}
+          email: ${emailData['id-email']}
+          phone: ${emailData['id-phone']}
+          subject: ${emailData['subject']}
+          work status: ${emailData['work-status']}
+          message: ${emailData['id-message']}
+        `
+      }
+
+      try {
+        await wrapedSendMail(mailOptions)
+      } catch (e) {
+        throw e
+      }
+      
+    } else {
+      throw {'status': 'ERROR', 'error': 'Missing email fields', 'errorCode': 'MISING_EMAIL_FIELDS'}
+    }
+
+  } catch(e) {
+    throw e
+  }
 };
 
 export {
