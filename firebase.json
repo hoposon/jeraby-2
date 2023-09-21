@@ -11,6 +11,9 @@
         "source": "**",
         "function": "app"
       }
+    ],
+    "predeploy": [
+      "npm run build"
     ]
   },
   "functions": [

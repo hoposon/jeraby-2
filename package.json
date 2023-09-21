@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "ts-merge-config": "tsc mergeConfigs.ts --module ESNext --target ESNext",
     "gen-config": "npm run ts-merge-config && node mergeConfigs.js",
-    "deploy": "npm run build && firebase deploy --only hosting"
+    "deploy": "npm run build && firebase deploy --only hosting",
+    "deploy-all": "firebase deploy --only hosting,functions"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.55.0",
