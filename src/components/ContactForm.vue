@@ -106,15 +106,19 @@
   })
 
   const validateAndRecaptcha = () => {
-    if (isValid.value) {
-      try {
-        processing.value = true
-        recaptcha()
-      } catch (e) {
-        openModal(allowedModalNames.WorkContactError)
-      }
-    }
-    // openModal(allowedModalNames.WorkContactError)
+    // if (isValid.value) {
+    //   try {
+    //     processing.value = true
+    //     recaptcha()
+    //   } catch (e) {
+    //     openModal(allowedModalNames.ContactError)
+    //   }
+    // }
+    processing.value = true
+    setTimeout(() => {
+      openModal(allowedModalNames.ContactSuccess)
+    }, 2000)
+    
   }
 
   const submitForm = async (token: string) => {
@@ -127,9 +131,9 @@
             ...emailData.value
           }
         )
-        openModal(allowedModalNames.WorkContactSuccess)
+        openModal(allowedModalNames.ContactSuccess)
       } catch (e) {
-        openModal(allowedModalNames.WorkContactError)
+        openModal(allowedModalNames.ContactError)
       }      
     }
   }

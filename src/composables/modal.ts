@@ -30,7 +30,7 @@ export function useModal() {
 
 export enum allowedModalNames {
   'WorkContact' = 'WorkContact',
-  'WorkContactError' = 'WorkContactError',
-  'WorkContactSuccess' = 'WorkContactSuccess',
+  'ContactError' = 'ContactError',
+  'ContactSuccess' = 'ContactSuccess',
   'WorkDetailGallery' = 'WorkDetailGallery'
 }

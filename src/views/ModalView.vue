@@ -6,14 +6,14 @@
   import { useModal } from '../composables/modal'
 
   import ModalWorkContact from '../components/ModalWorkContact.vue'
-  import ModalWorkContactError from '../components/ModalWorkContactError.vue'
-  import ModalWorkContactSuccess from '../components/ModalWorkContactSuccess.vue'
+  import ModalContactError from '../components/ModalContactError.vue'
+  import ModalContactSuccess from '../components/ModalContactSuccess.vue'
   import ModalWorkDetailGallery from '../components/ModalWorkDetailGallery.vue'
 
   const modals: {[key: string]: any} = {
     'WorkContact': ModalWorkContact,
-    'WorkContactError': ModalWorkContactError,
-    'WorkContactSuccess': ModalWorkContactSuccess,
+    'ContactError': ModalContactError,
+    'ContactSuccess': ModalContactSuccess,
     'WorkDetailGallery': ModalWorkDetailGallery
   }
 
