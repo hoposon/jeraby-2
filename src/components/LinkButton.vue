@@ -32,7 +32,7 @@
 
   const hoverClass = computed(() => {
     if (props.disabled) {
-      return ''
+      return 'cursor-default'
     } else {
       return "underline hover:no-underline hover:text-gray-700 after:content-[''] after:bg-[#DF442F] after:absolute after:block after:h-[2px] after:bottom-0 after:left-0 after:scale-x-0 after:transition-all after:duration-200 after:ease-in hover:after:scale-x-100 hover:after:w-full"
     }
