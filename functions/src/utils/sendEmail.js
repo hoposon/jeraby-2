@@ -33,7 +33,7 @@ const send = async (emailData) => {
     try {
         if (emailData && emailData['id-name'] && emailData['id-surname'] && emailData['id-email'] && emailData['id-phone'] && emailData['id-message'] && emailData['subject']) {
             const mailOptions = {
-                from: emailData['id-email'],
+                from: 'jeraby-eshop@michaelahouf.cz',
                 to: 'hoposon@gmail.com',
                 subject: emailData['subject'],
                 text: `
