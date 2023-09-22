@@ -69,11 +69,15 @@
               <div>
               <LinkButton
                 text="CS"
+                :addClass="locale==='cs-cz'?'text-[#DF442F]':''"
+                :disabled="locale==='cs-cz'"
                 @click="changeLocale('cs-cz')"
               />
               |
               <LinkButton
                 text="EN"
+                :addClass="locale==='en-ww'?'text-[#DF442F]':''"
+                :disabled="locale==='en-ww'"
                 @click="changeLocale('en-ww')"
               />
             </div>
@@ -102,7 +106,7 @@
     closeNav 
   } = useNavigation()
 
-  const { changeLocale } = useLocalizations()
+  const { changeLocale, locale } = useLocalizations()
 
   const translate = inject(TranslateKey, () => '')
 
