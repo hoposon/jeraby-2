@@ -1,5 +1,10 @@
 export default {
   'jeraby.collection.title': 'Cranes',
+  'jeraby.collection.works.jeraby-29.title': 'Jeraby 29',
+  'jeraby.collection.works.jeraby-29.presentationDescription': '60x60x32',
+  'jeraby.collection.works.jeraby-29.workDetails.gridItems.1.title': '# Dimensions',
+  'jeraby.collection.works.jeraby-29.workDetails.gridItems.1.size': '60x60 cm',
+  'jeraby.collection.works.jeraby-29.workDetails.gridItems.1.text': '32 birds',
   'jeraby.collection.works.jeraby-1.title': 'Jeraby 1',
   'jeraby.collection.works.jeraby-1.presentationDescription': 'Jeraby 1 desc something on this is another line',
   'jeraby.collection.works.jeraby-1.workDetails.gridItems.1.title': 'It is all about inspiration',

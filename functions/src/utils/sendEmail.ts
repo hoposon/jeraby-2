@@ -54,7 +54,7 @@ const send = async (emailData: EmailData): Promise<void> => {
     if (emailData && emailData['id-name'] && emailData['id-surname'] && emailData['id-email'] && emailData['id-phone'] && emailData['id-message'] && emailData['subject']) {
 
       const mailOptions = {
-        from: emailData['id-email'],
+        from: 'jeraby-eshop@michaelahouf.cz',
         to: 'hoposon@gmail.com',
         subject: emailData['subject'],
         text: `
