@@ -64,7 +64,7 @@ const send = async (emailData: EmailData): Promise<void> => {
           phone: ${emailData['id-phone']}
           subject: ${emailData['subject']}
           work status: ${emailData['work-status']}
-          message: ${emailData['id-message']}
+          message: ${emailData['id-message']}: just a test
         `
       }
 
