@@ -11,15 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: install hosting
-      - run: npm ci
+        run: npm ci
       - name: install functions
-      - run: cd functions/ && npm ci
+        run: cd functions/ && npm ci
       - run: npm ci
       - run: cd ../
       - name: deploy to production
-      - uses: docker://w9jds/firebase-action:master
+        uses: docker://w9jds/firebase-action:master
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_JERABY_84A7E }}'
