@@ -57,7 +57,7 @@ export function useLocalizations() {
   async function loadLanguage(newLocale: string) {
     try {
       localeLoading.value++
-      const messages = await import(/* @vite-ignore */ `./loc/${AvailableLocales[newLocale]}/loc.ts`)
+      const messages = await import(`./loc/${AvailableLocales[newLocale]}/loc.ts`)
 
       await i18next.changeLanguage(AvailableLocales[newLocale])
       i18next.addResourceBundle(AvailableLocales[newLocale], 'translation', messages.default || messages, true, true)
