@@ -19,7 +19,7 @@ const jeraby = [
                     imgPath: '/images/collections/jeraby/jeraby-29/2.jpg',
                     imgAlt: 'jeraby.collection.works.jeraby-29.presentationImages.2.imgAlt'
                 }],
-            presentationType: 'twoImages',
+            presentationType: 'oneLeft',
             classNames: {
             // 'main': 'bg-neutral-300/10',
             // 'title': 'text-jeraby',
@@ -91,6 +91,115 @@ const jeraby = [
                     image: {
                         imgPath: '/images/collections/jeraby/jeraby-29/4.jpg',
                         imgAlt: 'jeraby.collection.works.jeraby-29.workDetails.jeraby-29/4.imgAlt',
+                    },
+                }]
+        }
+    }, {
+        id: 'jeraby-28',
+        pageHeader: {
+            title: 'jeraby.collection.works.jeraby-28.title',
+            bgImage: '/images/crane-icon-white.png',
+            classNames: {
+                'bg': ['bg-red-400'],
+                'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+            }
+        },
+        title: 'jeraby.collection.works.jeraby-28.title',
+        presentation: {
+            presentationDescription: 'jeraby.collection.works.jeraby-28.presentationDescription',
+            presentationImages: [{
+                    imgPath: '/images/collections/jeraby/jeraby-28/1.jpg',
+                    imgAlt: 'jeraby.collection.works.jeraby-28.presentationImages.1.imgAlt',
+                }, {
+                    imgPath: '/images/collections/jeraby/jeraby-28/2.jpg',
+                    imgAlt: 'jeraby.collection.works.jeraby-28.presentationImages.2.imgAlt'
+                }],
+            presentationType: 'twoImages',
+            classNames: {
+            // 'main': 'bg-neutral-300/10',
+            // 'title': 'text-jeraby',
+            // 'description': 'text-jeraby',
+            // 'cta': 'text-jeraby',
+            },
+        },
+        workDetails: {
+            gridItems: [{
+                    id: '1',
+                    type: 'TEXT',
+                    title: 'jeraby.collection.works.jeraby-28.workDetails.gridItems.1.title',
+                    description: {
+                        size: 'jeraby.collection.works.jeraby-28.workDetails.gridItems.1.size',
+                        text: 'jeraby.collection.works.jeraby-28.workDetails.gridItems.1.text',
+                    },
+                }, {
+                    id: '2',
+                    type: 'IMAGE',
+                    image: {
+                        imgPath: '/images/collections/jeraby/jeraby-28/1.jpg',
+                        imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/1.imgAlt',
+                    },
+                }, {
+                    id: '3',
+                    type: 'TEXT',
+                    title: 'jeraby.collection.works.jeraby-28.workDetails.gridItems.3.title',
+                    description: {
+                        size: 'jeraby.collection.works.jeraby-28.workDetails.gridItems.3.size',
+                    },
+                }, {
+                    id: '4',
+                    type: 'IMAGE',
+                    image: {
+                        imgPath: '/images/collections/jeraby/jeraby-28/2.jpg',
+                        imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/2.imgAlt',
+                    },
+                }, {
+                    id: '5',
+                    type: 'IMAGE',
+                    image: {
+                        imgPath: '/images/collections/jeraby/jeraby-28/5.jpg',
+                        imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/5.imgAlt',
+                    },
+                }, {
+                    id: '6',
+                    type: 'IMAGE',
+                    image: {
+                        imgPath: '/images/collections/jeraby/jeraby-28/6.jpg',
+                        imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/6.imgAlt',
+                    },
+                }, {
+                    id: '7',
+                    type: 'IMAGE',
+                    image: {
+                        imgPath: '/images/collections/jeraby/jeraby-28/7.jpg',
+                        imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/7.imgAlt',
+                    },
+                }, {
+                    id: '8',
+                    type: 'IMAGE',
+                    image: {
+                        imgPath: '/images/collections/jeraby/jeraby-28/3.jpg',
+                        imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/3.imgAlt',
+                    },
+                }, {
+                    id: '9',
+                    type: 'IMAGE',
+                    image: {
+                        imgPath: '/images/collections/jeraby/jeraby-28/4.jpg',
+                        imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/4.imgAlt',
+                    },
+                }, {
+                    id: '10',
+                    type: 'IMAGE',
+                    image: {
+                        imgPath: '/images/collections/jeraby/jeraby-28/8.jpg',
+                        imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/8.imgAlt',
+                    },
+                }, {
+                    id: '11',
+                    type: 'IMAGE',
+                    image: {
+                        imgPath: '/images/collections/jeraby/jeraby-28/9.jpg',
+                        imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/9.imgAlt',
                     },
                 }]
         }

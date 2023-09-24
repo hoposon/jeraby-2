@@ -42,18 +42,22 @@
           {{ translate('see.also.others') }}
         </p>
         <div
-          class="flex ml-[10px] md:ml-[20px] mb-[60px]"
+          class="flex flex-col ml-[10px] md:ml-[20px] mb-[60px]"
         >
-          You are browsing&nbsp;
-          <Link 
-            :text="translate(`collection.link.${selectedFilter}`)" 
-            :link="`/works/${selectedFilter}`" 
-          />. 
-          Change to&nbsp;
-          <Link 
-            :text="translate(`collection.link.${alternativCollection}`)" 
-            :link="`/works/${alternativCollection}`" 
-          />
+          <div>
+            <span>{{translate('you.are.browsing.collection')}}&nbsp;</span>
+            <Link 
+              :text="translate(`collection.link.${selectedFilter}`)" 
+              :link="`/works/${selectedFilter}`" 
+            />
+          </div>
+          <div>
+            <span>{{translate('change.to.collection')}}&nbsp;</span>
+            <Link 
+              :text="translate(`collection.link.${alternativCollection}`)" 
+              :link="`/works/${alternativCollection}`" 
+            />
+          </div>
         </div>
 
         <div class="w-full flex justify-center items-center">

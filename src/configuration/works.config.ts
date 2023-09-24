@@ -4,7 +4,8 @@ import collections from './collections.config.js'
 import jeraby from './jeraby-works.js'
 
 const worksPriorities: {[key: string]: number} = {
-  'jeraby-29': 1,
+  'jeraby-28': 1,
+  'jeraby-29': 2,
   'jeraby-1': 11,
   'jeraby-2': 21,
   'jeraby-3': 31,
@@ -26,6 +27,7 @@ const worksPriorities: {[key: string]: number} = {
 }
 
 const worksPublished: {[key: string]: boolean} = {
+  'jeraby-28': true,
   'jeraby-29': true,
   'jeraby-1': false,
   'jeraby-2': false,
@@ -48,6 +50,7 @@ const worksPublished: {[key: string]: boolean} = {
 }
 
 const worksState: {[key: string]: 'available'|'unavailable'} = {
+  'jeraby-28': 'available',
   'jeraby-29': 'available',
   'jeraby-1': 'available',
   'jeraby-2': 'available',
@@ -70,6 +73,7 @@ const worksState: {[key: string]: 'available'|'unavailable'} = {
 }
 
 const worksAtHomePage: {[key: string]: boolean} = {
+  'jeraby-28': true,
   'jeraby-29': true,
   'jeraby-1': true,
   'jeraby-2': false,
@@ -92,6 +96,7 @@ const worksAtHomePage: {[key: string]: boolean} = {
 }
 
 const worksInCollections: {[key: string]: string[]} = {
+  'jeraby-28': ['jeraby-collection'],
   'jeraby-29': ['jeraby-collection'],
   'jeraby-1': ['jeraby-collection'],
   'jeraby-2': ['jeraby-collection'],

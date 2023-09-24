@@ -1,7 +1,8 @@
 import collections from './collections.config.js';
 import jeraby from './jeraby-works.js';
 const worksPriorities = {
-    'jeraby-29': 1,
+    'jeraby-28': 1,
+    'jeraby-29': 2,
     'jeraby-1': 11,
     'jeraby-2': 21,
     'jeraby-3': 31,
@@ -22,6 +23,7 @@ const worksPriorities = {
     'jeraby-18': 181,
 };
 const worksPublished = {
+    'jeraby-28': true,
     'jeraby-29': true,
     'jeraby-1': false,
     'jeraby-2': false,
@@ -43,6 +45,7 @@ const worksPublished = {
     'jeraby-18': false,
 };
 const worksState = {
+    'jeraby-28': 'available',
     'jeraby-29': 'available',
     'jeraby-1': 'available',
     'jeraby-2': 'available',
@@ -64,6 +67,7 @@ const worksState = {
     'jeraby-18': 'unavailable',
 };
 const worksAtHomePage = {
+    'jeraby-28': true,
     'jeraby-29': true,
     'jeraby-1': true,
     'jeraby-2': false,
@@ -85,6 +89,7 @@ const worksAtHomePage = {
     'jeraby-18': false,
 };
 const worksInCollections = {
+    'jeraby-28': ['jeraby-collection'],
     'jeraby-29': ['jeraby-collection'],
     'jeraby-1': ['jeraby-collection'],
     'jeraby-2': ['jeraby-collection'],
