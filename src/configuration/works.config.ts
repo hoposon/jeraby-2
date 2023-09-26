@@ -4,7 +4,10 @@ import collections from './collections.config.js'
 import jeraby from './jeraby-works.js'
 
 const worksPriorities: {[key: string]: number} = {
-  'jeraby-29': 1,
+  'jeraby-28': 1,
+  'jeraby-29': 3,
+  'jeraby-26': 2,
+  'jeraby-27': 4,
   'jeraby-1': 11,
   'jeraby-2': 21,
   'jeraby-3': 31,
@@ -26,7 +29,10 @@ const worksPriorities: {[key: string]: number} = {
 }
 
 const worksPublished: {[key: string]: boolean} = {
+  'jeraby-28': true,
   'jeraby-29': true,
+  'jeraby-26': true,
+  'jeraby-27': true,
   'jeraby-1': false,
   'jeraby-2': false,
   'jeraby-3': false,
@@ -48,7 +54,10 @@ const worksPublished: {[key: string]: boolean} = {
 }
 
 const worksState: {[key: string]: 'available'|'unavailable'} = {
+  'jeraby-28': 'available',
   'jeraby-29': 'available',
+  'jeraby-26': 'available',
+  'jeraby-27': 'available',
   'jeraby-1': 'available',
   'jeraby-2': 'available',
   'jeraby-3': 'available',
@@ -70,7 +79,10 @@ const worksState: {[key: string]: 'available'|'unavailable'} = {
 }
 
 const worksAtHomePage: {[key: string]: boolean} = {
+  'jeraby-28': true,
   'jeraby-29': true,
+  'jeraby-26': true,
+  'jeraby-27': true,
   'jeraby-1': true,
   'jeraby-2': false,
   'jeraby-3': false,
@@ -92,7 +104,10 @@ const worksAtHomePage: {[key: string]: boolean} = {
 }
 
 const worksInCollections: {[key: string]: string[]} = {
+  'jeraby-28': ['jeraby-collection'],
   'jeraby-29': ['jeraby-collection'],
+  'jeraby-26': ['jeraby-collection'],
+  'jeraby-27': ['jeraby-collection'],
   'jeraby-1': ['jeraby-collection'],
   'jeraby-2': ['jeraby-collection'],
   'jeraby-3': ['jeraby-collection'],

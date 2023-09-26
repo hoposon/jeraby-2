@@ -42,18 +42,22 @@
           {{ translate('see.also.others') }}
         </p>
         <div
-          class="flex ml-[10px] md:ml-[20px] mb-[60px]"
+          class="flex flex-col ml-[10px] md:ml-[20px] mb-[60px]"
         >
-          You are browsing&nbsp;
-          <Link 
-            :text="translate(`collection.link.${selectedFilter}`)" 
-            :link="`/works/${selectedFilter}`" 
-          />. 
-          Change to&nbsp;
-          <Link 
-            :text="translate(`collection.link.${alternativCollection}`)" 
-            :link="`/works/${alternativCollection}`" 
-          />
+          <div>
+            <span>{{translate('you.are.browsing.collection')}}&nbsp;</span>
+            <Link 
+              :text="translate(`collection.link.${selectedFilter}`)" 
+              :link="`/works/${selectedFilter}`" 
+            />
+          </div>
+          <div>
+            <span>{{translate('change.to.collection')}}&nbsp;</span>
+            <Link 
+              :text="translate(`collection.link.${alternativCollection}`)" 
+              :link="`/works/${alternativCollection}`" 
+            />
+          </div>
         </div>
 
         <div class="w-full flex justify-center items-center">
@@ -104,6 +108,9 @@
 
   const currentWorkIndex = computed(() => {
     // return 4
+    console.log('🚀 ~ file: WorkDetail.vue:112 ~ currentWorkIndex ~ filteredWorks.value.findIndex(work => work.id === id.value):', filteredWorks.value.findIndex(work => work.id === id.value))
+    console.log('🚀 ~ file: WorkDetail.vue:112 ~ currentWorkIndex ~ id.value:', id.value)
+    console.log('🚀 ~ file: WorkDetail.vue:114 ~ currentWorkIndex ~ filteredWorks.value:', filteredWorks.value)
     return filteredWorks.value.findIndex(work => work.id === id.value)
   })
 
@@ -112,7 +119,7 @@
       return {
         id: work.id,
         image: work.presentation.presentationImages[1],
-        link: `/works/${work.id}`
+        link: `/work/${work.id}`
       }
     })
   })
@@ -122,7 +129,7 @@
   })
 
   const gallerySettings = computed(() => {
-      return PAGES_DATA[DETAIL].otherDetailsGallery?.gallerySettings
+    return PAGES_DATA[DETAIL].otherDetailsGallery?.gallerySettings
   })
 
   const galleryStyleSettings = computed(() => {

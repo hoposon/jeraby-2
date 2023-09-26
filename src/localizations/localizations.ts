@@ -33,7 +33,7 @@ resources[DEFAULT_LANGUAGE] = {
 // init i18n
 i18next.init({
   lng: DEFAULT_LANGUAGE,
-  debug: true,
+  debug: false,
   keySeparator: false,
   fallbackLng: DEFAULT_LANGUAGE,
   compatibilityJSON: 'v4',
@@ -76,14 +76,15 @@ export function useLocalizations() {
     loadLanguage(newLocale)
   }
 
-  // TODO - define en type
+  // TODO - define loc type
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  function initLocalizations(en: any) {
+  function initLocalizations(loc: any) {
+  console.log('🚀 ~ file: localizations.ts:82 ~ initLocalizations ~ loc:', loc)
 
     locale.value = DEFAULT_LOCALE // TODO - get from browser
 
-    // set en resources
-    i18next.addResourceBundle(DEFAULT_LANGUAGE, 'translation', en, true, true)
+    // set loc resources
+    i18next.addResourceBundle(DEFAULT_LANGUAGE, 'translation', loc, true, true)
 
     const locPlugin = {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

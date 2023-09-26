@@ -81,20 +81,20 @@
       itemsToShow: 1,
       snapAlign: 'center',
       wrapAround: true,
-      breakpoints: {
-        640: {
-          itemsToShow: 2,
-          snapAlign: 'center',
-        },
-        768: {
-          itemsToShow: 3,
-          snapAlign: 'center',
-        },
-        1024: {
-          itemsToShow: 4,
-          snapAlign: 'center',
-        },
-      },
+      // breakpoints: {
+      //   640: {
+      //     itemsToShow: 2,
+      //     snapAlign: 'center',
+      //   },
+      //   768: {
+      //     itemsToShow: 3,
+      //     snapAlign: 'center',
+      //   },
+      //   1024: {
+      //     itemsToShow: 2,
+      //     snapAlign: 'center',
+      //   },
+      // },
     },
   })
 

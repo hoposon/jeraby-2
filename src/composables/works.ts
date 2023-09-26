@@ -28,8 +28,6 @@ export function useWorks() {
       } else {
         setSelectedFilter('home')
       }
-      
-      console.log('🚀 ~ file: works.ts:33 ~ useWorks ~ selectedFilter:', selectedFilter.value)
     }
   )
 

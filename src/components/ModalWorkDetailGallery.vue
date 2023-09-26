@@ -46,8 +46,6 @@
   })
 
   const currentDetail = computed(() => {
-    console.log('🚀 ~ file: ModalWorkDetailGallery.vue:30 ~ currentDetail ~ detailImages.value.findIndex(detail => detail.id === modalData.value.currentDetail):', detailImages.value.findIndex(detail => detail.id === modalData.value.currentDetail))
-    console.log('🚀 ~ file: ModalWorkDetailGallery.vue:30 ~ currentDetail ~ detailImages.value.findIndex(detail => detail.id === modalData.value.currentDetail):', typeof detailImages.value.findIndex(detail => detail.id === modalData.value.currentDetail))
     return detailImages.value.findIndex(detail => detail.id === modalData.value.currentDetail)
   })
 
