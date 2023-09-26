@@ -110,16 +110,16 @@ export const PAGES_DATA: PageData = {
         }
       },
       galleryStyle: {
-        carouselItem: 'h-[200px] min-[550px]:h-[250px] lg:h-[300px] shadow-xl'
+        carouselItem: 'h-[200px] min-[550px]:h-[250px] lg:h-[300px] shadow-xl grid'
       }
     }
   },
   [COLLECTION_AVAILABLE]: {
     id: COLLECTION_AVAILABLE,
     pageHeader: {
-      title: 'available.title',
+      title: 'available.works.collection.title',
       bgImage: '/images/crane-icon-white.png',
-      description: 'available.description',
+      description: 'available.works.collection.description',
       classNames: {
         'bg': ['bg-amber-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
@@ -130,9 +130,9 @@ export const PAGES_DATA: PageData = {
   [COLLECTION_UNAVAILABLE]: {
     id: COLLECTION_UNAVAILABLE,
     pageHeader: {
-      title: 'unavailable.title',
+      title: 'unavailable.works.collection.title',
       bgImage: '/images/crane-icon-white.png',
-      description: 'unavailable.description',
+      description: 'unavailable.works.collection.description',
       classNames: {
         'bg': ['bg-amber-400'],
         'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],

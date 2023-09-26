@@ -108,6 +108,9 @@
 
   const currentWorkIndex = computed(() => {
     // return 4
+    console.log('🚀 ~ file: WorkDetail.vue:112 ~ currentWorkIndex ~ filteredWorks.value.findIndex(work => work.id === id.value):', filteredWorks.value.findIndex(work => work.id === id.value))
+    console.log('🚀 ~ file: WorkDetail.vue:112 ~ currentWorkIndex ~ id.value:', id.value)
+    console.log('🚀 ~ file: WorkDetail.vue:114 ~ currentWorkIndex ~ filteredWorks.value:', filteredWorks.value)
     return filteredWorks.value.findIndex(work => work.id === id.value)
   })
 
@@ -116,7 +119,7 @@
       return {
         id: work.id,
         image: work.presentation.presentationImages[1],
-        link: `/works/${work.id}`
+        link: `/work/${work.id}`
       }
     })
   })
@@ -126,7 +129,7 @@
   })
 
   const gallerySettings = computed(() => {
-      return PAGES_DATA[DETAIL].otherDetailsGallery?.gallerySettings
+    return PAGES_DATA[DETAIL].otherDetailsGallery?.gallerySettings
   })
 
   const galleryStyleSettings = computed(() => {

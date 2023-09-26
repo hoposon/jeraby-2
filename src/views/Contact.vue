@@ -14,16 +14,13 @@
           If you contact me, you will make my day much better. But if you don't maybe somebody else will
         </p>
         <div class="flex flex-col text-3xl font-extralight mt-[60px] md:mt-[70px] xl:mt-[120px] mb-[120px] lg:mb-[90px] xl:mb-[120px]">
-          <p class="w-full mb-[70px] sm:w-[75%] sm:ml-[7%]">
-            If you have any message or question for me, please use this contact form. And of course you can use it for questions or demands for a specific works, but it is much easier for you to do this from the work detail or from the work presentation on the home/collection page where you can hit the black button which opens a contact form as well but we now which work your inquiry is ralated to without you having to specify it.
-          </p>
-          <p class="w-full sm:w-[75%] sm:ml-[14%]">
-            If you have any message or question for me, please use this contact form. And of course you can use it for questions or demands for a specific works, but it is much easier for you to do this from the work detail or from the work presentation on the home/collection page where you can hit the black button which opens a contact form as well but we now which work your inquiry is ralated to without you having to specify it.
+          <p class="w-full sm:w-[75%] sm:ml-[7%]">
+            {{ translate('contact.notes') }}
           </p>
         </div>
       </div>
       <div
-        class="max-w-[800px] mx-auto"
+        class="max-w-[800px] mx-auto mb-10"
       >
         <h3
           class="w-100 text-4xl text-center text-[#DF442F] mb-6"

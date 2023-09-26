@@ -107,6 +107,7 @@
   } = useNavigation()
 
   const { changeLocale, locale } = useLocalizations()
+  console.log('🚀 ~ file: Navigation.vue:110 ~ locale:', locale.value)
 
   const translate = inject(TranslateKey, () => '')
 
