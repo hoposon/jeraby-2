@@ -79,7 +79,6 @@ export function useLocalizations() {
   // TODO - define loc type
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function initLocalizations(loc: any) {
-  console.log('🚀 ~ file: localizations.ts:82 ~ initLocalizations ~ loc:', loc)
 
     locale.value = DEFAULT_LOCALE // TODO - get from browser
 
