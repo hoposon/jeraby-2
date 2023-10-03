@@ -250,20 +250,6 @@ const jeraby = [
                         imgPath: '/images/collections/jeraby/jeraby-26/12.jpg',
                         imgAlt: 'jeraby.collection.works.jeraby-26.workDetails.jeraby-26/12.imgAlt',
                     },
-                }, {
-                    id: '15',
-                    type: 'IMAGE',
-                    image: {
-                        imgPath: '/images/collections/jeraby/jeraby-26/13.jpg',
-                        imgAlt: 'jeraby.collection.works.jeraby-26.workDetails.jeraby-26/13.imgAlt',
-                    },
-                }, {
-                    id: '16',
-                    type: 'IMAGE',
-                    image: {
-                        imgPath: '/images/collections/jeraby/jeraby-26/14.jpg',
-                        imgAlt: 'jeraby.collection.works.jeraby-26.workDetails.jeraby-26/14.imgAlt',
-                    },
                 }]
         }
     }, {

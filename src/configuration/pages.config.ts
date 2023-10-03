@@ -60,8 +60,8 @@ export const PAGES_DATA: PageData = {
         'text': ['text-neutral-300'],
         'menuColor': ['bg-neutral-300'],
         'bg': ['bg-gray-900'],
-        'title': ['mt-[15vh]', 'ml-[10vw]', 'text-5xl', 'font-bold'],
-        'description': ['ml-[10vw]', 'text-2xl']
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-5xl', 'font-bold'],
+        'description': ['text-2xl']
       }
     }
   },
@@ -73,8 +73,8 @@ export const PAGES_DATA: PageData = {
       description: 'about.description',
       classNames: {
         'bg': ['bg-amber-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
-        'description': ['ml-[10%]', 'text-2xl', 'text-gray-800']
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-5xl', 'text-gray-800', 'font-bold'],
+        'description': ['text-2xl', 'text-gray-800']
       }
     }
   },
@@ -86,8 +86,8 @@ export const PAGES_DATA: PageData = {
       description: 'contact.description',
       classNames: {
         'bg': ['bg-amber-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
-        'description': ['ml-[10%]', 'text-2xl', 'text-gray-800']
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-5xl', 'text-gray-800', 'font-bold'],
+        'description': ['text-2xl', 'text-gray-800']
       }
     },
   },
@@ -110,7 +110,7 @@ export const PAGES_DATA: PageData = {
         }
       },
       galleryStyle: {
-        carouselItem: 'h-[200px] min-[550px]:h-[250px] lg:h-[300px] shadow-xl grid'
+        carouselItem: 'h-[200px] min-[550px]:h-[250px] lg:h-[300px] shadow-xl grid overflow-hidden'
       }
     }
   },
@@ -122,8 +122,8 @@ export const PAGES_DATA: PageData = {
       description: 'available.works.collection.description',
       classNames: {
         'bg': ['bg-amber-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
-        'description': ['ml-[10%]', 'text-2xl', 'text-gray-800']
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-5xl', 'text-gray-800', 'font-bold'],
+        'description': ['text-2xl', 'text-gray-800']
       }
     },
   },
@@ -135,8 +135,8 @@ export const PAGES_DATA: PageData = {
       description: 'unavailable.works.collection.description',
       classNames: {
         'bg': ['bg-amber-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-5xl', 'text-gray-800', 'font-bold'],
-        'description': ['ml-[10%]', 'text-2xl', 'text-gray-800']
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-5xl', 'text-gray-800', 'font-bold'],
+        'description': ['text-2xl', 'text-gray-800']
       }
     },
   }

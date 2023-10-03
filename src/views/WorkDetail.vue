@@ -107,10 +107,6 @@
   })
 
   const currentWorkIndex = computed(() => {
-    // return 4
-    console.log('🚀 ~ file: WorkDetail.vue:112 ~ currentWorkIndex ~ filteredWorks.value.findIndex(work => work.id === id.value):', filteredWorks.value.findIndex(work => work.id === id.value))
-    console.log('🚀 ~ file: WorkDetail.vue:112 ~ currentWorkIndex ~ id.value:', id.value)
-    console.log('🚀 ~ file: WorkDetail.vue:114 ~ currentWorkIndex ~ filteredWorks.value:', filteredWorks.value)
     return filteredWorks.value.findIndex(work => work.id === id.value)
   })
 

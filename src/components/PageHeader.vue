@@ -2,7 +2,7 @@
   <div 
     id="id-page-header"
     v-intersect="setHeaderInViewport"
-    class="h-[75vh] bg-fixed bg-no-repeat bg-[length:400px_300px] bg-[position:75%_60%] p-1"
+    class="h-[75vh] bg-fixed bg-no-repeat bg-[length:150px_150px] sm:bg-[length:200px_180px] md:bg-[length:250px_210px] 2xl:bg-[length:400px_300px] bg-[position:75%_60%] p-[10vw]"
     :class="[page.classNames?.bg, page.classNames?.text]"
     :style="{'background-image': 'url(' + page.bgImage + ')' }"
   >
