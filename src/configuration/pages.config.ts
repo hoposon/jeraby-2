@@ -110,7 +110,7 @@ export const PAGES_DATA: PageData = {
         }
       },
       galleryStyle: {
-        carouselItem: 'h-[200px] min-[550px]:h-[250px] lg:h-[300px] shadow-xl grid'
+        carouselItem: 'h-[200px] min-[550px]:h-[250px] lg:h-[300px] shadow-xl grid overflow-hidden'
       }
     }
   },
