@@ -2,8 +2,8 @@
   <div 
     id="id-page-header"
     v-intersect="setHeaderInViewport"
-    class="h-[75vh] bg-fixed bg-no-repeat bg-[length:150px_150px] sm:bg-[length:200px_180px] md:bg-[length:250px_210px] 2xl:bg-[length:400px_300px] lowh:bg-[length:150px_150px] bg-[position:80%_60%] lowh:bg-[position:85%_55%] p-[10vw]"
-    :class="[page.classNames?.bg, page.classNames?.text]"
+    class="h-[75vh] bg-no-repeat bg-[length:150px_150px] sm:bg-[length:200px_180px] md:bg-[length:250px_210px] 2xl:bg-[length:400px_300px] lowh:bg-[length:150px_150px] lowh:bg-[position:85%_55%] p-[10vw]"
+    :class="[page.classNames?.bg, page.classNames?.text, isiOS ? 'bg-scroll bg-[position:80%_85%]' : 'bg-fixed bg-[position:80%_60%]']"
     :style="{'background-image': 'url(' + page.bgImage + ')' }"
   >
     <HomeButton 
@@ -49,6 +49,8 @@
 
   const titleEl = ref<HTMLElement|null>(null)
   const descriptionEl = ref<HTMLElement|null>(null)
+
+  const isiOS = ref<boolean>(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream)
 
   onMounted(() => {
     if (!titleEl.value) {
