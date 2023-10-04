@@ -2,7 +2,7 @@
   <div 
     id="id-page-header"
     v-intersect="setHeaderInViewport"
-    class="h-[75vh] bg-fixed bg-no-repeat bg-[length:150px_150px] sm:bg-[length:200px_180px] md:bg-[length:250px_210px] 2xl:bg-[length:400px_300px] bg-[position:75%_60%] p-[10vw]"
+    class="h-[75vh] bg-fixed bg-no-repeat bg-[length:150px_150px] sm:bg-[length:200px_180px] md:bg-[length:250px_210px] 2xl:bg-[length:400px_300px] lowh:bg-[length:150px_150px] bg-[position:80%_60%] lowh:bg-[position:85%_55%] p-[10vw]"
     :class="[page.classNames?.bg, page.classNames?.text]"
     :style="{'background-image': 'url(' + page.bgImage + ')' }"
   >
@@ -16,7 +16,7 @@
     <p
       v-if="page.description"
       ref="descriptionEl"
-      class="w-[80%] md:w-[70%] lg:w-[50%] xl:w-[40%] mt-4"
+      class="lowh:w-[50%] w-[80%] md:w-[70%] lg:w-[50%] xl:w-[40%] mt-4 lowh:text-lg"
       :class="page.classNames?.description"
     >
       {{ translate(page.description) }}
