@@ -1,4 +1,4 @@
 export default {
   'home.title': 'Michaela Houf',
-  'home.description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vitae aliquam aliquam, nunc nisl aliquam nisl.'
+  'home.description': 'These are my CRANES. A bit of origami, a bit of painting. Each one is one-of-a-kind.'
 }

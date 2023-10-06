@@ -13,6 +13,7 @@ module.exports = {
         'close-trans-white': "url('/images/close-trans-white.png')",
         'home-icon': "url('/images/crane-icon-white.png')",
         'home-icon-red': "url('/images/crane-icon-red.png')",
+        'main-crane': "url('/images/crane-icon-white.png')",
       },
       screens: {
         'minRes350': { 'raw': '(min-width: 350px)' },

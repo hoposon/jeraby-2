@@ -8,7 +8,7 @@ const collections: {[key: string]: Collection} = {
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh] md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.title',

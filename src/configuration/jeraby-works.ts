@@ -9,7 +9,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-27.title',
@@ -141,7 +141,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-26.title',
@@ -266,7 +266,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-29.title',
@@ -363,7 +363,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-28.title',
@@ -464,6 +464,27 @@ const jeraby: CollectionWork[] = [
           imgPath: '/images/collections/jeraby/jeraby-28/9.jpg',
           imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/9.imgAlt',
         },
+      }, {
+        id: '11',
+        type: 'IMAGE',
+        image: {
+          imgPath: '/images/collections/jeraby/jeraby-28/10.jpg',
+          imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/10.imgAlt',
+        },
+      }, {
+        id: '11',
+        type: 'IMAGE',
+        image: {
+          imgPath: '/images/collections/jeraby/jeraby-28/11.jpg',
+          imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/11.imgAlt',
+        },
+      }, {
+        id: '11',
+        type: 'IMAGE',
+        image: {
+          imgPath: '/images/collections/jeraby/jeraby-28/12.jpg',
+          imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/12.imgAlt',
+        },
       }]
     }
   },
@@ -475,7 +496,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-1.title',
@@ -586,7 +607,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-2.title',
@@ -697,7 +718,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-3.title',
@@ -808,7 +829,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-4.title',
@@ -919,7 +940,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-5.title',
@@ -1030,7 +1051,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-6.title',
@@ -1141,7 +1162,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-7.title',
@@ -1252,7 +1273,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-8.title',
@@ -1363,7 +1384,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-9.title',
@@ -1474,7 +1495,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-10.title',
@@ -1585,7 +1606,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-11.title',
@@ -1696,7 +1717,7 @@ const jeraby: CollectionWork[] = [
       bgImage: '/images/crane-icon-white.png',
       classNames: {
         'bg': ['bg-red-400'],
-        'title': ['mt-[15vh]', 'ml-[10%]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-6xl', 'text-gray-800', 'font-semi-bold'],
       }
     },
     title: 'jeraby.collection.works.jeraby-12.title',

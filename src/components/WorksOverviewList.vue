@@ -1,6 +1,6 @@
 <template>
   <div
-    class="demo-content"
+    class="content"
   >
     <div
       v-for="work, index in filteredWorks"
