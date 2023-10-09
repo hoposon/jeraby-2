@@ -20,6 +20,13 @@
     >
       {{ translate(page.description) }}
     </p>
+    <div
+      v-if="page.text1"
+      class="lowh:w-[50%] w-[80%] md:w-[70%] lg:w-[50%] xl:w-[40%] pr-8"
+      :class="page.classNames?.text1"
+    >
+      {{ translate(page.text1) }}
+    </div>
     <BurgerButton
       v-if="navState === 'closed'"
       class="absolute top-10 right-10 w-[40px]"

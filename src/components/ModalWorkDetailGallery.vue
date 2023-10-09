@@ -2,14 +2,6 @@
   <Modal
     :classes="modalClasses"
   >
-    <!-- <div class="flex justify-center items-center overflow-x-hidden"> -->
-      <!-- <Gallery
-        :images="testData"
-        :isLink="false"
-        :initialSlide="currentDetail"
-        :gallery-settings="gallerySettings"
-        :galleryStyleSettings="galleryStyleSettings"
-      /> -->
       <Gallery
         :images="detailImages"
         :isLink="false"

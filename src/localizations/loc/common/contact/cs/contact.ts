@@ -14,6 +14,6 @@ export default {
   'modal.work.contact.validation.message': 'Zadejte prosím svou zprávu',
   'contact.form': 'Napište mi',
   'contact.title': 'Kontakt',
-  'contact.description': "Pokud mi napíšete, budu moc ráda, ale pokud mi nenapíšete vy, možná to udělá někdo jiný.",
-  'contact.notes': "Pokud pro mě máte nějakou zprávu nebo otázku, použijte prosím kontaktní formulář níže. Samozřejmě jej můžete využít i pro dotazy nebo požadavky ke konkrétním dílům, ale jednodušší to pro vás bude udělat přímo z detailu díla nebo z prezentace díla na úvodní stránce. Tam můžete stisknout černé tlačítko, které také otevře kontaktní formulář, ale v tomto případě už vím, ke kterému dílu se váš dotaz vztahuje, aniž byste to museli specifikovat."
+  'contact.main.text': "Pokud mi napíšete, budu moc ráda, ale pokud mi nenapíšete vy, možná to udělá někdo jiný.",
+  'contact.small.text': "Pokud pro mě máte nějakou zprávu nebo otázku, použijte prosím kontaktní formulář níže. Samozřejmě jej můžete využít i pro dotazy nebo požadavky ke konkrétním dílům, ale jednodušší to pro vás bude udělat přímo z detailu díla nebo z prezentace díla na úvodní stránce. Tam můžete stisknout černé tlačítko, které také otevře kontaktní formulář, ale v tomto případě už vím, ke kterému dílu se váš dotaz vztahuje, aniž byste to museli specifikovat."
 }

@@ -1,8 +1,4 @@
 <template>
-  <!-- <div
-    class="flex flex-col justify-between p-12 sm:p-5 transition-all duration-1000 ease-in-out items-start text-gray-900"
-    :class="finalClass"
-  > -->
   <div
     class="flex flex-col justify-between sm:justify-start p-12 sm:p-5 transition-all duration-1000 ease-in-out items-start text-gray-900"
     :class="finalClass"

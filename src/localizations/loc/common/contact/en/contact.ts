@@ -16,6 +16,6 @@ export default {
   'modal.contact.message.thank.you': "Thank you for contacting us!",
   'contact.form': 'Please leave me a message',
   'contact.title': 'Contact',
-  'contact.description': "If you contact me, you will make my day much better. But if you don't maybe somebody else will",
-  'contact.notes': "If you have any message or question for me, please use this contact form. And of course you can use it for questions or demands for a specific works, but it is much easier for you to do this from the work detail or from the work presentation on the home/collection page where you can hit the black button which opens a contact form as well but we now which work your inquiry is related to without you having to specify it."
+  'contact.main.text': "If you contact me, you will make my day much better. But if you don't maybe somebody else will",
+  'contact.small.text': "If you have any message or question for me, please use this contact form. And of course you can use it for questions or demands for a specific works, but it is much easier for you to do this from the work detail or from the work presentation on the home/collection page where you can hit the black button which opens a contact form as well but we now which work your inquiry is related to without you having to specify it."
 }

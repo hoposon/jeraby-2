@@ -71,10 +71,12 @@ export const PAGES_DATA: PageData = {
       title: 'about.title',
       bgImage: '/images/crane-icon-white.png',
       description: 'about.description',
+      // text1: 'about.text1',
       classNames: {
         'bg': ['bg-amber-400'],
         'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-5xl', 'text-gray-800', 'font-bold'],
-        'description': ['text-lg', 'minRes350:text-2xl', 'text-gray-800']
+        'description': ['text-lg', 'minRes350:text-2xl', 'text-gray-800'],
+        'text1': ['text-right', 'text-sm', 'italic']
       }
     }
   },
@@ -83,7 +85,7 @@ export const PAGES_DATA: PageData = {
     pageHeader: {
       title: 'contact.title',
       bgImage: '/images/crane-icon-white.png',
-      description: 'contact.description',
+      // description: 'contact.description',
       classNames: {
         'bg': ['bg-amber-400'],
         'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-5xl', 'text-gray-800', 'font-bold'],
@@ -110,7 +112,7 @@ export const PAGES_DATA: PageData = {
         }
       },
       galleryStyle: {
-        carouselItem: 'h-[200px] minRes550:h-[250px] lg:h-[300px] shadow-xl grid overflow-hidden'
+        carouselItem: 'h-[200px] minRes550:h-[300px] minRes550:mt-[-5vh] lg:h-[300px] shadow-xl grid overflow-hidden'
       }
     }
   },

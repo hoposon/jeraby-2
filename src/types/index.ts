@@ -2,6 +2,7 @@ export interface PageHeader {
   title: string,
   subtitle?: string,
   description?: string,
+  text1?: string,
   bgImage?: string,
   classNames?: {
     [key: string]: string|string[]
@@ -49,6 +50,8 @@ export interface CollectionWork {
     },
   },
   workDetails: {
+    mainText?: string,
+    smallText?: string,
     gridItems: GridItem[]
   }
 }

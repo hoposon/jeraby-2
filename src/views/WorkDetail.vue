@@ -9,14 +9,15 @@
       class="px-[20px] sm:px-[40px] md:px-[50px] xl:px-[120px]"
     >
       <div class="mt-[40px] md:mt-[50px] xl:mt-[120px] tracking-wider">
-        <p class="text-5xl font-extralight w-[75%]">
-          <!-- {{ translate() }} -->
-          project your unique vision into space and create your own bomma constellation
-        </p>
-        <div class="flex items-center flex-col lg:flex-row text-3xl font-extralight mt-[60px] md:mt-[70px] xl:mt-[120px] mb-[120px] lg:mb-[90px] xl:mb-[120px]">
-          <p class="w-full mb-[70px] lg:mb-0 lg:w-[50%] lg:mr-[100px] 2xl:w-[60%]">
-            Handcrafted crystal lighting from Bomma Constellation frees creators, architects and designers to transform interiors. Project your boldest creative visions into space – from smaller compositions to immense constellations. Choose among six original collections: Metamorphosis, Pyrite, Dark & Bright Star, Lens, Soap Mini or Mussels. Like distant stars, these seemingly small lighted objects are unique stand-alone and even stronger in groups. Each single pendant is remarkable in its aesthetics and quality, design and craft.
-          </p>
+        <p 
+          class="text-4xl sm:text-5xl font-extralight w-[75%]" 
+          v-html="translate(currentWork.workDetails.mainText || '')"
+        />
+        <div class="flex items-center flex-col lg:flex-row text-2xl sm:text-3xl font-extralight mt-[60px] md:mt-[70px] xl:mt-[120px] mb-[60px] sm:mb-[100px] lg:mb-[90px] xl:mb-[120px]">
+          <p 
+            class="w-full mb-[10px] sm:mb-[70px] lg:mb-0 lg:w-[50%] lg:mr-[100px] 2xl:w-[60%]"
+            v-html="translate(currentWork.workDetails.smallText || '')"
+          />
           <div
             class="w-full lg:w-[50%] 2xl:w-[40%] flex justify-start"
           >
