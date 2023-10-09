@@ -22,7 +22,7 @@
         <div
           class="w-full sm:w-[50%]"
         >
-          <img src="images/michaela.jpg" />
+          <img src="/images/michaela.jpg" />
         </div>
       </div>
       <div
