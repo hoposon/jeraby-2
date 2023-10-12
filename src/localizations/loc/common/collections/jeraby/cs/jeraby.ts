@@ -56,4 +56,11 @@ export default {
   'jeraby.collection.works.jeraby-16.workDetails.gridItems.1.title': '# Rozměry',
   'jeraby.collection.works.jeraby-16.workDetails.gridItems.1.size': '60x60 cm',
   'jeraby.collection.works.jeraby-16.workDetails.gridItems.1.text': '34 ptáků',
+  'jeraby.collection.works.jeraby-15.title': '# Jeraby 15',
+  'jeraby.collection.works.jeraby-15.presentationDescription': '60x60x37',
+  'jeraby.collection.works.jeraby-15.workDetails.main.text': 'Červená. Rudá. Kapka hnědé. Štětcem.</br>Zlatá kapka.</br>Zlatý řez. </br>Zlaté a červené jeřáby',
+  'jeraby.collection.works.jeraby-15.workDetails.small.text': 'Mám nápad, vidím barvy, namaluju podklad (někdy ve více vrstvách) a pak k němu v módních časopisech hledám barvy. Naskládám jeřáby, pokládám je na plátno a měním pořadí a seskupení dokud to není ono.',
+  'jeraby.collection.works.jeraby-15.workDetails.gridItems.1.title': '# Rozměry',
+  'jeraby.collection.works.jeraby-15.workDetails.gridItems.1.size': '60x60 cm',
+  'jeraby.collection.works.jeraby-15.workDetails.gridItems.1.text': '37 ptáků',
 }

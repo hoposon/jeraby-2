@@ -56,4 +56,11 @@ export default {
   'jeraby.collection.works.jeraby-16.workDetails.gridItems.1.title': '# Dimensions',
   'jeraby.collection.works.jeraby-16.workDetails.gridItems.1.size': '60x60 cm',
   'jeraby.collection.works.jeraby-16.workDetails.gridItems.1.text': '34 birds',
+  'jeraby.collection.works.jeraby-15.title': '# Jeraby 15',
+  'jeraby.collection.works.jeraby-15.presentationDescription': '60x60x37',
+  'jeraby.collection.works.jeraby-15.workDetails.main.text': "Red. Crimson. A drop of brown. With a brush.</br>A golden drop.</br>The golden ratio.</br>Golden and red cranes.",
+  'jeraby.collection.works.jeraby-15.workDetails.small.text': "I have an idea, I see colors, I paint the background (sometimes in multiple layers), and then I look for colors in fashion magazines. I arrange cranes, place them on the canvas, and change the order and grouping until it's just right.",
+  'jeraby.collection.works.jeraby-15.workDetails.gridItems.1.title': '# Dimensions',
+  'jeraby.collection.works.jeraby-15.workDetails.gridItems.1.size': '60x60 cm',
+  'jeraby.collection.works.jeraby-15.workDetails.gridItems.1.text': '37 birds',
 }
