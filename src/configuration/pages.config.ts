@@ -123,9 +123,9 @@ export const PAGES_DATA: PageData = {
       bgImage: '/images/crane-icon-white.png',
       description: 'available.works.collection.description',
       classNames: {
-        'bg': ['bg-amber-400'],
-        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-5xl', 'text-gray-800', 'font-bold'],
-        'description': ['text-lg', 'minRes350:text-2xl', 'text-gray-800']
+        'bg': ['bg-[#008ecd]'],
+        'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-5xl', 'text-white', 'font-bold'],
+        'description': ['text-lg', 'minRes350:text-2xl', 'text-white']
       }
     },
   },

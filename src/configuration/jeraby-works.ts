@@ -237,6 +237,13 @@ const jeraby: CollectionWork[] = [
           imgPath: '/images/collections/jeraby/jeraby-16/9.jpg',
           imgAlt: 'jeraby.collection.works.jeraby-16.workDetails.jeraby-16/9.imgAlt',
         },
+      }, {
+        id: '12',
+        type: 'IMAGE',
+        image: {
+          imgPath: '/images/collections/jeraby/jeraby-16/10.jpg',
+          imgAlt: 'jeraby.collection.works.jeraby-16.workDetails.jeraby-16/10.imgAlt',
+        },
       }]
     }
   },
