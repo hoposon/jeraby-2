@@ -5,7 +5,7 @@
     <div
       class="flex flex-col items-center justify-center bg-neutral-300/10"
     >
-      <div>{{ translate('Error') }}</div>
+      <div>{{ translate('sending.error') }}</div>
     </div>
   </Modal>
 </template>

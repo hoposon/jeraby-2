@@ -106,18 +106,18 @@
   })
 
   const validateAndRecaptcha = () => {
-    // if (isValid.value) {
-    //   try {
-    //     processing.value = true
-    //     recaptcha()
-    //   } catch (e) {
-    //     openModal(allowedModalNames.ContactError)
-    //   }
-    // }
-    processing.value = true
-    setTimeout(() => {
-      openModal(allowedModalNames.ContactSuccess)
-    }, 2000)
+    if (isValid.value) {
+      try {
+        processing.value = true
+        recaptcha()
+      } catch (e) {
+        openModal(allowedModalNames.ContactError)
+      }
+    }
+    // processing.value = true
+    // setTimeout(() => {
+    //   openModal(allowedModalNames.ContactSuccess)
+    // }, 2000)
     
   }
 

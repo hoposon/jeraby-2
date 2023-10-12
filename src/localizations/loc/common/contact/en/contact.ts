@@ -14,6 +14,8 @@ export default {
   'modal.work.contact.validation.message': 'Please enter your message',
   'modal.contact.message.sent.success': 'Your message has been sent successfully.',
   'modal.contact.message.thank.you': "Thank you for contacting us!",
+  'cta.button.processing': "Sending",
+  'sending.error': 'Something went wrong. Please try it again later.',
   'contact.form': 'Please leave me a message',
   'contact.title': 'Contact',
   'contact.main.text': "If you contact me, you will make my day much better. But if you don't maybe somebody else will",
