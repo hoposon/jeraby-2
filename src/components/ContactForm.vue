@@ -51,7 +51,7 @@
       id="id-message"
       type="text"
       :label="translate('modal.work.contact.message')"
-      :validation-pattern="() => new RegExp(/^.+$/)"
+      :validation-pattern="() => new RegExp(/^[\s\S]*\S[\s\S]*$/)"
       :validation-message="'modal.work.contact.validation.message'"
       class="w-[80%] mb-7"
       @input="handleInput"
