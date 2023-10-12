@@ -49,4 +49,11 @@ export default {
   'jeraby.collection.works.jeraby-20.workDetails.gridItems.1.title': '# Rozměry',
   'jeraby.collection.works.jeraby-20.workDetails.gridItems.1.size': '60x60 cm',
   'jeraby.collection.works.jeraby-20.workDetails.gridItems.1.text': '28 ptáků',
+  'jeraby.collection.works.jeraby-16.title': '# Jeraby 16',
+  'jeraby.collection.works.jeraby-16.presentationDescription': '60x60x34',
+  'jeraby.collection.works.jeraby-16.workDetails.main.text': 'Zlatá se zlatou. Ve dvou vrstvách.</br>Modrá, zlatá, fialová. Gustav : Danaé, Judit I.',
+  'jeraby.collection.works.jeraby-16.workDetails.small.text': 'Mám nápad, vidím barvy, namaluju podklad (někdy ve více vrstvách) a pak k němu v módních časopisech hledám barvy. Naskládám jeřáby, pokládám je na plátno a měním pořadí a seskupení dokud to není ono.',
+  'jeraby.collection.works.jeraby-16.workDetails.gridItems.1.title': '# Rozměry',
+  'jeraby.collection.works.jeraby-16.workDetails.gridItems.1.size': '60x60 cm',
+  'jeraby.collection.works.jeraby-16.workDetails.gridItems.1.text': '34 ptáků',
 }
