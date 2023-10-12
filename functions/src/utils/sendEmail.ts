@@ -55,7 +55,7 @@ const send = async (emailData: EmailData): Promise<void> => {
 
       const mailOptions = {
         from: 'hoposon@gmail.com',
-        to: 'hoposon@gmail.com',
+        to: 'michaela.houf@gmail.com',
         subject: emailData['subject'],
         text: `
           first name: ${emailData['id-name']}
