@@ -63,4 +63,11 @@ export default {
   'jeraby.collection.works.jeraby-15.workDetails.gridItems.1.title': '# Dimensions',
   'jeraby.collection.works.jeraby-15.workDetails.gridItems.1.size': '60x60 cm',
   'jeraby.collection.works.jeraby-15.workDetails.gridItems.1.text': '37 birds',
+  'jeraby.collection.works.jeraby-7.title': '# Jeraby 7',
+  'jeraby.collection.works.jeraby-7.presentationDescription': '50x50x42',
+  'jeraby.collection.works.jeraby-7.workDetails.main.text': "White. White Saturday. Easter.</br>Red and yellow cranes. Flowers in the photos.",
+  'jeraby.collection.works.jeraby-7.workDetails.small.text': "I have an idea, I see colors, I paint the background (sometimes in multiple layers), and then I look for colors in fashion magazines. I arrange cranes, place them on the canvas, and change the order and grouping until it's just right.",
+  'jeraby.collection.works.jeraby-7.workDetails.gridItems.1.title': '# Dimensions',
+  'jeraby.collection.works.jeraby-7.workDetails.gridItems.1.size': '50x50 cm',
+  'jeraby.collection.works.jeraby-7.workDetails.gridItems.1.text': '42 birds',
 }

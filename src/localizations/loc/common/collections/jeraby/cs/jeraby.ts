@@ -63,4 +63,11 @@ export default {
   'jeraby.collection.works.jeraby-15.workDetails.gridItems.1.title': '# Rozměry',
   'jeraby.collection.works.jeraby-15.workDetails.gridItems.1.size': '60x60 cm',
   'jeraby.collection.works.jeraby-15.workDetails.gridItems.1.text': '37 ptáků',
+  'jeraby.collection.works.jeraby-7.title': '# Jeraby 7',
+  'jeraby.collection.works.jeraby-7.presentationDescription': '50x50x42',
+  'jeraby.collection.works.jeraby-7.workDetails.main.text': 'Bilá. Bílá sobota. Velikonoce.</br>Červené a žluté jeřáby. Kytky na fotkách.',
+  'jeraby.collection.works.jeraby-7.workDetails.small.text': 'Mám nápad, vidím barvy, namaluju podklad (někdy ve více vrstvách) a pak k němu v módních časopisech hledám barvy. Naskládám jeřáby, pokládám je na plátno a měním pořadí a seskupení dokud to není ono.',
+  'jeraby.collection.works.jeraby-7.workDetails.gridItems.1.title': '# Rozměry',
+  'jeraby.collection.works.jeraby-7.workDetails.gridItems.1.size': '50x50 cm',
+  'jeraby.collection.works.jeraby-7.workDetails.gridItems.1.text': '42 ptáků',
 }
