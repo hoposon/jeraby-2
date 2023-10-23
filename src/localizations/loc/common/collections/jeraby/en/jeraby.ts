@@ -98,4 +98,11 @@ export default {
   'jeraby.collection.works.jeraby-14.workDetails.gridItems.1.title': '# Dimensions',
   'jeraby.collection.works.jeraby-14.workDetails.gridItems.1.size': '80x80 cm',
   'jeraby.collection.works.jeraby-14.workDetails.gridItems.1.text': '53 birds',
+  'jeraby.collection.works.jeraby-21.title': '# Jeraby 21',
+  'jeraby.collection.works.jeraby-21.presentationDescription': '70x70x30',
+  'jeraby.collection.works.jeraby-21.workDetails.main.text': "Order.</br>Two rooms, two paintings.</br>Client's request: White and gold background.",
+  'jeraby.collection.works.jeraby-21.workDetails.small.text': "Custom-made, according to the client's wishes. Interior enhancement for a renovated room in a guesthouse. Two rooms, two paintings. Same style but each one is different. The instruction was for the artwork not to stand out in terms of color but visually complement the room's decor. The crane images are made from pages of the INTRO magazine, which is printed on matte coated paper, resulting in more subdued colors.",
+  'jeraby.collection.works.jeraby-21.workDetails.gridItems.1.title': '# Dimensions',
+  'jeraby.collection.works.jeraby-21.workDetails.gridItems.1.size': '70x70 cm',
+  'jeraby.collection.works.jeraby-21.workDetails.gridItems.1.text': '30 birds',
 }

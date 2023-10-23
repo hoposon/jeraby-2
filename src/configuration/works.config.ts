@@ -12,12 +12,13 @@ const worksPriorities: {[key: string]: number} = {
   'jeraby-23': 6,
   'jeraby-20': 7,
   'jeraby-16': 8,
-  'jeraby-15': 9,
-  'jeraby-7': 10,
-  'jeraby-6': 11,
+  'jeraby-21': 9, // --unavailable
+  'jeraby-15': 10, // --unavailable
+  'jeraby-6': 11, // --unavailable
   'jeraby-18': 12,
   'jeraby-17': 13,
   'jeraby-14': 14,
+  'jeraby-7': 15, // --unavailable
 
   'jeraby-1': 11,
   'jeraby-2': 21,
@@ -47,6 +48,7 @@ const worksPublished: {[key: string]: boolean} = {
   'jeraby-18': true,
   'jeraby-17': true,
   'jeraby-14': true,
+  'jeraby-21': true,
 
   'jeraby-1': false,
   'jeraby-2': false,
@@ -70,12 +72,13 @@ const worksState: {[key: string]: 'available'|'unavailable'} = {
   'jeraby-23': 'available',
   'jeraby-20': 'available',
   'jeraby-16': 'available',
-  'jeraby-15': 'unavailable',
-  'jeraby-7': 'unavailable',
-  'jeraby-6': 'unavailable',
   'jeraby-18': 'available',
   'jeraby-17': 'available',
   'jeraby-14': 'available',
+  'jeraby-6': 'unavailable',
+  'jeraby-7': 'unavailable',
+  'jeraby-15': 'unavailable',
+  'jeraby-21': 'unavailable',
 
   'jeraby-1': 'available',
   'jeraby-2': 'available',
@@ -105,6 +108,7 @@ const worksAtHomePage: {[key: string]: boolean} = {
   'jeraby-18': false,
   'jeraby-17': false,
   'jeraby-14': true,
+  'jeraby-21': false,
 
   'jeraby-1': true,
   'jeraby-2': false,
@@ -134,6 +138,7 @@ const worksInCollections: {[key: string]: string[]} = {
   'jeraby-18': ['jeraby-collection'],
   'jeraby-17': ['jeraby-collection'],
   'jeraby-14': ['jeraby-collection'],
+  'jeraby-21': ['jeraby-collection'],
 
   'jeraby-1': ['jeraby-collection'],
   'jeraby-2': ['jeraby-collection'],

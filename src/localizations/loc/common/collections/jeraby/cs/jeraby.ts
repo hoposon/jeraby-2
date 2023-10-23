@@ -98,4 +98,11 @@ export default {
   'jeraby.collection.works.jeraby-14.workDetails.gridItems.1.title': '# Rozměry',
   'jeraby.collection.works.jeraby-14.workDetails.gridItems.1.size': '80x80 cm',
   'jeraby.collection.works.jeraby-14.workDetails.gridItems.1.text': '53 ptáků',
+  'jeraby.collection.works.jeraby-21.title': '# Jeraby 21',
+  'jeraby.collection.works.jeraby-21.presentationDescription': '70x70x30',
+  'jeraby.collection.works.jeraby-21.workDetails.main.text': 'Zakázka.</br>Dva pokoje, dva obrazy.</br>Zadání klienta: Bílo zlatý podklad.',
+  'jeraby.collection.works.jeraby-21.workDetails.small.text': 'Na zakázku, dle přání klienta. Doplněk interiéru zrekonstruovaného pokoje v penzionu. Dva pokoje, dva obrazy. Stejný styl, ale každý jiný. Zadání bylo, aby obraz barevně nevyčníval, ale vizuálně doplnil zařízení pokoje. Na jeřáby jsou použité stránky z časopisu INTRO, který je tištěný na matnou křídu a díky tomu jsou barvy tlumenější.',
+  'jeraby.collection.works.jeraby-21.workDetails.gridItems.1.title': '# Rozměry',
+  'jeraby.collection.works.jeraby-21.workDetails.gridItems.1.size': '70x70 cm',
+  'jeraby.collection.works.jeraby-21.workDetails.gridItems.1.text': '30 ptáků',
 }
