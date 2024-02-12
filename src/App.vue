@@ -5,7 +5,7 @@
   >
     <Navigation />
     <NavScrollWatcher />
-    <router-view />
+    <RouterView />
     <ModalView
       v-if="modalName!==''"
     />
@@ -18,11 +18,9 @@
   import { useWorks } from './composables/works'
   import { useModal } from './composables/modal'
   import { useLocalizations } from './localizations/localizations'
-
   import Navigation from './components/Navigation.vue'
   import NavScrollWatcher from './components/NavScrollWatcher.vue'
-  import ModalView from './views/ModalView.vue'
-  
+  import ModalView from './components/ModalView.vue'  
 
   useScroll()
 
@@ -36,7 +34,3 @@
   
 
 </script>
-
-<style scoped>
-
-</style>

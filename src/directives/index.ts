@@ -1,4 +1,4 @@
-import { DirectiveBinding, Directive } from 'vue'
+import type { Directive, DirectiveBinding } from 'vue'
 
 interface NamedEntity {
   name: string;

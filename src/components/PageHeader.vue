@@ -2,8 +2,8 @@
   <div 
     id="id-page-header"
     v-intersect="setHeaderInViewport"
-    class="h-[75vh] bg-none sm:bg-main-crane bg-no-repeat sm:bg-[length:200px_180px] md:bg-[length:250px_210px] 2xl:bg-[length:400px_300px] lowh:bg-[length:150px_150px] lowh:bg-[position:85%_55%] p-[10vw]"
-    :class="[page.classNames?.bg, page.classNames?.text, isiOS ? 'bg-scroll bg-[position:80%_85%]' : 'bg-fixed bg-[position:80%_60%]']"
+    class="h-[75vh] bg-none sm:bg-main-crane bg-no-repeat sm:bg-[length:200px_180px] md:bg-[length:250px_210px] 2xl:bg-[length:400px_300px] lowh:bg-[length:150px_150px] lowh:bg-[position:85%_55%] p-[10vw] bg-position-scroll-fixed"
+    :class="[page.classNames?.bg, page.classNames?.text]"
   >
     <HomeButton 
       v-if="navState === 'closed'"
@@ -36,13 +36,14 @@
 </template>
 
 <script setup lang="ts">
-  import { inject, ref, onMounted, watch } from 'vue'
+  import { inject, onMounted, ref, watch } from 'vue'
   import { useNavigation } from '../composables/navigation'
-  import BurgerButton from '../components/BurgerButton.vue'
-  import { PageHeader } from '../types'
-  import HomeButton from './HomeButton.vue'
+  import type { PageHeader } from '../types'
   import { TranslateKey } from '../localizations/localizations'
   import { useTextScramble } from '../composables/textScramble'
+  import BurgerButton from './BurgerButton.vue'
+  
+  // import HomeButton from './HomeButton.vue'
 
   const props = defineProps<{
     page: PageHeader
@@ -55,8 +56,6 @@
 
   const titleEl = ref<HTMLElement|null>(null)
   const descriptionEl = ref<HTMLElement|null>(null)
-
-  const isiOS = ref<boolean>(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream)
 
   onMounted(() => {
     if (!titleEl.value) {
@@ -89,6 +88,17 @@
 <style>
   .dud {
     color: #757575;
+  }
+
+  .bg-position-scroll-fixed {
+      background-attachment: fixed;
+      background-position: 80% 60%;
+    }
+  @supports (background-attachment: scroll) {
+    .bg-position-scroll-fixed {
+      background-attachment: scroll;
+      background-position: 80% 85%;
+    }
   }
 </style>
 

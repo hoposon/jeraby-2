@@ -1,4 +1,5 @@
-import { InjectionKey, ref } from 'vue'
+import type {InjectionKey} from 'vue'
+import { ref } from 'vue'
 import i18next from 'i18next'
 import moment from 'moment/min/moment-with-locales'
 import { AvailableLocales, DEFAULT_LOCALE } from './AvailableLocales'
@@ -65,6 +66,11 @@ export function useLocalizations() {
       moment.locale(newLocale)
 
       locale.value = newLocale
+
+      console.log('🚀 ~ loadLanguage ~ document:', document)
+      if (typeof document !== 'undefined') {
+        document.querySelector('html')?.setAttribute('lang', locale.value)
+      }
 
     } finally {
       localeLoading.value--

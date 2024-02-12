@@ -40,7 +40,7 @@
 
 <script setup lang="ts">
   import 'vue3-carousel/dist/carousel.css'
-  import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+  import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 
   interface Props {
     images: {
@@ -73,29 +73,29 @@
     }
   }
 
-  const props = withDefaults(defineProps<Props>(), {
+  withDefaults(defineProps<Props>(), {
     initialSlide: 0,
     pagination: false,
     isLink: true,
-    gallerySettings: {
-      itemsToShow: 1,
-      snapAlign: 'center',
-      wrapAround: true,
-      // breakpoints: {
-      //   640: {
-      //     itemsToShow: 2,
-      //     snapAlign: 'center',
-      //   },
-      //   768: {
-      //     itemsToShow: 3,
-      //     snapAlign: 'center',
-      //   },
-      //   1024: {
-      //     itemsToShow: 2,
-      //     snapAlign: 'center',
-      //   },
-      // },
-    },
+    // gallerySettings: {
+    //   itemsToShow: 1,
+    //   snapAlign: 'center',
+    //   wrapAround: true,
+    //   // breakpoints: {
+    //   //   640: {
+    //   //     itemsToShow: 2,
+    //   //     snapAlign: 'center',
+    //   //   },
+    //   //   768: {
+    //   //     itemsToShow: 3,
+    //   //     snapAlign: 'center',
+    //   //   },
+    //   //   1024: {
+    //   //     itemsToShow: 2,
+    //   //     snapAlign: 'center',
+    //   //   },
+    //   // },
+    // },
   })
 
 </script>

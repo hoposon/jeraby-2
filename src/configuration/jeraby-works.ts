@@ -1,4 +1,4 @@
-import { CollectionWork } from "../types/index"
+import { CollectionWork } from "../types/index.js"
 
 const jeraby: CollectionWork[] = [
   {

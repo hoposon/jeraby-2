@@ -40,25 +40,28 @@
 </template>
 
 <script setup lang="ts">
-  import { useRoute } from 'vue-router'
+  import { useRoute } from 'vue-router/auto'
+  import { computed, inject } from 'vue'
   import { useScroll } from '../composables/scroll'
   import { useNavigation } from '../composables/navigation'
   import { useWorks } from '../composables/works'
-  import { inject, computed } from 'vue'
   import { TranslateKey } from '../localizations/localizations'
   import BurgerButton from './BurgerButton.vue'
   import ScrollButton from './ScrollButton.vue'
   import ArrowLeftRigt from './ArrowLeftRigt.vue'
 
-  const { subscribe } = useScroll()
+  let subscribe
   const { navScrollClassNames, handleScroll } = useNavigation()
   const route = useRoute()
   const { filteredWorks } = useWorks()
   const translate = inject(TranslateKey, () => '')
 
-  subscribe(handleScroll)
+  if (typeof window !== 'undefined') {
+    subscribe = useScroll().subscribe
+    subscribe(handleScroll)
+  }
 
-  const collection = filteredWorks.value
+  // const collection = filteredWorks.value
   const showNextButton = computed(() => {
     if (!route.params.id) return false
 

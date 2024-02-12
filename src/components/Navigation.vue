@@ -13,7 +13,7 @@
           />
           <Link
             :text="'Michaela Houf'"
-            :link="'/'"
+            :link="`/${locale}`"
             class="text-[25px] font-bold mt-8 md:mt-0 md:mr-[80px] whitespace-nowrap"
             @click="closeNav()"
           />
@@ -31,7 +31,7 @@
               >
                 <Link
                   :text="translate('nav.available.works')"
-                  :link="`/works/available`"
+                  :link="`/${locale}/works/available`"
                   @click="closeNav()"
                 />
               </div>
@@ -40,7 +40,7 @@
               >
                 <Link
                   :text="translate('nav.unavailable.works')"
-                  :link="`/works/unavailable`"
+                  :link="`/${locale}/works/unavailable`"
                   @click="closeNav()"
                 />
               </div>
@@ -54,7 +54,7 @@
               <div>
                 <Link
                   :text="translate('nav.about')"
-                  :link="'/about'"
+                  :link="`/${locale}/about`"
                   class="mt-1"
                   @click="closeNav()"
                 />
@@ -62,23 +62,23 @@
               <div>
                 <Link
                   :text="translate('nav.contact')"
-                  :link="'/contact'"
+                  :link="`/${locale}/contact`"
                   @click="closeNav()"
                 />
               </div>
               <div>
               <LinkButton
                 text="CS"
-                :addClass="locale==='cs-cz'?'text-[#DF442F]':''"
-                :disabled="locale==='cs-cz'"
-                @click="changeLocale('cs-cz')"
+                :addClass="locale==='cs'?'text-[#DF442F]':''"
+                :disabled="locale==='cs'"
+                @click="changeLocale('cs')"
               />
               |
               <LinkButton
                 text="EN"
-                :addClass="locale==='en-ww'?'text-[#DF442F]':''"
-                :disabled="locale==='en-ww'"
-                @click="changeLocale('en-ww')"
+                :addClass="locale==='en'?'text-[#DF442F]':''"
+                :disabled="locale==='en'"
+                @click="changeLocale('en')"
               />
             </div>
             </div>

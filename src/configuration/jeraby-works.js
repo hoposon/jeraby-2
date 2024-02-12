@@ -5,7 +5,7 @@ const jeraby = [
             title: 'jeraby.collection.works.jeraby-21.title',
             bgImage: '/images/crane-icon-white.png',
             classNames: {
-                'bg': ['bg-[#dcd6cc]'],
+                'bg': ['bg-[#dcd6cc]'], //#a0aeb1
                 'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-4xl', 'sm:text-6xl', 'text-white', 'font-semi-bold'],
             }
         },
@@ -140,7 +140,7 @@ const jeraby = [
             title: 'jeraby.collection.works.jeraby-14.title',
             bgImage: '/images/crane-icon-white.png',
             classNames: {
-                'bg': ['bg-[#8ba3b0]'],
+                'bg': ['bg-[#8ba3b0]'], //#a0aeb1
                 'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-4xl', 'sm:text-6xl', 'text-white', 'font-semi-bold'],
             }
         },
