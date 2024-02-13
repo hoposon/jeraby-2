@@ -12,26 +12,11 @@ const works = ref<CollectionWorkEnhanced[]|[]>([])
 const collection = ref<string>('')
 const id = ref<string>('')
 
-export function useWorks() {
-  const route = useRoute()
-  const router = useRouter()
+const setSelectedFilter = (filter:string|null) => {
+  selectedFilter.value = filter
+}
 
-  const setSelectedFilter = (filter:string|null) => {
-    selectedFilter.value = filter
-  }
-
-  collection.value = route.params.collection
-  id.value = route.params.id
-  if(collection.value && COLLECTION_PAGES.includes(collection.value)) {
-    setSelectedFilter(collection.value)
-  } else if (id.value) {
-    const work = works.value.find(work => work.id === id.value)
-    setSelectedFilter(work?.workState)
-  } else {
-    setSelectedFilter('home')
-    router.push({ path: '/'})
-  }
-
+export function useWorksConfig() {
   const loadWorksConfig = async () => {
     try {
       configLoading.value = true
@@ -41,11 +26,31 @@ export function useWorks() {
     } catch (error) {
       console.log(error)
     } finally {
-      if (id.value) {
-        const work = works.value.find(work => work.id === id.value)
-        setSelectedFilter(work?.workState)
-      }
       configLoading.value = false
+    }
+  }
+
+  return {
+    loadWorksConfig,
+    configLoading
+  }
+}
+
+export function useWorks() {
+  const route = useRoute()
+  const router = useRouter()
+
+  
+  const setFilterForRoute = ({newCollection, newId}: {newCollection?: string, newId?: string}) => {
+    collection.value = newCollection
+    id.value = newId
+    if(collection.value && COLLECTION_PAGES.includes(collection.value)) {
+      setSelectedFilter(collection.value)
+    }
+    
+    if (id.value) {
+      const work = works.value.find(work => work.id === id.value)
+      setSelectedFilter(work?.workState)
     }
   }
 
@@ -74,8 +79,7 @@ export function useWorks() {
   })
 
   return {
-    loadWorksConfig,
-    configLoading,
+    setFilterForRoute,
     selectedFilter,
     works,
     filteredWorks,

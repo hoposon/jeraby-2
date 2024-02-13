@@ -5,16 +5,16 @@
   >
     <div>
       <h2 class="text-3xl sm:text-5xl mb-2 font-medium text-[#DF442F]">
-        {{ translate(work.title) }}
+        {{ translate(work?.title) }}
       </h2>
       <p class="text-2xl lg:text-3xl sm:mb-8">
-        {{ translate(work.presentation.presentationDescription) }}
+        {{ translate(work?.presentation.presentationDescription) }}
       </p>
     </div>
     <div class="w-full">
       <p class="mb-4">
         <span class="text-[#DF442F]">
-          {{ translate(work.workState) }}
+          {{ translate(work?.workState) }}
         </span>
         <span
           v-if="detailsButton"
@@ -24,7 +24,7 @@
         <Link
           v-if="detailsButton"
           :text="translate('cta.show.details')"
-          :link="`/${locale}/work/${work.id}`"
+          :link="`/${locale}/work/${work?.id}`"
         />
       </p>
       <CtaButton
@@ -61,15 +61,15 @@
 
 
   const oneLeft = computed(() => {
-    return props.work.presentation.presentationType === 'oneLeft'
+    return props.work?.presentation.presentationType === 'oneLeft'
   })
 
   const oneRight = computed(() => {
-    return props.work.presentation.presentationType === 'oneRight'
+    return props.work?.presentation.presentationType === 'oneRight'
   })  
 
   const two = computed(() => {
-    return props.work.presentation.presentationType === 'twoImages'
+    return props.work?.presentation.presentationType === 'twoImages'
   })
 
   const className = computed(() => {
@@ -94,9 +94,9 @@
   })
 
   const ctaText = computed(() => {
-    if (props.work.workState === 'unavailable') {
+    if (props.work?.workState === 'unavailable') {
       return 'cta.unavailable.text'
-    } else if (props.work.workState === 'available') {
+    } else if (props.work?.workState === 'available') {
       return 'cta.available.text'
     } else {
       return ''

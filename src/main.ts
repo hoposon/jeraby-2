@@ -6,12 +6,13 @@ import type { UserModule } from './types'
 import type { CustomDirective } from './directives'
 import directives from './directives'
 import { useLocalizations } from './localizations/localizations'
-
 import cs from './localizations/loc/cs/loc'
+import { useScrollHistory } from './composables/scrollHistory'
 
 import './styles/main.css'
 
 const { initLocalizations, changeLocale, locale } = useLocalizations()
+const { setScrollHistory, getScrollHistory } = useScrollHistory()
 
 routes.unshift(
   {
@@ -26,6 +27,7 @@ routes.push(
     redirect: '/cs',
   },
 )
+
 
 // https://github.com/antfu/vite-ssg
 export const createApp = ViteSSG(
@@ -42,16 +44,31 @@ export const createApp = ViteSSG(
 
     ctx.app.use(initLocalizations(cs))
 
-    // ctx.router guard
-    ctx.router.beforeEach(async (to) => {
+    // ctx.router guards
+    
+    ctx.router.beforeEach(async (to, from) => {
+
+      if (typeof window !== 'undefined') {
+        setScrollHistory(from.path, window.scrollY)
+      }
+
       if (to.params.lang && to.params.lang !== locale.value) {
         changeLocale(to.params.lang as string)
         return
       }
-      // window.scrollTo({
-      //   top: 0,
-      //   // behavior: 'smooth' // You can change this to 'auto' for instant scrolling
-      // });
+    })
+
+    ctx.router.afterEach((to, from) => {
+      if (typeof window !== 'undefined') {
+        const scroll = getScrollHistory(to.path)
+        if (scroll) {
+          window.scrollTo(0, scroll.scroll)
+        } else {
+          setTimeout(() => {
+            window.scrollTo(0, 0);
+          }, 50)
+        }
+      }
     })
 
     directives.forEach((directive: CustomDirective) => {

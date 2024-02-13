@@ -11,12 +11,12 @@
       <div class="mt-[40px] md:mt-[50px] xl:mt-[120px] tracking-wider">
         <p 
           class="text-4xl sm:text-5xl font-extralight w-[75%]" 
-          v-html="translate(currentWork.workDetails.mainText || '')"
+          v-html="translate(currentWork?.workDetails.mainText || '')"
         />
         <div class="flex items-center flex-col lg:flex-row text-2xl sm:text-3xl font-extralight mt-[60px] md:mt-[70px] xl:mt-[120px] mb-[60px] sm:mb-[100px] lg:mb-[90px] xl:mb-[120px]">
           <p 
             class="w-full mb-[10px] sm:mb-[70px] lg:mb-0 lg:w-[50%] lg:mr-[100px] 2xl:w-[60%]"
-            v-html="translate(currentWork.workDetails.smallText || '')"
+            v-html="translate(currentWork?.workDetails.smallText || '')"
           />
           <div
             class="w-full lg:w-[50%] 2xl:w-[40%] flex justify-start"
@@ -76,8 +76,8 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, inject, ref, watch } from 'vue'
-  // import { useRoute } from 'vue-router/auto'
+  import { computed, inject, ref, onMounted } from 'vue'
+  import { useRoute, onBeforeRouteUpdate } from 'vue-router/auto'
   
   // import PageHeader from '../components/PageHeader.vue'
   // import { PAGES_DATA, DETAIL } from '../configuration/pages.config'
@@ -92,7 +92,7 @@
 
   const route = useRoute()
   const id = ref(route.params.id)
-  const { filteredWorks, selectedFilter } = useWorks()
+  const { filteredWorks, selectedFilter, setFilterForRoute } = useWorks()
   const translate = inject(TranslateKey, () => '')
   const { locale } = useLocalizations()
   const { openModal } = useModal()
@@ -118,13 +118,13 @@
       return {
         id: work.id,
         image: work.presentation.presentationImages[1],
-        link: `/work/${work.id}`
+        link: `/${locale.value}/work/${work.id}`
       }
     })
   })
 
   const gridItems = computed(() => {
-    return currentWork.value?.workDetails.gridItems
+    return currentWork.value?.workDetails.gridItems || []
   })
 
   const gallerySettings = computed(() => {
@@ -139,13 +139,14 @@
     return selectedFilter.value === 'available' ? 'unavailable' : 'available'
   })
 
-  watch(
-    () => route.params, 
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    (newParams) => {
-      id.value = newParams.id
-    }
-  )
+  onBeforeRouteUpdate((to) => {
+    id.value = to.params.id
+    setFilterForRoute({newId: to.params.id})
+  })
+
+  onMounted(() => {
+    setFilterForRoute({newId: route.params.id})
+  })
 
 </script>
 

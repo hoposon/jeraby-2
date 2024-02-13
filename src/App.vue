@@ -15,7 +15,7 @@
 <script setup lang="ts">
   import { onBeforeMount } from 'vue'
   import { useScroll } from './composables/scroll'
-  import { useWorks } from './composables/works'
+  import { useWorksConfig } from './composables/works'
   import { useModal } from './composables/modal'
   import { useLocalizations } from './localizations/localizations'
   import Navigation from './components/Navigation.vue'
@@ -24,7 +24,7 @@
 
   useScroll()
 
-  const { loadWorksConfig, configLoading } = useWorks()
+  const { loadWorksConfig, configLoading } = useWorksConfig()
   const { modalName } = useModal()
   const { localeLoading } = useLocalizations()
 

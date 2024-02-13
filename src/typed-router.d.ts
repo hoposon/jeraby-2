@@ -39,7 +39,6 @@ import type {
 
 declare module 'vue-router/auto/routes' {
   export interface RouteNamedMap {
-    '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/[lang(en|cs)]/': RouteRecordInfo<'/[lang(en|cs)]/', '/:lang(en|cs)', { lang(en|cs): ParamValue<true> }, { lang(en|cs): ParamValue<false> }>,
     '/[lang(en|cs)]/About': RouteRecordInfo<'/[lang(en|cs)]/About', '/:lang(en|cs)/About', { lang(en|cs): ParamValue<true> }, { lang(en|cs): ParamValue<false> }>,
     '/[lang(en|cs)]/Contact': RouteRecordInfo<'/[lang(en|cs)]/Contact', '/:lang(en|cs)/Contact', { lang(en|cs): ParamValue<true> }, { lang(en|cs): ParamValue<false> }>,

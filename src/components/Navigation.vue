@@ -71,14 +71,14 @@
                 text="CS"
                 :addClass="locale==='cs'?'text-[#DF442F]':''"
                 :disabled="locale==='cs'"
-                @click="changeLocale('cs')"
+                @click="changeLanguage('cs')"
               />
               |
               <LinkButton
                 text="EN"
                 :addClass="locale==='en'?'text-[#DF442F]':''"
                 :disabled="locale==='en'"
-                @click="changeLocale('en')"
+                @click="changeLanguage('en')"
               />
             </div>
             </div>
@@ -95,6 +95,7 @@
 
 <script setup lang="ts">
   import { inject } from 'vue'
+  import { useRoute, useRouter } from 'vue-router/auto'
   import { useNavigation } from '../composables/navigation'
   import { TranslateKey, useLocalizations } from '../localizations/localizations'
   import Link from './Link.vue'
@@ -106,7 +107,20 @@
     closeNav 
   } = useNavigation()
 
-  const { changeLocale, locale } = useLocalizations()
+  const { locale } = useLocalizations()
+
+  const route = useRoute()
+  const router = useRouter()
+
+  const changeLanguage = (lang: string) => {
+    router.push({ name: route.name, params: { ...route.params, lang } })
+    setTimeout(() => {
+      closeNav()
+    }, 100)
+    
+  }
+
+  
 
   const translate = inject(TranslateKey, () => '')
 

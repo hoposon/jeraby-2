@@ -7,7 +7,7 @@ export const DETAIL = 'detail'
 export const COLLECTION_AVAILABLE = 'available'
 export const COLLECTION_UNAVAILABLE = 'unavailable'
 
-export const COLLECTION_PAGES = [COLLECTION_AVAILABLE, COLLECTION_UNAVAILABLE]
+export const COLLECTION_PAGES = [HOME, COLLECTION_AVAILABLE, COLLECTION_UNAVAILABLE]
 
 export interface PageDataItem {
   id: string,

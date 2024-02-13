@@ -3,34 +3,34 @@
     id="id-page-header"
     v-intersect="setHeaderInViewport"
     class="h-[75vh] bg-none sm:bg-main-crane bg-no-repeat sm:bg-[length:200px_180px] md:bg-[length:250px_210px] 2xl:bg-[length:400px_300px] lowh:bg-[length:150px_150px] lowh:bg-[position:85%_55%] p-[10vw] bg-position-scroll-fixed"
-    :class="[page.classNames?.bg, page.classNames?.text]"
+    :class="[page?.classNames?.bg, page?.classNames?.text]"
   >
     <HomeButton 
       v-if="navState === 'closed'"
     /> 
     <h1
       ref="titleEl"
-      :class="page.classNames?.title"
+      :class="page?.classNames?.title"
     />
     <p
-      v-if="page.description"
+      v-if="page?.description"
       ref="descriptionEl"
       class="lowh:w-[50%] w-[80%] md:w-[70%] lg:w-[50%] xl:w-[40%] mt-4 lowh:text-lg"
-      :class="page.classNames?.description"
+      :class="page?.classNames?.description"
     >
-      {{ translate(page.description) }}
+      {{ translate(page?.description) }}
     </p>
     <div
-      v-if="page.text1"
+      v-if="page?.text1"
       class="lowh:w-[50%] w-[80%] md:w-[70%] lg:w-[50%] xl:w-[40%] pr-8"
-      :class="page.classNames?.text1"
+      :class="page?.classNames?.text1"
     >
-      {{ translate(page.text1) }}
+      {{ translate(page?.text1) }}
     </div>
     <BurgerButton
       v-if="navState === 'closed'"
       class="absolute top-10 right-10 w-[40px]"
-      :color="page.classNames?.menuColor"
+      :color="page?.classNames?.menuColor"
     />
   </div>
 </template>
@@ -42,8 +42,7 @@
   import { TranslateKey } from '../localizations/localizations'
   import { useTextScramble } from '../composables/textScramble'
   import BurgerButton from './BurgerButton.vue'
-  
-  // import HomeButton from './HomeButton.vue'
+  import HomeButton from './HomeButton.vue'
 
   const props = defineProps<{
     page: PageHeader
@@ -58,7 +57,7 @@
   const descriptionEl = ref<HTMLElement|null>(null)
 
   onMounted(() => {
-    if (!titleEl.value) {
+    if (!titleEl.value || !props.page) {
       return
     }
     useTextScramble(titleEl.value, translate(props.page.title))
@@ -70,7 +69,7 @@
   })
 
   watch(
-    () => props.page.title,
+    () => props.page?.title,
     (title) => {
       if (!titleEl.value) {
         return

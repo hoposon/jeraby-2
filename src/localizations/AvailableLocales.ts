@@ -1,6 +1,6 @@
 export enum AvailableLocales {
 'en' = 'en',      // en
-'cs' = 'cz',      // czech
+'cs' = 'cs',      // czech
 // 'de-ch' = 'de',      // Deutschland
 // 'de-de' = 'de',      // Schweiz (Deutsch)
 // 'en-ww' = 'en',      // Worldwide (English)

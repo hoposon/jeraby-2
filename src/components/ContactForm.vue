@@ -91,7 +91,7 @@
 
   interface Props {
     contactSubject: string,
-    workStatus: 'unavailable'|'available'
+    workStatus?: 'unavailable'|'available'
   }
 
   const props = defineProps<Props>()
