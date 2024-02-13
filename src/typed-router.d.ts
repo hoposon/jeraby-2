@@ -40,8 +40,8 @@ import type {
 declare module 'vue-router/auto/routes' {
   export interface RouteNamedMap {
     '/[lang(en|cs)]/': RouteRecordInfo<'/[lang(en|cs)]/', '/:lang(en|cs)', { lang(en|cs): ParamValue<true> }, { lang(en|cs): ParamValue<false> }>,
-    '/[lang(en|cs)]/About': RouteRecordInfo<'/[lang(en|cs)]/About', '/:lang(en|cs)/About', { lang(en|cs): ParamValue<true> }, { lang(en|cs): ParamValue<false> }>,
-    '/[lang(en|cs)]/Contact': RouteRecordInfo<'/[lang(en|cs)]/Contact', '/:lang(en|cs)/Contact', { lang(en|cs): ParamValue<true> }, { lang(en|cs): ParamValue<false> }>,
+    '/[lang(en|cs)]/about': RouteRecordInfo<'/[lang(en|cs)]/about', '/:lang(en|cs)/about', { lang(en|cs): ParamValue<true> }, { lang(en|cs): ParamValue<false> }>,
+    '/[lang(en|cs)]/contact': RouteRecordInfo<'/[lang(en|cs)]/contact', '/:lang(en|cs)/contact', { lang(en|cs): ParamValue<true> }, { lang(en|cs): ParamValue<false> }>,
     '/[lang(en|cs)]/work/[id]': RouteRecordInfo<'/[lang(en|cs)]/work/[id]', '/:lang(en|cs)/work/:id', { lang(en|cs): ParamValue<true>, id: ParamValue<true> }, { lang(en|cs): ParamValue<false>, id: ParamValue<false> }>,
     '/[lang(en|cs)]/works/[collection]': RouteRecordInfo<'/[lang(en|cs)]/works/[collection]', '/:lang(en|cs)/works/:collection', { lang(en|cs): ParamValue<true>, collection: ParamValue<true> }, { lang(en|cs): ParamValue<false>, collection: ParamValue<false> }>,
   }
