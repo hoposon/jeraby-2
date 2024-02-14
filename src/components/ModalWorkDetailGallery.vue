@@ -8,12 +8,11 @@
         :initialSlide="currentDetail"
         :gallery-settings="gallerySettings"
       />
-    <!-- </div> -->
   </Modal>
 </template>
 
 <script setup lang="ts">
-  import { inject, computed } from 'vue'
+  import { computed } from 'vue'
   import { useModal } from '../composables/modal'
   import Modal from './Modal.vue'
   import Gallery from './Gallery.vue'

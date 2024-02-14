@@ -7,6 +7,8 @@ export const DETAIL = 'detail'
 export const COLLECTION_AVAILABLE = 'available'
 export const COLLECTION_UNAVAILABLE = 'unavailable'
 
+export const COLLECTION_PAGES = [HOME, COLLECTION_AVAILABLE, COLLECTION_UNAVAILABLE]
+
 export interface PageDataItem {
   id: string,
   pageHeader?: PageHeader,
@@ -54,7 +56,7 @@ export const PAGES_DATA: PageData = {
     pageHeader: {
       title: 'home.title',
       // bgImage: '/images/crane-icon-white.png',
-      bgImage: '/images/crane-icon-white.png',
+      // bgImage: '/images/crane-icon-white.png',
       description: 'home.description',
       classNames: {
         'text': ['text-neutral-300'],
@@ -69,7 +71,7 @@ export const PAGES_DATA: PageData = {
     id: ABOUT,
     pageHeader: {
       title: 'about.title',
-      bgImage: '/images/crane-icon-white.png',
+      // bgImage: '/images/crane-icon-white.png',
       description: 'about.description',
       // text1: 'about.text1',
       classNames: {
@@ -84,7 +86,7 @@ export const PAGES_DATA: PageData = {
     id: CONTACT,
     pageHeader: {
       title: 'contact.title',
-      bgImage: '/images/crane-icon-white.png',
+      // bgImage: '/images/crane-icon-white.png',
       // description: 'contact.description',
       classNames: {
         'bg': ['bg-amber-400'],
@@ -120,7 +122,7 @@ export const PAGES_DATA: PageData = {
     id: COLLECTION_AVAILABLE,
     pageHeader: {
       title: 'available.works.collection.title',
-      bgImage: '/images/crane-icon-white.png',
+      // bgImage: '/images/crane-icon-white.png',
       description: 'available.works.collection.description',
       classNames: {
         'bg': ['bg-[#008ecd]'],
@@ -133,7 +135,7 @@ export const PAGES_DATA: PageData = {
     id: COLLECTION_UNAVAILABLE,
     pageHeader: {
       title: 'unavailable.works.collection.title',
-      bgImage: '/images/crane-icon-white.png',
+      // bgImage: '/images/crane-icon-white.png',
       description: 'unavailable.works.collection.description',
       classNames: {
         'bg': ['bg-amber-400'],

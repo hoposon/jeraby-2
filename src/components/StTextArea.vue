@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-  import { inject, ref, computed } from 'vue'
+  import { computed, inject, ref } from 'vue'
   import { TranslateKey } from '../localizations/localizations'
 
   interface Props {

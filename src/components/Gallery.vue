@@ -40,7 +40,7 @@
 
 <script setup lang="ts">
   import 'vue3-carousel/dist/carousel.css'
-  import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+  import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 
   interface Props {
     images: {
@@ -73,29 +73,29 @@
     }
   }
 
-  const props = withDefaults(defineProps<Props>(), {
+  withDefaults(defineProps<Props>(), {
     initialSlide: 0,
     pagination: false,
     isLink: true,
-    gallerySettings: {
-      itemsToShow: 1,
-      snapAlign: 'center',
-      wrapAround: true,
-      // breakpoints: {
-      //   640: {
-      //     itemsToShow: 2,
-      //     snapAlign: 'center',
-      //   },
-      //   768: {
-      //     itemsToShow: 3,
-      //     snapAlign: 'center',
-      //   },
-      //   1024: {
-      //     itemsToShow: 2,
-      //     snapAlign: 'center',
-      //   },
-      // },
-    },
+    // gallerySettings: {
+    //   itemsToShow: 1,
+    //   snapAlign: 'center',
+    //   wrapAround: true,
+    //   // breakpoints: {
+    //   //   640: {
+    //   //     itemsToShow: 2,
+    //   //     snapAlign: 'center',
+    //   //   },
+    //   //   768: {
+    //   //     itemsToShow: 3,
+    //   //     snapAlign: 'center',
+    //   //   },
+    //   //   1024: {
+    //   //     itemsToShow: 2,
+    //   //     snapAlign: 'center',
+    //   //   },
+    //   // },
+    // },
   })
 
 </script>
@@ -145,14 +145,14 @@
   .carousel__prev,
   .carousel__next {
     box-sizing: content-box;
-    background-color: rgb(212 212 212);
+    background-color: rgb(212 212 212) !important;
     box-shadow: 4px 7px 13px 1px rgb(17 24 39);
     color: rgb(95, 82, 82);
   }
 
   .carousel__prev:hover,
   .carousel__next:hover {
-    background-color: white;
+    background-color: white !important;
     color: rgb(17 24 39);
   }
 

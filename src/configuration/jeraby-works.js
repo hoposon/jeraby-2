@@ -5,7 +5,7 @@ const jeraby = [
             title: 'jeraby.collection.works.jeraby-21.title',
             bgImage: '/images/crane-icon-white.png',
             classNames: {
-                'bg': ['bg-[#dcd6cc]'],
+                'bg': ['bg-[#dcd6cc]'], //#a0aeb1
                 'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-4xl', 'sm:text-6xl', 'text-white', 'font-semi-bold'],
             }
         },
@@ -140,7 +140,7 @@ const jeraby = [
             title: 'jeraby.collection.works.jeraby-14.title',
             bgImage: '/images/crane-icon-white.png',
             classNames: {
-                'bg': ['bg-[#8ba3b0]'],
+                'bg': ['bg-[#8ba3b0]'], //#a0aeb1
                 'title': ['mt-[10vh]', 'md:mt-[1vh]', 'text-4xl', 'sm:text-6xl', 'text-white', 'font-semi-bold'],
             }
         },
@@ -912,13 +912,6 @@ const jeraby = [
                     image: {
                         imgPath: '/images/collections/jeraby/jeraby-15/11.jpg',
                         imgAlt: 'jeraby.collection.works.jeraby-15.workDetails.jeraby-15/11.imgAlt',
-                    },
-                }, {
-                    id: '14',
-                    type: 'IMAGE',
-                    image: {
-                        imgPath: '/images/collections/jeraby/jeraby-15/12.jpg',
-                        imgAlt: 'jeraby.collection.works.jeraby-15.workDetails.jeraby-15/12.imgAlt',
                     },
                 }]
         }
@@ -1844,21 +1837,21 @@ const jeraby = [
                         imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/9.imgAlt',
                     },
                 }, {
-                    id: '11',
+                    id: '12',
                     type: 'IMAGE',
                     image: {
                         imgPath: '/images/collections/jeraby/jeraby-28/10.jpg',
                         imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/10.imgAlt',
                     },
                 }, {
-                    id: '11',
+                    id: '13',
                     type: 'IMAGE',
                     image: {
                         imgPath: '/images/collections/jeraby/jeraby-28/11.jpg',
                         imgAlt: 'jeraby.collection.works.jeraby-28.workDetails.jeraby-28/11.imgAlt',
                     },
                 }, {
-                    id: '11',
+                    id: '14',
                     type: 'IMAGE',
                     image: {
                         imgPath: '/images/collections/jeraby/jeraby-28/12.jpg',

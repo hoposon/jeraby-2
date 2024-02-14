@@ -9,6 +9,6 @@ export default {
   'see.also.others': 'Koukněte i na moje ostatní díla',
   'you.are.browsing.collection': 'Právě si prohlížíte kolekci:',
   'change.to.collection': 'Můžete si prohlédnout i kolekci:',
-  'collection.link.available': 'Dosupná díla',
+  'collection.link.available': 'Dostupná díla',
   'collection.link.unavailable': 'Již nedostupná díla'
 }

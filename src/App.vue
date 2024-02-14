@@ -5,7 +5,7 @@
   >
     <Navigation />
     <NavScrollWatcher />
-    <router-view />
+    <RouterView />
     <ModalView
       v-if="modalName!==''"
     />
@@ -15,18 +15,16 @@
 <script setup lang="ts">
   import { onBeforeMount } from 'vue'
   import { useScroll } from './composables/scroll'
-  import { useWorks } from './composables/works'
+  import { useWorksConfig } from './composables/works'
   import { useModal } from './composables/modal'
   import { useLocalizations } from './localizations/localizations'
-
   import Navigation from './components/Navigation.vue'
   import NavScrollWatcher from './components/NavScrollWatcher.vue'
-  import ModalView from './views/ModalView.vue'
-  
+  import ModalView from './components/ModalView.vue'  
 
   useScroll()
 
-  const { loadWorksConfig, configLoading } = useWorks()
+  const { loadWorksConfig, configLoading } = useWorksConfig()
   const { modalName } = useModal()
   const { localeLoading } = useLocalizations()
 
@@ -36,7 +34,3 @@
   
 
 </script>
-
-<style scoped>
-
-</style>

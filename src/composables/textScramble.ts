@@ -6,24 +6,10 @@ export function useTextScramble(element: HTMLElement, newText: string) {
   const finalText = newText
   let frameRequest = 0
   let frame = 0
-  const queue = []
+  const queue: char[] = []
 
-  const setText = () => {
-    const oldText = el.innerText
-    const length = Math.max(oldText.length, finalText.length)
-    // const promise = new Promise((resolve) => this.resolve = resolve)
-    
-    for (let i = 0; i < length; i++) {
-      const from = oldText[i] || ''
-      const to = finalText[i] || ''
-      const start = Math.floor(Math.random() * 40)
-      const end = start + Math.floor(Math.random() * 40)
-      queue.push({ from, to, start, end })
-      
-    }
-    cancelAnimationFrame(frameRequest)
-    frame = 0
-    update()
+  const randomChar = () => {
+    return chars[Math.floor(Math.random() * chars.length)]
   }
 
   const update = () => {
@@ -52,8 +38,22 @@ export function useTextScramble(element: HTMLElement, newText: string) {
     }
   }
 
-  const randomChar = () => {
-    return chars[Math.floor(Math.random() * chars.length)]
+  const setText = () => {
+    const oldText = el.textContent || ''
+    const length = Math.max(oldText.length, finalText.length)
+    // const promise = new Promise((resolve) => this.resolve = resolve)
+    
+    for (let i = 0; i < length; i++) {
+      const from = oldText[i] || ''
+      const to = finalText[i] || ''
+      const start = Math.floor(Math.random() * 40)
+      const end = start + Math.floor(Math.random() * 40)
+      queue.push({ from, to, start, end })
+      
+    }
+    cancelAnimationFrame(frameRequest)
+    frame = 0
+    update()
   }
 
   setText()

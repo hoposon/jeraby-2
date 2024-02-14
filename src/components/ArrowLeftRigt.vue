@@ -13,12 +13,6 @@
 
 <script setup lang="ts">
   import { computed } from 'vue'
-  // interface Props {
-  //   left?: boolean,
-  //   right?: boolean
-  // }
-
-  // const props = defineProps<Props>()
 
   const props = defineProps<{
     left?: boolean,
