@@ -1,4 +1,11 @@
 <template>
+  <Head>
+    <title>{{ translate('about.metaTitle') }}</title>
+    <meta 
+      name="description" 
+      :content="translate('about.metaDescription')"
+    />
+  </Head>
   <PageHeader
     :page="pageHeader"
   />
@@ -47,13 +54,9 @@
 
 <script setup lang="ts">
   import { inject } from 'vue'
-  
-  // import { TranslateKey } from '../../localizations/localizations'
-  
-  // import PageHeader from '../components/PageHeader.vue'
-  // import { PAGES_DATA, ABOUT } from '../configuration/pages.config'
-  const pageHeader = PAGES_DATA[ABOUT].pageHeader
+  import { Head } from '@unhead/vue/components'
 
+  const pageHeader = PAGES_DATA[ABOUT].pageHeader
   const translate = inject(TranslateKey, () => '')
 
 </script>

@@ -1,4 +1,11 @@
 <template>
+  <Head>
+    <title>{{ translate('contact.metaTitle') }}</title>
+    <meta 
+      name="description" 
+      :content="translate('contact.metaDescription')"
+    />
+  </Head>
   <PageHeader
     :page="pageHeader"
   />
@@ -36,14 +43,10 @@
 
 <script setup lang="ts">
   import { inject } from 'vue'
-  
-  // import PageHeader from '../components/PageHeader.vue'
-  // import { PAGES_DATA, CONTACT } from '../configuration/pages.config'
-  // import ContactForm from '../components/ContactForm.vue'
-  // import { TranslateKey } from '../localizations/localizations'
+  import { Head } from '@unhead/vue/components'
 
   const pageHeader = PAGES_DATA[CONTACT].pageHeader
-
   const translate = inject(TranslateKey, () => '')
+
 
 </script>

@@ -1,4 +1,11 @@
 <template>
+  <Head>
+    <title>{{ translate(pageHeader?.title) }}</title>
+    <meta 
+      name="description" 
+      :content="translate(currentWork?.workDetails.mainText || '')"
+    />
+  </Head>
   <PageHeader
     :page="pageHeader"
   />
@@ -78,6 +85,7 @@
 <script setup lang="ts">
   import { computed, inject, ref, onMounted } from 'vue'
   import { useRoute, onBeforeRouteUpdate } from 'vue-router/auto'
+  import { Head } from '@unhead/vue/components'
   
   // import PageHeader from '../components/PageHeader.vue'
   // import { PAGES_DATA, DETAIL } from '../configuration/pages.config'
