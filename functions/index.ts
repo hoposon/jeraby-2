@@ -9,12 +9,14 @@ appi.use(bodyParser.json());
 const whitelist = ['https://michaelahouf.cz', 'https://jeraby-84a7e.web.app']
 const corsOptions: CorsOptions = {
   origin: function (origin: string | undefined, callback: (err: Error|null, origin?: boolean | string | RegExp | (boolean | string | RegExp)[]) => void) {
+    console.log('🚀 ~ origin:', origin)
     if (whitelist.indexOf(origin || '') !== -1) {
       callback(null, true)
     } else {
       callback(new Error('Not allowed by CORS'))
     }
   }
+    
 }
 
 appi.use(cors(corsOptions))
