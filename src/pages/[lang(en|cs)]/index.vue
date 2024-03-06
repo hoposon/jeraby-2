@@ -1,4 +1,11 @@
 <template>
+  <Head>
+    <title>Michaela Houf</title>
+    <meta
+      name="description"
+      :content="translate('home.metaDescription')"
+    />
+  </Head>
   <div>
     <PageHeader
       :page="pageHeader"
@@ -9,10 +16,10 @@
 
 <script setup lang="ts">
   import { onMounted } from 'vue'
-  // import PageHeader from '../components/PageHeader.vue'
-  // import WorksOverviewList from '../components/WorksOverviewList.vue'
+  import { inject } from 'vue'
+  import { Head } from '@unhead/vue/components'
 
-  // import { PAGES_DATA, HOME } from '../configuration/pages.config'
+  const translate = inject(TranslateKey, () => '')
 
   const { setFilterForRoute } = useWorks()
   const pageHeader = PAGES_DATA[HOME].pageHeader

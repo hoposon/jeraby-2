@@ -1,4 +1,11 @@
 <template>
+  <Head>
+    <title>{{ translate(`${selectedFilter?.toLowerCase()}.works.metaTitle`) }}</title>
+    <meta 
+      name="description" 
+      :content="translate(`${selectedFilter?.toLowerCase()}.works.metaDescription`)"
+    />
+  </Head>
   <div>
     <PageHeader
       :page="pageHeader"
@@ -8,17 +15,14 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted } from 'vue'
+  import { computed, inject, onMounted } from 'vue'
   import { useRoute, onBeforeRouteUpdate } from 'vue-router/auto'
-  // import PageHeader from '../components/PageHeader.vue'
-  // import WorksOverviewList from '../components/WorksOverviewList.vue'
-  // import { useWorks } from '../composables/works'
-  // import { PAGES_DATA } from '../configuration/pages.config'
+  import { Head } from '@unhead/vue/components'
 
   const { selectedFilter, setFilterForRoute } = useWorks()
   const route = useRoute()
 
-
+  const translate = inject(TranslateKey, () => '')
   
   const pageHeader = computed(() => {
     return PAGES_DATA[selectedFilter.value?.toLowerCase()||'available'].pageHeader

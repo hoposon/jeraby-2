@@ -45,7 +45,6 @@ export const createApp = ViteSSG(
     ctx.app.use(initLocalizations(cs))
 
     // ctx.router guards
-    
     ctx.router.beforeEach(async (to, from) => {
 
       if (typeof window !== 'undefined') {
