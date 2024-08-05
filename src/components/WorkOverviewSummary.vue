@@ -24,7 +24,7 @@
         <Link
           v-if="detailsButton"
           :text="translate('cta.show.details')"
-          :link="`/work/${work.id}`"
+          :link="`/${AvailableLocales[locale]}/work/${work.id}`"
         />
       </p>
       <CtaButton
@@ -39,7 +39,8 @@
 <script setup lang="ts">
   import { inject, computed, ref } from 'vue'
   import { useModal, allowedModalNames } from '../composables/modal'
-  import { TranslateKey } from '../localizations/localizations'
+  import { TranslateKey, useLocalizations } from '../localizations/localizations'
+  import { AvailableLocales } from '../localizations/AvailableLocales'
   import { CollectionWorkEnhanced } from '../types'
   import Link from './Link.vue'
   import CtaButton from './CtaButton.vue'
@@ -55,6 +56,7 @@
   })
 
   const translate = inject(TranslateKey, () => '')
+  const { locale } = useLocalizations()
 
 
   const oneLeft = computed(() => {

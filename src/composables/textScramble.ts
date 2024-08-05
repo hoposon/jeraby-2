@@ -6,7 +6,7 @@ export function useTextScramble(element: HTMLElement, newText: string) {
   const finalText = newText
   let frameRequest = 0
   let frame = 0
-  const queue = []
+  const queue: char[] = []
 
   const setText = () => {
     const oldText = el.innerText

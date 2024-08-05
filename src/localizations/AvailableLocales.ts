@@ -41,5 +41,14 @@ export enum AvailableLocales {
 // 'zh-tw' = 'zh-TW',   // Taiwanese
 }
 
-export const DEFAULT_LOCALE = 'cs-cz'
+export enum LangToLocale {
+  'en' = 'en-ww',      // en
+  'cs' = 'cs-cz'      // czech
+}
 
+export enum ValidLang {
+  'en' = 'en',      // en
+  'cs' = 'cs'      // czech
+}
+
+export const DEFAULT_LOCALE = 'cs-cz'

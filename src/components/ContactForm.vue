@@ -90,7 +90,7 @@
 
   interface Props {
     contactSubject: string,
-    workStatus: 'unavailable'|'available'
+    workStatus?: 'unavailable'|'available'
   }
 
   const props = defineProps<Props>()
@@ -154,7 +154,7 @@
   })
 
   const emailData = ref<EmailData>({
-    'work-status': props.workStatus,
+    'work-status': props.workStatus || '',
     'subject': props.contactSubject
   })
 

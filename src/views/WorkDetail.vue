@@ -49,14 +49,14 @@
             <span>{{translate('you.are.browsing.collection')}}&nbsp;</span>
             <Link 
               :text="translate(`collection.link.${selectedFilter}`)" 
-              :link="`/works/${selectedFilter}`" 
+              :link="`/${AvailableLocales[locale]}/works/${selectedFilter}`" 
             />
           </div>
           <div>
             <span>{{translate('change.to.collection')}}&nbsp;</span>
             <Link 
               :text="translate(`collection.link.${alternativCollection}`)" 
-              :link="`/works/${alternativCollection}`" 
+              :link="`/${AvailableLocales[locale]}/works/${alternativCollection}`" 
             />
           </div>
         </div>
@@ -76,7 +76,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref, watch, inject } from 'vue'
+  import { computed, ref, inject } from 'vue'
   import PageHeader from '../components/PageHeader.vue'
   import { PAGES_DATA, DETAIL } from '../configuration/pages.config'
   import Grid from '../components/Grid.vue'
@@ -85,7 +85,8 @@
   import Link from '../components/Link.vue'
   import { useRoute } from 'vue-router'
   import { useWorks } from '../composables/works'
-  import { TranslateKey } from '../localizations/localizations'
+  import { TranslateKey, useLocalizations } from '../localizations/localizations'
+  import { AvailableLocales } from '../localizations/AvailableLocales'
   import { useModal, allowedModalNames } from '../composables/modal'
 
 
@@ -93,6 +94,7 @@
   const id = ref(route.params.id)
   const { filteredWorks, selectedFilter } = useWorks()
   const translate = inject(TranslateKey, () => '')
+  const { locale } = useLocalizations()
   const { openModal } = useModal()
 
   const openDetail = (data: {id: string}) => {
@@ -116,7 +118,7 @@
       return {
         id: work.id,
         image: work.presentation.presentationImages[1],
-        link: `/work/${work.id}`
+        link: `/${AvailableLocales[locale.value]}/work/${work.id}`
       }
     })
   })
@@ -136,14 +138,6 @@
   const alternativCollection = computed(() => {
     return selectedFilter.value === 'available' ? 'unavailable' : 'available'
   })
-
-  watch(
-    () => route.params, 
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    (newParams) => {
-      id.value = newParams.id
-    }
-  )
 
 </script>
 

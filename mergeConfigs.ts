@@ -1,4 +1,4 @@
-import * as fs from 'fs'
+import * as fs from 'fs';
 import { works } from './src/configuration/works.config.js'
 
 function writeConfig() {

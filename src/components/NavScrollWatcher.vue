@@ -45,7 +45,8 @@
   import { useNavigation } from '../composables/navigation'
   import { useWorks } from '../composables/works'
   import { inject, computed } from 'vue'
-  import { TranslateKey } from '../localizations/localizations'
+  import { TranslateKey, useLocalizations } from '../localizations/localizations'
+  import { AvailableLocales } from '../localizations/AvailableLocales'
   import BurgerButton from './BurgerButton.vue'
   import ScrollButton from './ScrollButton.vue'
   import ArrowLeftRigt from './ArrowLeftRigt.vue'
@@ -55,6 +56,7 @@
   const route = useRoute()
   const { filteredWorks } = useWorks()
   const translate = inject(TranslateKey, () => '')
+  const { locale } = useLocalizations()
 
   subscribe(handleScroll)
 
@@ -64,7 +66,7 @@
 
     const workIndex = filteredWorks.value.findIndex(work => work.id === route.params.id)
     if (workIndex !== -1 && workIndex < filteredWorks.value.length-1) {
-      return `/work/${filteredWorks.value[workIndex+1].id}`
+      return `/${AvailableLocales[locale.value]}/work/${filteredWorks.value[workIndex+1].id}`
     } else {
       return false
     }
@@ -75,7 +77,7 @@
     
     const workIndex = filteredWorks.value.findIndex(work => work.id === route.params.id)    
     if (workIndex !== -1 && workIndex > 0) {
-      return `/work/${filteredWorks.value[workIndex-1].id}`
+      return `/${AvailableLocales[locale.value]}/work/${filteredWorks.value[workIndex-1].id}`
     } else {
       return false
     }

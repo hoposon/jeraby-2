@@ -6,11 +6,11 @@ import directives, { CustomDirective } from './directives'
 import { useLocalizations } from './localizations/localizations'
 import cs from './localizations/loc/cs/loc'
 
-const { initLocalizations } = useLocalizations()
+const { locPlugin } = useLocalizations()
 
 const app = createApp(App)
 app.use(router)
-app.use(initLocalizations(cs))
+app.use(locPlugin(cs))
 
 
 directives.forEach((directive: CustomDirective) => {

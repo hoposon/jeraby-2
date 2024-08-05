@@ -1,4 +1,4 @@
-import { ref, computed, watch } from 'vue'
+import { ref, computed } from 'vue'
 import axios from 'axios'
 import { useRoute } from 'vue-router'
 import { CollectionWorkEnhanced } from '../types'
@@ -14,22 +14,20 @@ const id = ref<string>('')
 export function useWorks() {
   const route = useRoute()
 
-  watch(
-    () => route.params, 
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    (newParams) => {
-      collection.value = newParams.collection
-      id.value = newParams.id
-      if(collection.value) {
-        setSelectedFilter(collection.value)
-      } else if (id.value) {
-        const work = works.value.find(work => work.id === id.value)
-        setSelectedFilter(work?.workState)
-      } else {
-        setSelectedFilter('home')
-      }
-    }
-  )
+  const setSelectedFilter = (filter:string|null) => {
+    selectedFilter.value = filter
+  }
+  
+  collection.value = route.params.collection
+  id.value = route.params.id
+  if(collection.value) {
+    setSelectedFilter(collection.value)
+  } else if (id.value) {
+    const work = works.value.find(work => work.id === id.value)
+    setSelectedFilter(work?.workState)
+  } else {
+    setSelectedFilter('home')
+  }
 
   const loadWorksConfig = async () => {
     try {
@@ -59,10 +57,6 @@ export function useWorks() {
   const unavailableWorks = computed(() => {
     return works.value.filter(work => work.workState !== 'available')
   })
-
-  const setSelectedFilter = (filter:string|null) => {
-    selectedFilter.value = filter
-  }
 
   const filteredWorks = computed(() => {
     if (selectedFilter.value === 'home') {
