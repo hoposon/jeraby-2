@@ -31,7 +31,7 @@ const routes = [
       { path: 'work/:id', component: WorkDetail },
     ]
   },
-  // { path: '/:pathMatch(.*)*', name: 'NotFound', component: Home },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: Home },
 ]
 
 
