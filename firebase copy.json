@@ -9,8 +9,11 @@
     "rewrites": [
       {
         "source": "**",
-        "function": "app"
+        "function": "/index.html"
       }
+    ],
+    "predeploy": [
+      "npm run build"
     ]
   },
   "functions": [
@@ -24,7 +27,6 @@
         "firebase-debug.*.log"
       ],
       "predeploy": [
-        "npm --prefix \"$RESOURCE_DIR\" run lint",
         "npm --prefix \"$RESOURCE_DIR\" run build"
       ]
     }
