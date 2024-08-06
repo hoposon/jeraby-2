@@ -9,13 +9,13 @@ const worksPriorities = {
     'jeraby-23': 6,
     'jeraby-20': 7,
     'jeraby-16': 8,
-    'jeraby-21': 9, // --unavailable
-    'jeraby-15': 10, // --unavailable
-    'jeraby-6': 11, // --unavailable
+    'jeraby-21': 9,
+    'jeraby-15': 10,
+    'jeraby-6': 11,
     'jeraby-18': 12,
     'jeraby-17': 13,
     'jeraby-14': 14,
-    'jeraby-7': 15, // --unavailable
+    'jeraby-7': 15,
     'jeraby-1': 11,
     'jeraby-2': 21,
     'jeraby-3': 31,
@@ -141,17 +141,17 @@ const worksInCollections = {
     'jeraby-13': ['jeraby-collection'],
 };
 const allWorksArr = [
-    ...jeraby,
+    ...jeraby
 ];
-export function works() {
-    return allWorksArr.map((work) => {
+export const works = () => {
+    return allWorksArr.map(work => {
         return {
             ...work,
             priority: worksPriorities[work.id],
             published: worksPublished[work.id],
             workState: worksState[work.id],
             workAtHomePage: worksAtHomePage[work.id],
-            collections: worksInCollections[work.id].map(collection => collections[collection]),
+            collections: worksInCollections[work.id].map(collection => collections[collection])
         };
     });
-}
+};

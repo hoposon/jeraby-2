@@ -1,9 +1,9 @@
-import type { CollectionWork, CollectionWorkEnhanced } from '../types/index.js'
+import { CollectionWork, CollectionWorkEnhanced } from '../types/index'
 import collections from './collections.config.js'
 
 import jeraby from './jeraby-works.js'
 
-const worksPriorities: { [key: string]: number } = {
+const worksPriorities: {[key: string]: number} = {
   'jeraby-28': 1,
   'jeraby-29': 3,
   'jeraby-26': 2,
@@ -33,7 +33,7 @@ const worksPriorities: { [key: string]: number } = {
   'jeraby-13': 131,
 }
 
-const worksPublished: { [key: string]: boolean } = {
+const worksPublished: {[key: string]: boolean} = {
   'jeraby-28': true,
   'jeraby-29': true,
   'jeraby-26': true,
@@ -63,7 +63,7 @@ const worksPublished: { [key: string]: boolean } = {
   'jeraby-13': false,
 }
 
-const worksState: { [key: string]: 'available' | 'unavailable' } = {
+const worksState: {[key: string]: 'available'|'unavailable'} = {
   'jeraby-28': 'available',
   'jeraby-29': 'available',
   'jeraby-26': 'available',
@@ -93,7 +93,7 @@ const worksState: { [key: string]: 'available' | 'unavailable' } = {
   'jeraby-13': 'unavailable',
 }
 
-const worksAtHomePage: { [key: string]: boolean } = {
+const worksAtHomePage: {[key: string]: boolean} = {
   'jeraby-28': true,
   'jeraby-29': true,
   'jeraby-26': true,
@@ -123,7 +123,7 @@ const worksAtHomePage: { [key: string]: boolean } = {
   'jeraby-13': true,
 }
 
-const worksInCollections: { [key: string]: string[] } = {
+const worksInCollections: {[key: string]: string[]} = {
   'jeraby-28': ['jeraby-collection'],
   'jeraby-29': ['jeraby-collection'],
   'jeraby-26': ['jeraby-collection'],
@@ -154,18 +154,19 @@ const worksInCollections: { [key: string]: string[] } = {
 }
 
 const allWorksArr: CollectionWork[] = [
-  ...jeraby,
+  ...jeraby
 ]
 
-export function works(): CollectionWorkEnhanced[] {
-  return allWorksArr.map((work) => {
+export const works = (): CollectionWorkEnhanced[] => {
+  return allWorksArr.map(work => {
     return {
       ...work,
       priority: worksPriorities[work.id],
       published: worksPublished[work.id],
       workState: worksState[work.id],
       workAtHomePage: worksAtHomePage[work.id],
-      collections: worksInCollections[work.id].map(collection => collections[collection]),
+      collections: worksInCollections[work.id].map(collection => collections[collection])
     }
   })
 }
+

@@ -1,4 +1,4 @@
-import { CollectionWork } from "../types/index.js"
+import { CollectionWork } from "../types/index"
 
 const jeraby: CollectionWork[] = [
   {
@@ -928,6 +928,13 @@ const jeraby: CollectionWork[] = [
         image: {
           imgPath: '/images/collections/jeraby/jeraby-15/11.jpg',
           imgAlt: 'jeraby.collection.works.jeraby-15.workDetails.jeraby-15/11.imgAlt',
+        },
+      }, {
+        id: '14',
+        type: 'IMAGE',
+        image: {
+          imgPath: '/images/collections/jeraby/jeraby-15/12.jpg',
+          imgAlt: 'jeraby.collection.works.jeraby-15.workDetails.jeraby-15/12.imgAlt',
         },
       }]
     }

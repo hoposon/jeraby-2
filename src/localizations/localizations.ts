@@ -1,8 +1,7 @@
-import type {InjectionKey} from 'vue'
-import { ref } from 'vue'
+import { InjectionKey, ref } from 'vue'
 import i18next from 'i18next'
 import moment from 'moment/min/moment-with-locales'
-import { AvailableLocales, DEFAULT_LOCALE } from './AvailableLocales'
+import { AvailableLocales, LangToLocale, ValidLang, DEFAULT_LOCALE } from './AvailableLocales'
 
 
 
@@ -67,9 +66,8 @@ export function useLocalizations() {
 
       locale.value = newLocale
 
-      console.log('🚀 ~ loadLanguage ~ document:', document)
       if (typeof document !== 'undefined') {
-        document.querySelector('html')?.setAttribute('lang', locale.value)
+        document.querySelector('html')?.setAttribute('lang', locale.value.split('-')[0])
       }
 
     } finally {
@@ -84,14 +82,20 @@ export function useLocalizations() {
 
   // TODO - define loc type
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  function initLocalizations(loc: any) {
+  function setLocalizationsFromRoute(loc: string) {
 
-    locale.value = DEFAULT_LOCALE // TODO - get from browser
+    if (loc && LangToLocale[loc]) {
+      locale.value = LangToLocale[loc]
+    } else {
+      locale.value = DEFAULT_LOCALE
+    }
+    console.log('🚀 ~ setLocalizationsFromRoute ~ locale.value:', locale.value)
+    loadLanguage(locale.value)
+  }
 
-    // set loc resources
+  const locPlugin = (loc: any) => {
     i18next.addResourceBundle(DEFAULT_LANGUAGE, 'translation', loc, true, true)
-
-    const locPlugin = {
+    return {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       install(app: any) {
         // TODO - define args type
@@ -101,13 +105,13 @@ export function useLocalizations() {
         app.provide(MomentKey, moment)
       }
     }
-
-    if (locale.value !== DEFAULT_LOCALE) {
-      loadLanguage(locale.value)
-    }
-
-    return locPlugin
   }
+    
+  const isValidLang = (lang: string) => {
+    return ValidLang[lang] !== undefined
+  }
+    
+    
 
   // const formatPrice = (priceValue: number, priceCurrency: string, priceLocale: string = locale.value) => {
   //   return new Intl.NumberFormat(priceLocale, {
@@ -119,9 +123,11 @@ export function useLocalizations() {
 
   return {
     locale,
-    initLocalizations,
+    setLocalizationsFromRoute,
+    locPlugin,
     localeLoading,
-    changeLocale
+    changeLocale,
+    isValidLang
   }
 
 }

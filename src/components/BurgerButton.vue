@@ -22,7 +22,8 @@
   import { computed } from 'vue'
   import { useNavigation } from '../composables/navigation'
 
-  const { openNav } = useNavigation()
+  const {
+    openNav } = useNavigation()
 
   interface Props {
     barHeight?: string,

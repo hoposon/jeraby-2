@@ -1,8 +1,7 @@
-import { computed, ref } from 'vue'
+import { ref, computed } from 'vue'
 import axios from 'axios'
-import { useRoute, useRouter } from 'vue-router/auto'
-import type { CollectionWorkEnhanced } from '../types'
-import { COLLECTION_PAGES } from '../configuration/pages.config'
+import { useRoute } from 'vue-router'
+import { CollectionWorkEnhanced } from '../types'
 
 const configLoading = ref<boolean>(false)
 const selectedFilter = ref<string|null>(null)
@@ -12,11 +11,24 @@ const works = ref<CollectionWorkEnhanced[]|[]>([])
 const collection = ref<string>('')
 const id = ref<string>('')
 
-const setSelectedFilter = (filter:string|null) => {
-  selectedFilter.value = filter
-}
+export function useWorks() {
+  const route = useRoute()
 
-export function useWorksConfig() {
+  const setSelectedFilter = (filter:string|null) => {
+    selectedFilter.value = filter
+  }
+  
+  collection.value = route.params.collection
+  id.value = route.params.id
+  if(collection.value) {
+    setSelectedFilter(collection.value)
+  } else if (id.value) {
+    const work = works.value.find(work => work.id === id.value)
+    setSelectedFilter(work?.workState)
+  } else {
+    setSelectedFilter('home')
+  }
+
   const loadWorksConfig = async () => {
     try {
       configLoading.value = true
@@ -26,31 +38,11 @@ export function useWorksConfig() {
     } catch (error) {
       console.log(error)
     } finally {
+      if (id.value) {
+        const work = works.value.find(work => work.id === id.value)
+        setSelectedFilter(work?.workState)
+      }
       configLoading.value = false
-    }
-  }
-
-  return {
-    loadWorksConfig,
-    configLoading
-  }
-}
-
-export function useWorks() {
-  const route = useRoute()
-  const router = useRouter()
-
-  
-  const setFilterForRoute = ({newCollection, newId}: {newCollection?: string, newId?: string}) => {
-    collection.value = newCollection
-    id.value = newId
-    if(collection.value && COLLECTION_PAGES.includes(collection.value)) {
-      setSelectedFilter(collection.value)
-    }
-    
-    if (id.value) {
-      const work = works.value.find(work => work.id === id.value)
-      setSelectedFilter(work?.workState)
     }
   }
 
@@ -79,7 +71,8 @@ export function useWorks() {
   })
 
   return {
-    setFilterForRoute,
+    loadWorksConfig,
+    configLoading,
     selectedFilter,
     works,
     filteredWorks,

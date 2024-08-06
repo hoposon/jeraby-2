@@ -40,35 +40,33 @@
 </template>
 
 <script setup lang="ts">
-  import { useRoute } from 'vue-router/auto'
-  import { computed, inject } from 'vue'
+  import { useRoute } from 'vue-router'
   import { useScroll } from '../composables/scroll'
   import { useNavigation } from '../composables/navigation'
   import { useWorks } from '../composables/works'
+  import { inject, computed } from 'vue'
   import { TranslateKey, useLocalizations } from '../localizations/localizations'
+  import { AvailableLocales } from '../localizations/AvailableLocales'
   import BurgerButton from './BurgerButton.vue'
   import ScrollButton from './ScrollButton.vue'
   import ArrowLeftRigt from './ArrowLeftRigt.vue'
 
-  let subscribe
+  const { subscribe } = useScroll()
   const { navScrollClassNames, handleScroll } = useNavigation()
   const route = useRoute()
   const { filteredWorks } = useWorks()
   const translate = inject(TranslateKey, () => '')
   const { locale } = useLocalizations()
 
-  if (typeof window !== 'undefined') {
-    subscribe = useScroll().subscribe
-    subscribe(handleScroll)
-  }
+  subscribe(handleScroll)
 
-  // const collection = filteredWorks.value
+  const collection = filteredWorks.value
   const showNextButton = computed(() => {
     if (!route.params.id) return false
 
     const workIndex = filteredWorks.value.findIndex(work => work.id === route.params.id)
     if (workIndex !== -1 && workIndex < filteredWorks.value.length-1) {
-      return `/${locale.value}/work/${filteredWorks.value[workIndex+1].id}`
+      return `/${AvailableLocales[locale.value]}/work/${filteredWorks.value[workIndex+1].id}`
     } else {
       return false
     }
@@ -79,7 +77,7 @@
     
     const workIndex = filteredWorks.value.findIndex(work => work.id === route.params.id)    
     if (workIndex !== -1 && workIndex > 0) {
-      return `/${locale.value}/work/${filteredWorks.value[workIndex-1].id}`
+      return `/${AvailableLocales[locale.value]}/work/${filteredWorks.value[workIndex-1].id}`
     } else {
       return false
     }

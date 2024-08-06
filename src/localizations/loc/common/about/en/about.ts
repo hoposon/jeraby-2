@@ -8,7 +8,5 @@ export default {
   'about.how.heading': 'How I do it?',
   'about.how.1': "I have an idea, I see colors, I paint the background (sometimes in multiple layers), and then I look for colors in fashion magazines. Sometimes I have them in my head, sometimes I see them in photos, paintings, and sometimes the computer helps me. I arrange cranes, place them on the canvas, and change the order and grouping until it's just right.",
   'about.contact.me.heading': 'Custom Creations: Your Vision, My Artistry',
-  'about.contact.me.1': "If my paintings have caught your eye, please let me know. If you haven't found one that suits your color preferences, feel free to reach out, and we'll choose the colors together.",
-  'about.metaTitle': 'Michaela Houf - About',
-  'about.metaDescription': 'Michaela Houf - This is my page. It describes my way of working and the possibility of commissions.',
+  'about.contact.me.1': "If my paintings have caught your eye, please let me know. If you haven't found one that suits your color preferences, feel free to reach out, and we'll choose the colors together."
 }

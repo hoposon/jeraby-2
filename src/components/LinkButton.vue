@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, inject } from 'vue'
+  import { inject, computed } from 'vue'
   import { TranslateKey } from '../localizations/localizations';
 
   const translate = inject(TranslateKey, () => '')

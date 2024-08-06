@@ -17,8 +17,9 @@
 </template>
 
 <script setup lang="ts">
-  import { useWorks } from '../composables/works'
   import WorkOverview from './WorkOverview.vue'
+
+  import { useWorks } from '../composables/works'
 
   const { filteredWorks } = useWorks()
 

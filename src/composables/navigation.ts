@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import type { ScrollData } from './scroll'
+import { ScrollData } from '../composables/scroll'
 
 const navClassNames = ref<string[]|[]>(['md:-translate-y-[35vh]', '-translate-y-[100vh] lowh:-translate-y-[100vh]'])
 const navState = ref<string>('closed')
@@ -26,14 +26,6 @@ export const useNavigation = () => {
     }
   }
 
-  const handleScroll = (data?: ScrollData) => {
-    if (data?.direction === 'up' && !headerInViewport.value && navState.value === 'closed') {
-      navScrollClassNames.value = []
-    } else {
-      navScrollClassNames.value = ['-translate-y-[55px]']
-    }
-  }
-
   const setHeaderInViewport = (data: IntersectionObserverEntry[]) => {
     if (data[0].isIntersecting) {
       headerInViewport.value = true
@@ -42,7 +34,15 @@ export const useNavigation = () => {
       headerInViewport.value = false
     }
   }
-  
+
+  const handleScroll = (data?: ScrollData) => {
+    if (data?.direction === 'up' && !headerInViewport.value && navState.value === 'closed') {
+      navScrollClassNames.value = []
+    } else {
+      navScrollClassNames.value = ['-translate-y-[55px]']
+    }
+  }
+
   return {
     navClassNames,
     navState,

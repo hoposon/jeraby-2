@@ -8,7 +8,5 @@ export default {
   'about.how.heading': 'Jak to dělám',
   'about.how.1': 'Mám nápad, vidím barvy, namaluju podklad (někdy ve více vrstvách) a pak k němu v módních časopisech hledám barvy. Někdy je mám v hlavě, někdy je vidím na fotce, na obrazech, někdy mi pomůže počítač. Naskládám jeřáby, pokládám je na plátno a měním pořadí a seskupení dokud to není ono.',
   'about.contact.me.heading': 'Umím i na zakázku',
-  'about.contact.me.1': 'Pokud vás moje obrazy zaujaly, dejte mi vědět. Pokud jste nenašli žádný, který by vám barevně seděl, napište mi, vybereme barvu společně.',
-  'about.metaTitle': 'Michaela Houf - O mě',
-  'about.metaDescription': 'Michaela Houf - Tohle je stránka o mně. Popisuje můj způsob práce a možnost zakázek.',
+  'about.contact.me.1': 'Pokud vás moje obrazy zaujaly, dejte mi vědět. Pokud jste nenašli žádný, který by vám barevně seděl, napište mi, vybereme barvu společně.'
 }

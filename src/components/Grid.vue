@@ -47,10 +47,10 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, inject, onBeforeUnmount, onMounted, ref } from 'vue'
+  import { onMounted, ref, onBeforeUnmount, computed, inject } from 'vue'
   import { TranslateKey } from '../localizations/localizations'
 
-  import type { GridItem } from '../types'
+  import { GridItem } from '../types'
 
   interface Props {
     items: GridItem[]
@@ -93,6 +93,39 @@
     gap: 1,
   }]
 
+  const mainStyle = computed(() => {
+    // return `padding-left: ${currConfig.value.padding}px; padding-right: ${currConfig.value.padding}px;`
+    return ''
+  })
+
+  const columnStyle = (index: number) => {
+    let cStyle = `width: calc((100% - ${currConfig.value.gap * (currConfig.value.columns - 1)}vw) / ${currConfig.value.columns});`
+    if (index === currConfig.value.columns - 1) {
+      cStyle += ' margin-rigth: 0;'
+    } else {
+      cStyle += ` margin-right: ${currConfig.value.gap}vw;`
+    }
+
+    // if (index % 2 === 0) {
+    //   cStyle += ` margin-top: -100px`
+    // }
+    return cStyle
+  }
+
+  const itemStyle = (item: GridItem) => {
+    let style = `margin-bottom: ${currConfig.value.gap}vw;`
+    if (item.type === 'TEXT') {
+      style = style + ' height: "fit-content"'
+    } else {
+      style = style + ` height: ${item.height}px;`
+    }
+    // console.log('🚀 ~ file: Grid.vue:98 ~ itemStyle ~ style:', style)
+    return style
+  }
+    
+  
+
+  // const updatedItems = ref(null)
   const currConfig = ref(columnsConfig[2])
 
   const matchM = () => {
@@ -159,38 +192,6 @@
 
     return final
   })
-
-
-
-  const mainStyle = computed(() => {
-    // return `padding-left: ${currConfig.value.padding}px; padding-right: ${currConfig.value.padding}px;`
-    return ''
-  })
-
-  const columnStyle = (index: number) => {
-    let cStyle = `width: calc((100% - ${currConfig.value.gap * (currConfig.value.columns - 1)}vw) / ${currConfig.value.columns});`
-    if (index === currConfig.value.columns - 1) {
-      cStyle += ' margin-rigth: 0;'
-    } else {
-      cStyle += ` margin-right: ${currConfig.value.gap}vw;`
-    }
-
-    // if (index % 2 === 0) {
-    //   cStyle += ` margin-top: -100px`
-    // }
-    return cStyle
-  }
-
-  const itemStyle = (item: GridItem) => {
-    let style = `margin-bottom: ${currConfig.value.gap}vw;`
-    if (item.type === 'TEXT') {
-      style = `${style} height: "fit-content"`
-    } else {
-      style = `${style} height: ${item.height}px;`
-    }
-    // console.log('🚀 ~ file: Grid.vue:98 ~ itemStyle ~ style:', style)
-    return style
-  }
 
   onMounted(() => {
     matchM()

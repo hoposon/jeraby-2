@@ -40,9 +40,8 @@
 
 <script setup lang="ts">
   import { computed, ref } from 'vue'
-  import type { CollectionWorkEnhanced } from '../types'
+  import { CollectionWorkEnhanced } from '../types'
   import WorkOverviewSummary from './WorkOverviewSummary.vue'
-
 
   const props = defineProps<{
     work: CollectionWorkEnhanced,
@@ -91,7 +90,7 @@
     }
   })
 
-  interface MoveClass {
+  type MoveClass = {
     [key: string]: string
   }
   const moveClass = ref<MoveClass>({
@@ -107,7 +106,7 @@
     }
   }
 
-  interface InvisibleClass {
+  type InvisibleClass = {
     [key: string]: string
   }
   const invisibleClass = ref<InvisibleClass>({

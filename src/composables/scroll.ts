@@ -4,26 +4,24 @@ export interface ScrollData {
   direction: 'up' | 'down'
 }
 
-export type ScrollFunction = (data: ScrollData) => void
+type ScrollFunction = (data: ScrollData) => void
 
 const subscribers: ScrollFunction[] = []
 
-const windowPosition = ref<number>(0)
+const windowPosition = ref<number>(window.pageYOffset)
 
 const isScrolling = ref<boolean>(false)
 
 export function useScroll() {
-  if (typeof window === 'undefined') {return}
-  windowPosition.value = window.scrollY
   const onScroll = () => {
     if (isScrolling.value) return
     
-    if(window.scrollY > windowPosition.value) {
+    if(window.pageYOffset > windowPosition.value) {
       subscribers.forEach((subscriber) => subscriber({ direction: 'down' }))
-    } else if (window.scrollY < windowPosition.value) {
+    } else if (window.pageYOffset < windowPosition.value) {
       subscribers.forEach((subscriber) => subscriber({ direction: 'up' }))
     }
-    windowPosition.value = window.scrollY
+    windowPosition.value = window.pageYOffset
 
     isScrolling.value = true
     setTimeout(() => {

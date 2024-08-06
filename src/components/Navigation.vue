@@ -13,7 +13,7 @@
           />
           <Link
             :text="'Michaela Houf'"
-            :link="`/${locale}`"
+            :link="`/${AvailableLocales[locale]}/`"
             class="text-[25px] font-bold mt-8 md:mt-0 md:mr-[80px] whitespace-nowrap"
             @click="closeNav()"
           />
@@ -31,7 +31,7 @@
               >
                 <Link
                   :text="translate('nav.available.works')"
-                  :link="`/${locale}/works/available`"
+                  :link="`/${AvailableLocales[locale]}/works/available`"
                   @click="closeNav()"
                 />
               </div>
@@ -40,7 +40,7 @@
               >
                 <Link
                   :text="translate('nav.unavailable.works')"
-                  :link="`/${locale}/works/unavailable`"
+                  :link="`/${AvailableLocales[locale]}/works/unavailable`"
                   @click="closeNav()"
                 />
               </div>
@@ -54,7 +54,7 @@
               <div>
                 <Link
                   :text="translate('nav.about')"
-                  :link="`/${locale}/about`"
+                  :link="`/${AvailableLocales[locale]}/about`"
                   class="mt-1"
                   @click="closeNav()"
                 />
@@ -62,23 +62,23 @@
               <div>
                 <Link
                   :text="translate('nav.contact')"
-                  :link="`/${locale}/contact`"
+                  :link="`/${AvailableLocales[locale]}/contact`"
                   @click="closeNav()"
                 />
               </div>
               <div>
               <LinkButton
                 text="CS"
-                :addClass="locale==='cs'?'text-[#DF442F]':''"
-                :disabled="locale==='cs'"
-                @click="changeLanguage('cs')"
+                :addClass="AvailableLocales[locale]==='cs'?'text-[#DF442F]':''"
+                :disabled="AvailableLocales[locale]==='cs'"
+                @click="changeLocale('cs')"
               />
               |
               <LinkButton
                 text="EN"
-                :addClass="locale==='en'?'text-[#DF442F]':''"
-                :disabled="locale==='en'"
-                @click="changeLanguage('en')"
+                :addClass="AvailableLocales[locale]==='en'?'text-[#DF442F]':''"
+                :disabled="AvailableLocales[locale]==='en'"
+                @click="changeLocale('en')"
               />
             </div>
             </div>
@@ -95,9 +95,10 @@
 
 <script setup lang="ts">
   import { inject } from 'vue'
-  import { useRoute, useRouter } from 'vue-router/auto'
+  import { useRoute, useRouter } from 'vue-router'
   import { useNavigation } from '../composables/navigation'
   import { TranslateKey, useLocalizations } from '../localizations/localizations'
+  import { AvailableLocales } from '../localizations/AvailableLocales'
   import Link from './Link.vue'
   import HomeButton from './HomeButton.vue'
   import LinkButton from './LinkButton.vue'
@@ -109,19 +110,14 @@
 
   const { locale } = useLocalizations()
 
-  const route = useRoute()
-  const router = useRouter()
-
-  const changeLanguage = (lang: string) => {
-    router.push({ name: route.name, params: { ...route.params, lang } })
-    setTimeout(() => {
-      closeNav()
-    }, 100)
-    
-  }
-
-  
-
   const translate = inject(TranslateKey, () => '')
+
+  const route = useRoute();
+  const router = useRouter();
+  const changeLocale = (loc: string) => {
+    const newRoute = `/${loc}/${route.path.split('/').slice(2).join('/')}`
+    closeNav()
+    router.push(newRoute)
+  }
 
 </script>

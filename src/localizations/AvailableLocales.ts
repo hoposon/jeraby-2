@@ -1,6 +1,6 @@
 export enum AvailableLocales {
-'en' = 'en',      // en
-'cs' = 'cs',      // czech
+'en-ww' = 'en',      // en
+'cs-cz' = 'cs',      // czech
 // 'de-ch' = 'de',      // Deutschland
 // 'de-de' = 'de',      // Schweiz (Deutsch)
 // 'en-ww' = 'en',      // Worldwide (English)
@@ -41,5 +41,14 @@ export enum AvailableLocales {
 // 'zh-tw' = 'zh-TW',   // Taiwanese
 }
 
-export const DEFAULT_LOCALE = 'cs'
+export enum LangToLocale {
+  'en' = 'en-ww',      // en
+  'cs' = 'cs-cz'      // czech
+}
 
+export enum ValidLang {
+  'en' = 'en',      // en
+  'cs' = 'cs'      // czech
+}
+
+export const DEFAULT_LOCALE = 'cs-cz'

@@ -72,12 +72,11 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, inject, onBeforeMount, onMounted, ref} from 'vue'
+  import { inject, ref, computed, onBeforeMount, onMounted} from 'vue'
   import { TranslateKey, useLocalizations } from '../localizations/localizations'
   import { useRecaptcha } from '../composables/recaptcha'
-  import type { EmailData } from '../composables/contact'
-  import { useContact } from '../composables/contact'
-  import { allowedModalNames, useModal } from '../composables/modal'
+  import { EmailData, useContact } from '../composables/contact'
+  import { useModal, allowedModalNames } from '../composables/modal'
   import StInput from './StInput.vue'
   import StTextArea from './StTextArea.vue'
   import CtaButton from './CtaButton.vue'
@@ -95,54 +94,6 @@
   }
 
   const props = defineProps<Props>()
-
-  interface InputStates {
-    [key: string]: {
-      value: string,
-      isValid: boolean
-    }
-  }
-
-  const inputStates = ref<InputStates>({
-    'id-name': { value: '', isValid: false },
-    'id-surname': { value: '', isValid: false },
-    'id-email': { value: '', isValid: false },
-    'id-phone': { value: '', isValid: false },
-    'id-message': { value: '', isValid: false }
-  })
-
-  const emailData = ref<EmailData>({
-    'work-status': props.workStatus,
-    'subject': props.contactSubject
-  })
-
-  const isValid = computed(() => {
-    return Object.values(inputStates.value).every((input) => input.isValid)
-    
-  })
-
-  const mapInputStatesToEmailData = () => {
-    const emailData: EmailData = {}
-    Object.keys(inputStates.value).forEach(key => emailData[key] = inputStates.value[key].value)
-    return emailData
-  }
-
-  const submitForm = async (token: string) => {
-    if (isValid.value) {
-      try {
-        sendContact(
-          token,
-          {
-            ...mapInputStatesToEmailData(),
-            ...emailData.value
-          }
-        )
-        openModal(allowedModalNames.ContactSuccess)
-      } catch (e) {
-        openModal(allowedModalNames.ContactError)
-      }      
-    }
-  }
 
   onBeforeMount(() => {
     // set recaptcha callback functions
@@ -162,8 +113,61 @@
       } catch (e) {
         openModal(allowedModalNames.ContactError)
       }
-    }    
+    }
+    // processing.value = true
+    // setTimeout(() => {
+    //   openModal(allowedModalNames.ContactSuccess)
+    // }, 2000)
+    
   }
+
+  const submitForm = async (token: string) => {
+    if (isValid.value) {
+      try {
+        sendContact(
+          token,
+          {
+            ...mapInputStatesToEmailData(),
+            ...emailData.value
+          }
+        )
+        openModal(allowedModalNames.ContactSuccess)
+      } catch (e) {
+        openModal(allowedModalNames.ContactError)
+      }      
+    }
+  }
+
+  interface InputStates {
+    [key: string]: {
+      value: string,
+      isValid: boolean
+    }
+  }
+
+  const inputStates = ref<InputStates>({
+    'id-name': { value: '', isValid: false },
+    'id-surname': { value: '', isValid: false },
+    'id-email': { value: '', isValid: false },
+    'id-phone': { value: '', isValid: false },
+    'id-message': { value: '', isValid: false }
+  })
+
+  const emailData = ref<EmailData>({
+    'work-status': props.workStatus || '',
+    'subject': props.contactSubject
+  })
+
+  const mapInputStatesToEmailData = () => {
+    const emailData: EmailData = {}
+    Object.keys(inputStates.value).forEach(key => emailData[key] = inputStates.value[key].value)
+    return emailData
+  }
+
+  const isValid = computed(() => {
+    return Object.values(inputStates.value).every((input) => input.isValid)
+    
+  })
 
   const handleInput = (e: {id: string, value: string, isValid: boolean}) => {
     inputStates.value[e.id] = {
