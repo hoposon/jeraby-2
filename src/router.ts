@@ -14,7 +14,7 @@ import WorkDetail from './views/WorkDetail.vue'
 //   { path: '/work/:id', component: WorkDetail },
 //   { path: '/:pathMatch(.*)*', name: 'NotFound', component: Home },
 // ]
-const { setLocalizationsFromRoute, isValidLang } = useLocalizations()
+const { setLocalizations, isValidLang } = useLocalizations()
 
 const routes = [
   {
@@ -48,12 +48,11 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-  console.log('🚀 ~ router.beforeEach ~ to:', to.params)
   if (to.params && to.params.lang) {
     if (!isValidLang(to.params.lang)) {
       return {path: '/'}
     }
-    setLocalizationsFromRoute(to.params.lang)
+    setLocalizations(to.params.lang)
   }
   // ...
   // explicitly return false to cancel the navigation

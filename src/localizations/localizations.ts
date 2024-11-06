@@ -49,18 +49,26 @@ i18next.init({
 moment.locale(DEFAULT_LANGUAGE)
 
 
-const locale = ref<string>(DEFAULT_LOCALE)
+const locale = ref<string>('')
 const localeLoading = ref<number>(0)
 
 export function useLocalizations() {
 
-  async function loadLanguage(newLocale: string) {
+  async function loadLanguage(newLocale: string, locSource?: any) {
     try {
       localeLoading.value++
-      const messages = await import(`./loc/${AvailableLocales[newLocale]}/loc.ts`)
+      let messages = {}
+      if (locSource) {
+        messages = {
+          default: locSource
+        }
+      } else {
+        messages = await import(`./loc/${AvailableLocales[newLocale]}/loc.ts`)
+      }
+        console.log('🚀 ~ loadLanguage ~ messages:', messages)
 
+      i18next.addResourceBundle(AvailableLocales[newLocale], 'translation', messages.default, true, true)
       await i18next.changeLanguage(AvailableLocales[newLocale])
-      i18next.addResourceBundle(AvailableLocales[newLocale], 'translation', messages.default || messages, true, true)
 
       moment.locale(newLocale)
 
@@ -76,25 +84,23 @@ export function useLocalizations() {
 
   }
 
-  async function changeLocale(newLocale: string) {
-    loadLanguage(newLocale)
-  }
-
   // TODO - define loc type
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  function setLocalizationsFromRoute(loc: string) {
-
-    if (loc && LangToLocale[loc]) {
-      locale.value = LangToLocale[loc]
-    } else {
-      locale.value = DEFAULT_LOCALE
+  function setLocalizations(lang: string, locSource?: any) {
+    if (lang && LangToLocale[lang]) {
+      if (locale.value === LangToLocale[lang]) {
+        return
+      }
     }
-    console.log('🚀 ~ setLocalizationsFromRoute ~ locale.value:', locale.value)
-    loadLanguage(locale.value)
+    //   locale.value = LangToLocale[lang]
+    // } else {
+    //   locale.value = DEFAULT_LOCALE
+    // }
+    // loadLanguage(locale.value)
+    loadLanguage(LangToLocale[lang], locSource)
   }
 
-  const locPlugin = (loc: any) => {
-    i18next.addResourceBundle(DEFAULT_LANGUAGE, 'translation', loc, true, true)
+  const locPlugin = (lang: string, locSource: any) => {
     return {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       install(app: any) {
@@ -103,7 +109,9 @@ export function useLocalizations() {
           return (i18next.t(key, args) || `${key}`)
         })
         app.provide(MomentKey, moment)
+        setLocalizations(lang, locSource)
       }
+
     }
   }
     
@@ -123,10 +131,9 @@ export function useLocalizations() {
 
   return {
     locale,
-    setLocalizationsFromRoute,
+    setLocalizations,
     locPlugin,
     localeLoading,
-    changeLocale,
     isValidLang
   }
 
