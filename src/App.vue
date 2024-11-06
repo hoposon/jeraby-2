@@ -5,7 +5,7 @@
   >
     <Navigation />
     <NavScrollWatcher />
-    <router-view />
+    <router-view :key="$route.fullPath"/>
     <ModalView
       v-if="modalName!==''"
     />

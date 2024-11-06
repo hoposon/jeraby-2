@@ -914,29 +914,31 @@ const jeraby: CollectionWork[] = [
         image: {
           imgPath: '/images/collections/jeraby/jeraby-15/9.jpg',
           imgAlt: 'jeraby.collection.works.jeraby-15.workDetails.jeraby-15/9.imgAlt',
-        },
-      }, {
-        id: '12',
-        type: 'IMAGE',
-        image: {
-          imgPath: '/images/collections/jeraby/jeraby-15/10.jpg',
-          imgAlt: 'jeraby.collection.works.jeraby-15.workDetails.jeraby-15/10.imgAlt',
-        },
-      }, {
-        id: '13',
-        type: 'IMAGE',
-        image: {
-          imgPath: '/images/collections/jeraby/jeraby-15/11.jpg',
-          imgAlt: 'jeraby.collection.works.jeraby-15.workDetails.jeraby-15/11.imgAlt',
-        },
-      }, {
-        id: '14',
-        type: 'IMAGE',
-        image: {
-          imgPath: '/images/collections/jeraby/jeraby-15/12.jpg',
-          imgAlt: 'jeraby.collection.works.jeraby-15.workDetails.jeraby-15/12.imgAlt',
-        },
-      }]
+        }
+      }
+      // }, {
+      //   id: '12',
+      //   type: 'IMAGE',
+      //   image: {
+      //     imgPath: '/images/collections/jeraby/jeraby-15/10.jpg',
+      //     imgAlt: 'jeraby.collection.works.jeraby-15.workDetails.jeraby-15/10.imgAlt',
+      //   },
+      // }, {
+      //   id: '13',
+      //   type: 'IMAGE',
+      //   image: {
+      //     imgPath: '/images/collections/jeraby/jeraby-15/11.jpg',
+      //     imgAlt: 'jeraby.collection.works.jeraby-15.workDetails.jeraby-15/11.imgAlt',
+      //   },
+      // }, {
+      //   id: '14',
+      //   type: 'IMAGE',
+      //   image: {
+      //     imgPath: '/images/collections/jeraby/jeraby-15/12.jpg',
+      //     imgAlt: 'jeraby.collection.works.jeraby-15.workDetails.jeraby-15/12.imgAlt',
+      //   },
+      // }
+      ]
     }
   },
   {
