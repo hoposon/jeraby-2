@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "npm run gen-config && vite",
-    "build": "npm run gen-config && vite build",
+    "build": "npm run gen-config && node scripts/generate-sitemap.js && vite build",
     "preview": "vite preview",
     "ts-merge-config": "tsc mergeConfigs.ts --module ESNext --target ESNext",
     "gen-config": "npm run ts-merge-config && node mergeConfigs.js",
+    "gen-sitemap": "node scripts/generate-sitemap.js",
     "deploy": "npm run build && firebase deploy --only hosting",
     "deploy-all": "firebase deploy --only hosting,functions"
   },
@@ -30,6 +31,7 @@
     "@types/node": "^18.15.5",
     "@vitejs/plugin-vue": "^5.1.4",
     "autoprefixer": "^10.4.14",
+    "dotenv": "^17.2.3",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7",
     "typescript": "^4.9.3",

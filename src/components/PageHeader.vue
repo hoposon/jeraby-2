@@ -11,7 +11,9 @@
     <h1
       ref="titleEl"
       :class="page.classNames?.title"
-    />
+    >
+      {{ translate(page.title) }}
+    </h1>
     <p
       v-if="page.description"
       ref="descriptionEl"

@@ -1,6 +1,36 @@
 const chars = '!<>-_\\/[]{}—=+*^?#________'
 
+// Detect if the user agent is a search crawler
+function isCrawler(): boolean {
+  if (typeof navigator === 'undefined') return true
+  const userAgent = navigator.userAgent.toLowerCase()
+  const crawlers = [
+    'googlebot',
+    'bingbot',
+    'slurp', // Yahoo
+    'duckduckbot',
+    'baiduspider',
+    'yandexbot',
+    'facebookexternalhit',
+    'twitterbot',
+    'rogerbot',
+    'linkedinbot',
+    'embedly',
+    'showyoubot',
+    'outbrain',
+    'pinterest',
+    'lighthouse', // Google Lighthouse
+    'chrome-lighthouse'
+  ]
+  return crawlers.some(crawler => userAgent.includes(crawler))
+}
+
 export function useTextScramble(element: HTMLElement, newText: string) {
+  // Skip animation for crawlers - just set the text directly
+  if (isCrawler()) {
+    element.innerText = newText
+    return
+  }
 
   const el = element
   const finalText = newText
