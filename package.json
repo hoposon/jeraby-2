@@ -7,6 +7,9 @@
     "dev": "npm run gen-config && vite",
     "build": "npm run gen-config && node scripts/generate-sitemap.js && vite build",
     "preview": "vite preview",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "ts-merge-config": "tsc mergeConfigs.ts --module ESNext --target ESNext",
     "gen-config": "npm run ts-merge-config && node mergeConfigs.js",
     "gen-sitemap": "node scripts/generate-sitemap.js",
@@ -30,12 +33,15 @@
     "@babel/types": "^7.21.3",
     "@types/node": "^18.15.5",
     "@vitejs/plugin-vue": "^5.1.4",
+    "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.14",
     "dotenv": "^17.2.3",
+    "happy-dom": "^20.3.7",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7",
     "typescript": "^4.9.3",
     "vite": "^5.4.10",
+    "vitest": "^1.6.1",
     "vue-tsc": "^1.2.0"
   }
 }
