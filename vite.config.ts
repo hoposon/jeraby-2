@@ -1,12 +1,13 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import adminApiPlugin from './vite-plugin-admin-api'
 // import eslintPlugin from 'vite-plugin-eslint'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   // plugins: [vue(), eslintPlugin({ cache: false })],
-  plugins: [vue()],
+  plugins: [vue(), adminApiPlugin()],
   resolve: {
     alias: [
       {

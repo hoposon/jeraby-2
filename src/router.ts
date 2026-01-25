@@ -36,6 +36,14 @@ const routes = [
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: Home },
 ]
 
+// Add admin route only in development mode
+if (import.meta.env.DEV) {
+  routes.splice(routes.length - 1, 0, {
+    path: '/admin',
+    component: () => import('./views/Admin.vue')
+  } as any)
+}
+
 
 const router = createRouter({
   history: createWebHistory(),
